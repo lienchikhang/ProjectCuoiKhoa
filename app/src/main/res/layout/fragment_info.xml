@@ -13,16 +13,20 @@
         android:padding="16dp">
 
         <LinearLayout
+
+            android:id="@+id/infoWrapper"
             android:layout_width="match_parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/btnLogout"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:padding="20dp">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher_background"/>
+                android:src="@drawable/ic_launcher_background"
+                 />
             <TextView
                 android:id="@+id/tvUsername"
                 android:layout_width="wrap_content"
@@ -38,19 +42,20 @@
                 android:layout_marginTop="16dp"/>
 
             <TextView
-                android:id="@+id/tvGender"
+                android:id="@+id/tvEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="gioi tinh"
                 android:layout_marginTop="16dp"/>
-
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnLogout"
+                android:layout_marginTop="26dp"
+                android:background="@drawable/custom_btn_border_regis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ĐĂNG XUẤT"/>
         </LinearLayout>
-        <Button
-            android:id="@+id/btnLogout"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ĐĂNG XUẤT"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

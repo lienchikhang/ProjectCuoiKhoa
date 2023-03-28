@@ -73,9 +73,9 @@ public class InfoNotLoginFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_info_not_login, container, false);
         Button btnLogin = view.findViewById(R.id.btnLoginInfo);
-
+        Button btnRegis = view.findViewById(R.id.btnRegisInfo);
         btnLogin.setOnClickListener(getListernerInfo());
-
+        btnRegis.setOnClickListener(getListernerInfo());
         return view;
     }
 

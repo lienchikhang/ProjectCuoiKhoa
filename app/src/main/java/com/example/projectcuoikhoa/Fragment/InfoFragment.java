@@ -72,7 +72,7 @@ public class InfoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_info, container, false);
         TextView tvUsername = view.findViewById(R.id.tvUsername);
         TextView tvPass = view.findViewById(R.id.tvPassword);
-        TextView tvGender = view.findViewById(R.id.tvGender);
+        TextView tvEmail = view.findViewById(R.id.tvEmail);
         Button btnLogout = view.findViewById(R.id.btnLogout);
 
 
@@ -92,10 +92,12 @@ public class InfoFragment extends Fragment {
         }
 
         else {
-            String info = "Xin chao: " + user.getUsername();
-            String pass = "mat khau: " + user.getPassword();
+            String info = "Xin Chào: " + user.getUsername();
+            String pass = "Mật Khẩu: " + user.getPassword();
+            String email = "Email: " + user.getEmail();
             tvUsername.setText(info);
             tvPass.setText(pass);
+            tvEmail.setText(email);
         }
 
         return view;

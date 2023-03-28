@@ -79,7 +79,8 @@ public class RegisterActivity extends AppCompatActivity  {
             editor.commit();
 
             Toast.makeText(RegisterActivity.this,"Register Success!",Toast.LENGTH_LONG);
-            finish();
+            Intent i = new Intent(this,LoginActivity.class);
+            startActivity(i);
         }
     }
 
