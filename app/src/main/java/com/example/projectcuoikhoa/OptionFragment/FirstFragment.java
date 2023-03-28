@@ -103,7 +103,7 @@ public class FirstFragment extends Fragment implements ClothesGridAdapter.UserGr
                 } else {
                     int ndu = i % 10;
                     int nNg = i / 10;
-                    preList.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
+                    preList.add(new Clothes(String.valueOf(i), "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
                 }
         }
 
@@ -115,7 +115,7 @@ public class FirstFragment extends Fragment implements ClothesGridAdapter.UserGr
                 } else {
                     int ndu = i % 10;
                     int nNg = i / 10;
-                    list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","run"));
+                    list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","run"));
                 }
             }
         }

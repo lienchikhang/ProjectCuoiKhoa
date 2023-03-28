@@ -71,14 +71,16 @@ public class SecondFragment extends Fragment implements ClothesGridAdapter.UserG
     RecyclerView rvProductList;
 
     ArrayList<Clothes> list, preList;
-    ImageButton ivBackFrag;
+    ImageButton ivBackFrag2;
     ClothesGridAdapter clothesGridAdapter;
     String chooseType;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_product_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_second, container, false);
         rvProductList = view.findViewById(R.id.rvGridProductList);
+        ivBackFrag2 = view.findViewById(R.id.ivBackFrag2);
+        ivBackFrag2.setOnClickListener(view1 -> getParentFragmentManager().popBackStack());
         LoadData(chooseType);
         clothesGridAdapter = new ClothesGridAdapter(list, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
@@ -96,7 +98,7 @@ public class SecondFragment extends Fragment implements ClothesGridAdapter.UserG
             } else {
                 int ndu = i % 10;
                 int nNg = i / 10;
-                preList.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
+                preList.add(new Clothes(String.valueOf(i), "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
             }
         }
 
@@ -108,7 +110,7 @@ public class SecondFragment extends Fragment implements ClothesGridAdapter.UserG
                 } else {
                     int ndu = i % 10;
                     int nNg = i / 10;
-                    list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
+                    list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
                 }
             }
         }
