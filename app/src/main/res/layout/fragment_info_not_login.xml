@@ -12,11 +12,21 @@
         android:orientation="vertical"
         android:gravity="center">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnLoginInfo"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Dang Nhap"/>
+            android:text="ĐĂNG NHẬP"
+
+            android:background="@drawable/custom_btn_border"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRegisInfo"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="ĐĂNG KÝ"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_btn_border_regis"/>
     </LinearLayout>
 
 </FrameLayout>

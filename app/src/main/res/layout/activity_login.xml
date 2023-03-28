@@ -95,18 +95,21 @@
                 android:fontFamily="sans-serif-condensed"
                 android:padding="15dp"
                 android:text="Đăng Nhập"
+                android:textStyle="bold"
                 android:textColor="@color/black" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/registerBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/custom_btn_border"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/custom_btn_border_regis"
                 android:fontFamily="sans-serif-condensed"
                 android:padding="15dp"
+                android:textStyle="bold"
                 android:text="Đăng Kí"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                />
         </LinearLayout>
 
     </LinearLayout>

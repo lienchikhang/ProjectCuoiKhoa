@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.example.projectcuoikhoa.LoginActivity;
 import com.example.projectcuoikhoa.R;
+import com.example.projectcuoikhoa.RegisterActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -88,6 +89,11 @@ public class InfoNotLoginFragment extends Fragment {
                         Intent i = new Intent(getActivity(), LoginActivity.class);
                         i.putExtra("bool",isLogined);
                         startActivity(i);
+                        break;
+                    case R.id.btnRegisInfo:
+                        i = new Intent(getActivity(), RegisterActivity.class);
+                        startActivity(i);
+                        break;
                 }
             }
         };
