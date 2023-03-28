@@ -30,7 +30,7 @@
                 <ImageView
                     android:id="@+id/ivAvatar"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
                     android:minHeight="300dp"
                     android:src="@drawable/ic_launcher_background" />
@@ -129,17 +129,16 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/SizeFix">
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/BtnSizeS"
                         android:layout_width="64dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:background="@drawable/btn_size_default"
-
                         android:text="S"
                         />
 
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/BtnSizeM"
                         android:layout_width="64dp"
                         android:layout_height="wrap_content"
@@ -150,7 +149,7 @@
                         app:layout_constraintStart_toEndOf="@+id/BtnSizeS"
                         app:layout_constraintTop_toBottomOf="@id/SizeFix" />
 
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/BtnSizeL"
                         android:layout_width="64dp"
                         android:layout_height="wrap_content"
@@ -227,7 +226,7 @@
                 app:layout_constraintTop_toBottomOf="@id/choose"
                 android:padding="16dp"
                 >
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnDes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -309,14 +308,15 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/BuyProduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_margin="8dp"
         android:background="@drawable/btn_buy"
-        android:clickable="true"
+        android:clickable="false"
+
         android:minHeight="50dp"
         android:text="Mua Ngay"
         android:textColor="#FFF"
