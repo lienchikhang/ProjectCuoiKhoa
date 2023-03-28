@@ -97,7 +97,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Giày Đi Bộ"
+                    android:text="Giày Vans"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -130,7 +130,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Baby"
+                    android:text="Giày đá bóng"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -162,7 +162,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Sport"
+                    android:text="Giày Converse"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>

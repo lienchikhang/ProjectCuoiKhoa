@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,8 +36,10 @@ public class SecondFragment extends Fragment implements ClothesGridAdapter.UserG
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    public SecondFragment(String type) {
+    public SecondFragment(String type, int op) {
+
         chooseType = type;
+        opt = op;
     }
     public SecondFragment() {
         // Required empty public constructor
@@ -74,13 +77,21 @@ public class SecondFragment extends Fragment implements ClothesGridAdapter.UserG
     ImageButton ivBackFrag2;
     ClothesGridAdapter clothesGridAdapter;
     String chooseType;
+    int opt;
+    LinearLayout firstOption, secondOption, thirdOption, fouthOption;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_second, container, false);
         rvProductList = view.findViewById(R.id.rvGridProductList);
         ivBackFrag2 = view.findViewById(R.id.ivBackFrag2);
-        ivBackFrag2.setOnClickListener(view1 -> getParentFragmentManager().popBackStack());
+        anhXaOption();
+        ivBackFrag2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getParentFragmentManager().popBackStack();
+            }
+        });
         LoadData(chooseType);
         clothesGridAdapter = new ClothesGridAdapter(list, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
@@ -121,5 +132,24 @@ public class SecondFragment extends Fragment implements ClothesGridAdapter.UserG
         Intent i = new Intent(getActivity(), DetailActivity.class);
         i.putExtra("id", id);
         startActivity(i);
+    }
+
+    void makeBtnDefault(LinearLayout option2,LinearLayout option3, LinearLayout option4){
+        option2.setBackgroundResource(R.drawable.btn_size_default);
+        option3.setBackgroundResource(R.drawable.btn_size_default);
+        option4.setBackgroundResource(R.drawable.btn_size_default);
+    }
+
+    void anhXaOption() {
+        firstOption = getActivity().findViewById(R.id.firstOption);
+        secondOption = getActivity().findViewById(R.id.secondOption);
+        thirdOption = getActivity().findViewById(R.id.thirdOption);
+        fouthOption = getActivity().findViewById(R.id.fouthOption);
+    }
+
+    void BtnClick(LinearLayout option){
+//        option.findViewById(R.id.firstOptionName).setTextColor(Color.parseColor("#F5F5F5"));
+        option.setBackgroundResource(R.drawable.custom_btn_border);
+
     }
 }

@@ -91,6 +91,7 @@ public class ProductListFragment extends Fragment implements ClothesGridAdapter.
     ArrayList<Clothes> list;
     Boolean checkButtonCLick;
     String type;
+    int op;
     ImageButton ivBackFrag;
     ClothesGridAdapter clothesGridAdapter;
     @Override
@@ -131,9 +132,10 @@ public class ProductListFragment extends Fragment implements ClothesGridAdapter.
                         break;
                     case R.id.secondOption:
                         type = "walk";
+                        op = 2;
                         BtnClick(secondOption);
                         makeBtnDefault(firstOption,thirdOption, fouthOption);
-                        loadFragment(new SecondFragment(type));
+                        loadFragment(new SecondFragment(type,op));
                         break;
                     case R.id.thirdOption:
                         BtnClick(thirdOption);
@@ -152,7 +154,7 @@ public class ProductListFragment extends Fragment implements ClothesGridAdapter.
 
     void LoadData() {
         list = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 1; i < 20; i++) {
             if(i < 10) {
                 list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","run"));
             } else {

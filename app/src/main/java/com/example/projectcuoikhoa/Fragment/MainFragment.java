@@ -83,6 +83,7 @@ public class MainFragment extends Fragment implements ClothesAdapter.UserCallBac
     }
     Boolean checkButtonCLick;
     String type;
+    int op;
     RecyclerView rvList, rvGridMain;
     ArrayList<Clothes> list;
     ClothesAdapter clothesAdapter;
@@ -192,15 +193,17 @@ public class MainFragment extends Fragment implements ClothesAdapter.UserCallBac
                 switch(view.getId()) {
                     case R.id.firstOption:
                         type = "run";
+                        op = 1;
                         BtnClick(firstOption);
                         makeBtnDefault(secondOption,thirdOption, fouthOption);
                         loadFragment(new FirstFragment(type));
                         break;
                     case R.id.secondOption:
                         type = "walk";
+                        op = 2;
                         BtnClick(secondOption);
                         makeBtnDefault(firstOption,thirdOption, fouthOption);
-                        loadFragment(new SecondFragment(type));
+                        loadFragment(new SecondFragment(type,op));
                         break;
                     case R.id.thirdOption:
                         BtnClick(thirdOption);
