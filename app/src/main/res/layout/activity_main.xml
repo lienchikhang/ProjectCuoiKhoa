@@ -36,7 +36,7 @@
 
             <LinearLayout
                 android:id="@+id/firstOption"
-                android:layout_width="130dp"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/border_product"
@@ -59,17 +59,18 @@
                     android:text="test" />
 
                 <TextView
+                    android:id="@+id/firstOptionName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Men"
+                    android:text="Giày thể thao"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/secondOption"
-                android:layout_width="130dp"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/border_product"
@@ -96,14 +97,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Women"
+                    android:text="Giày Đi Bộ"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/thirdOption"
-                android:layout_width="130dp"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/border_product"
@@ -136,7 +137,7 @@
 
             <LinearLayout
                 android:id="@+id/fouthOption"
-                android:layout_width="130dp"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/border_product"
                 android:orientation="horizontal"

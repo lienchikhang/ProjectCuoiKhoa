@@ -48,6 +48,7 @@ public class ClothesGridAdapter extends RecyclerView.Adapter<ClothesGridAdapter.
         holder.tvName.setText(item.getName());
         holder.tvPrice.setText(item.getPrice());
         holder.itemView.setOnClickListener(view -> userGridCallBack.onItemClick(item.getId()));
+        holder.tvTypeG.setText("Loại: " + item.getType());
 //        holder.lnProduct.setOnClickListener(view -> userGridCallBack.onItemClick(item.getId()));
     }
 
@@ -62,7 +63,7 @@ public class ClothesGridAdapter extends RecyclerView.Adapter<ClothesGridAdapter.
 
     class ClothesGridViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView tvName, tvPrice;
+        TextView tvName, tvPrice, tvTypeG;
 
         public ClothesGridViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -70,6 +71,7 @@ public class ClothesGridAdapter extends RecyclerView.Adapter<ClothesGridAdapter.
             imageView = itemView.findViewById(R.id.imgProduct);
             tvName = itemView.findViewById(R.id.tvName);
             tvPrice = itemView.findViewById(R.id.tvPrice);
+            tvTypeG = itemView.findViewById(R.id.tvTypeG);
 //            lnProduct = itemView.findViewById(R.id.lnProduct);
         }
     }

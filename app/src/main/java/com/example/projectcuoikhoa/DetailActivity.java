@@ -82,11 +82,11 @@ public class DetailActivity extends AppCompatActivity {
         list = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             if(i < 10) {
-                list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ"));
+                list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","run"));
             } else {
                 int ndu = i % 10;
                 int nNg = i / 10;
-                list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",nNg + "." + ndu + "00.000 VNĐ"));
+                list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
             }
         }
     }

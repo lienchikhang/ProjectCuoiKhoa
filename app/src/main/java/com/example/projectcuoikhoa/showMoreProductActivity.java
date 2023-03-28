@@ -37,10 +37,5 @@ public class showMoreProductActivity extends AppCompatActivity {
 
 
     }
-    void LoadData() {
-        arrayList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            arrayList.add(new Clothes(String.valueOf(i), "polo","ao_0" + i + ".png","$100"));
-        }
-    }
+
 }

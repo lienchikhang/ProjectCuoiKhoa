@@ -16,6 +16,7 @@ public class ClothesAdapter extends RecyclerView.Adapter<ClothesAdapter.ClothesV
     ArrayList<Clothes> list;
     Context context;
     UserCallBack userCallBack;
+
     public ClothesAdapter(ArrayList<Clothes> list, UserCallBack userCallBack) {
         this.list = list;
         this.userCallBack = userCallBack;
@@ -41,6 +42,7 @@ public class ClothesAdapter extends RecyclerView.Adapter<ClothesAdapter.ClothesV
         holder.tvName.setText(item.getName());
         holder.tvPrice.setText(item.getPrice());
         holder.itemView.setOnClickListener(view -> userCallBack.onItemClick(item.getId()));
+        holder.tvType.setText("Loại: " + item.getType());
     }
 
     @Override
@@ -50,14 +52,14 @@ public class ClothesAdapter extends RecyclerView.Adapter<ClothesAdapter.ClothesV
 
     public class ClothesViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView tvName;
-        TextView tvPrice;
+        TextView tvName, tvPrice, tvType;
         public ClothesViewHolder(@NonNull View itemView) {
             super(itemView);
 
             imageView = itemView.findViewById(R.id.imgProduct);
             tvName = itemView.findViewById(R.id.tvName);
             tvPrice = itemView.findViewById(R.id.tvPrice);
+            tvType = itemView.findViewById(R.id.tvType);
         }
     }
     public interface UserCallBack {

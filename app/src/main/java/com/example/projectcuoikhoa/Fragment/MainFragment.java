@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -23,6 +24,10 @@ import com.example.projectcuoikhoa.Clothes;
 import com.example.projectcuoikhoa.ClothesAdapter;
 import com.example.projectcuoikhoa.ClothesGridAdapter;
 import com.example.projectcuoikhoa.DetailActivity;
+import com.example.projectcuoikhoa.OptionFragment.FirstFragment;
+import com.example.projectcuoikhoa.OptionFragment.FouthFragment;
+import com.example.projectcuoikhoa.OptionFragment.SecondFragment;
+import com.example.projectcuoikhoa.OptionFragment.ThirdFragment;
 import com.example.projectcuoikhoa.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -76,10 +81,13 @@ public class MainFragment extends Fragment implements ClothesAdapter.UserCallBac
 
 
     }
+    Boolean checkButtonCLick;
+    String type;
     RecyclerView rvList, rvGridMain;
     ArrayList<Clothes> list;
     ClothesAdapter clothesAdapter;
     ClothesGridAdapter clothesGridAdapter;
+    LinearLayout firstOption, secondOption, thirdOption, fouthOption;
 
     TextView tvMoreCate, tvMoreCate2;
     @Override
@@ -107,7 +115,9 @@ public class MainFragment extends Fragment implements ClothesAdapter.UserCallBac
         rvList.setLayoutManager(linearLayoutManager);
         rvGridMain.setLayoutManager(gridLayoutManager);
 
-
+        anhXaOption();
+        makeBtnDefault2(firstOption,secondOption,thirdOption,fouthOption);
+        getOptionsListener();
 
         tvMoreCate.setOnClickListener(getL());
         tvMoreCate2.setOnClickListener(getL());
@@ -145,11 +155,11 @@ public class MainFragment extends Fragment implements ClothesAdapter.UserCallBac
         list = new ArrayList<>();
         for (int i = 1; i <= 6; i++) {
             if(i < 10) {
-                list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ"));
+                list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","run"));
             } else {
                 int ndu = i % 10;
                 int nNg = i / 10;
-                list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",nNg + "." + ndu + "00.000 VNĐ"));
+                list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
             }
 
         }
@@ -161,5 +171,67 @@ public class MainFragment extends Fragment implements ClothesAdapter.UserCallBac
         i.putExtra("id", id);
         startActivity(i);
     }
+    void makeBtnDefault2(LinearLayout option1, LinearLayout option2, LinearLayout option3, LinearLayout option4){
+        option1.setBackgroundResource(R.drawable.btn_size_default);
+        option2.setBackgroundResource(R.drawable.btn_size_default);
+        option3.setBackgroundResource(R.drawable.btn_size_default);
+        option4.setBackgroundResource(R.drawable.btn_size_default);
+    }
 
+    void getOptionsListener() {
+        firstOption.setOnClickListener(getListenerOption());
+        secondOption.setOnClickListener(getListenerOption());
+        thirdOption.setOnClickListener(getListenerOption());
+        fouthOption.setOnClickListener(getListenerOption());
+    }
+
+    private View.OnClickListener getListenerOption() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch(view.getId()) {
+                    case R.id.firstOption:
+                        type = "run";
+                        BtnClick(firstOption);
+                        makeBtnDefault(secondOption,thirdOption, fouthOption);
+                        loadFragment(new FirstFragment(type));
+                        break;
+                    case R.id.secondOption:
+                        type = "walk";
+                        BtnClick(secondOption);
+                        makeBtnDefault(firstOption,thirdOption, fouthOption);
+                        loadFragment(new SecondFragment(type));
+                        break;
+                    case R.id.thirdOption:
+                        BtnClick(thirdOption);
+                        makeBtnDefault(secondOption,firstOption, fouthOption);
+                        loadFragment(new ThirdFragment());
+                        break;
+                    case R.id.fouthOption:
+                        BtnClick(fouthOption);
+                        makeBtnDefault(secondOption,thirdOption, firstOption);
+                        loadFragment(new FouthFragment());
+                        break;
+                }
+            }
+        };
+    }
+    void anhXaOption() {
+        firstOption = getActivity().findViewById(R.id.firstOption);
+        secondOption = getActivity().findViewById(R.id.secondOption);
+        thirdOption = getActivity().findViewById(R.id.thirdOption);
+        fouthOption = getActivity().findViewById(R.id.fouthOption);
+    }
+    void BtnClick(LinearLayout option){
+        checkButtonCLick=true;
+//        option.findViewById(R.id.firstOptionName).setTextColor(Color.parseColor("#F5F5F5"));
+        option.setBackgroundResource(R.drawable.custom_btn_border);
+
+    }
+
+    void makeBtnDefault(LinearLayout option2,LinearLayout option3, LinearLayout option4){
+        option2.setBackgroundResource(R.drawable.btn_size_default);
+        option3.setBackgroundResource(R.drawable.btn_size_default);
+        option4.setBackgroundResource(R.drawable.btn_size_default);
+    }
 }

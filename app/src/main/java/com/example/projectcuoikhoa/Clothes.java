@@ -5,13 +5,16 @@ public class Clothes {
     String name;
     String image;
 
+    String type;
+
     String price;
 
-    public Clothes(String id, String name, String image, String price) {
+    public Clothes(String id, String name, String image, String price, String type) {
         this.id = id;
         this.name = name;
         this.image = image;
         this.price = price;
+        this.type = type;
     }
 
     public String getPrice() {
@@ -44,5 +47,13 @@ public class Clothes {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

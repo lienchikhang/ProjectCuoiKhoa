@@ -103,12 +103,6 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    void LoadData() {
-        list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            list.add(new Clothes(String.valueOf(i), "polo","ao_0" + i + ".png","$100"));
-        }
-    }
 
 
 
