@@ -18,39 +18,39 @@
         android:orientation="vertical">
         <ImageView
             android:layout_width="400dp"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
             android:layout_marginTop="50dp"
             android:src="@drawable/logo"
             android:layout_centerHorizontal="true">
         </ImageView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="50dp"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:text="The Sneaker You Need"
-            android:textColor="@color/black"
-            android:textSize="22dp"
-            android:textStyle="bold" />
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="50dp"-->
+<!--            android:layout_marginTop="50dp"-->
+<!--            android:layout_marginEnd="50dp"-->
+<!--            android:layout_marginBottom="50dp"-->
+<!--            android:fontFamily="sans-serif-condensed"-->
+<!--            android:gravity="center"-->
+<!--            android:text="The Sneaker You Need"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="22dp"-->
+<!--            android:textStyle="bold" />-->
 
         <EditText
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_marginBottom="10dp"
-            android:background="@color/white"
+            android:background="@color/primary_color"
             android:drawableLeft="@drawable/baseline_account_circle_24"
             android:drawablePadding="4dp"
             android:ems="15"
             android:fontFamily="sans-serif-condensed"
             android:hint="Tên Đăng Nhập"
-            android:padding="15dp"
-            android:textColorHint="#A68427"
+            android:padding="14dp"
+            android:textColorHint="@color/black"
             android:textSize="20sp" />
 
         <EditText
@@ -58,49 +58,57 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@color/white"
+            android:background="@color/primary_color"
             android:drawableLeft="@drawable/baseline_info_24"
             android:drawablePadding="4dp"
             android:ems="15"
             android:fontFamily="sans-serif-condensed"
             android:hint="Mật Khẩu"
             android:inputType="textPassword"
-            android:padding="15dp"
-            android:textColorHint="#A68427"
+            android:padding="14dp"
+            android:textColorHint="@color/black"
             android:textSize="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="20dp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="right"
             android:text="Quên Mật Khẩu?"
             android:textColor="#000"
-            android:textSize="20dp"
+            android:textSize="16dp"
             />
 
-        <Button
-            android:id="@+id/loginbtn"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:fontFamily="sans-serif-condensed"
-            android:padding="15dp"
-            android:text="Đăng Nhập"
-            android:textColor="#A68427" />
+            android:orientation="vertical"
+            android:padding="20dp"
+            >
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/loginbtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_btn_border"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="15dp"
+                android:text="Đăng Nhập"
+                android:textColor="@color/black" />
 
-        <Button
-            android:id="@+id/registerBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:backgroundTint="@color/white"
-            android:fontFamily="sans-serif-condensed"
-            android:padding="15dp"
-            android:text="Đăng Kí"
-            android:textColor="#A68427" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/registerBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/custom_btn_border"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="15dp"
+                android:text="Đăng Kí"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
     </LinearLayout>
 
 
