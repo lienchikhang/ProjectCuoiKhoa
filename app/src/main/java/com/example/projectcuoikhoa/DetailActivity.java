@@ -110,6 +110,8 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     void SuKienClick(){
+        BtnClick(BtnSizeS);
+        makeBtnDefault(BtnSizeL,BtnSizeM);
         BtnSizeS.setOnClickListener(BtnSclick());
         BtnSizeM.setOnClickListener(BtnMclick());
         BtnSizeL.setOnClickListener(BtnLclick());
@@ -164,7 +166,7 @@ public class DetailActivity extends AppCompatActivity {
         String Text = Click.getText().toString();
         SizeChoose.setText(Text);
         Click.setTextColor(Color.parseColor("#F5F5F5"));
-        Click.setBackgroundResource(R.drawable.btn_size);
+        Click.setBackgroundResource(R.drawable.custom_btn_border);
 
     }
     void makeBtnDefault(Button Click1,Button Click2){
