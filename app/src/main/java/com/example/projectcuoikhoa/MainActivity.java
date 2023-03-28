@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+
 
         Intent i = getIntent();
         Boolean isLogined = i.getBooleanExtra("bool", false);
@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Home");
-        actionBar.setDefaultDisplayHomeAsUpEnabled(false);
+
+
 
         bottomNavigationView.setOnItemSelectedListener(getListener(isLogined));
         //GridView & recycleView
