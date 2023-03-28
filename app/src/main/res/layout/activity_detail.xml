@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".MainActivity">
+
+
+            <FrameLayout
+                android:id="@+id/ImageProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <ImageView
+                    android:id="@+id/ivAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:adjustViewBounds="true"
+                    android:minHeight="300dp"
+                    android:src="@drawable/ic_launcher_background" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:padding="4dp"
+                    android:id="@+id/ivBackBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_back"
+                    android:background="@android:color/transparent"/>
+                    />
+
+                <ImageButton
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:src="@drawable/ic_shoppingcart"
+                    android:padding="4dp"
+                    android:background="@android:color/transparent"/>/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/FirstInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/ImageProduct">
+
+                <TextView
+                    android:id="@+id/NameProduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="Giày Converse"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:text="test"
+                    android:id="@+id/PriceProduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:textColor="#7B8FA1"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/choose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/FirstInfo">
+
+                <TextView
+                    android:id="@+id/SizeFix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Kích cỡ"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/SizeChoose"
+                    android:text="s"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+
+                    android:layout_marginTop="10dp"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/SizeFix"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:padding="8dp"
+                    android:id="@+id/btnSection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/SizeFix">
+                    <Button
+                        android:id="@+id/BtnSizeS"
+                        android:layout_width="64dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/btn_size_default"
+
+                        android:text="S"
+                        />
+
+                    <Button
+                        android:id="@+id/BtnSizeM"
+                        android:layout_width="64dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/btn_size_default"
+
+                        android:text="M"
+                        app:layout_constraintStart_toEndOf="@+id/BtnSizeS"
+                        app:layout_constraintTop_toBottomOf="@id/SizeFix" />
+
+                    <Button
+                        android:id="@+id/BtnSizeL"
+                        android:layout_width="64dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/btn_size_default"
+                        android:text="L"
+                        app:layout_constraintStart_toEndOf="@+id/BtnSizeM"
+                        app:layout_constraintTop_toBottomOf="@id/SizeFix" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/ColerFix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Màu Sắc"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnSection" />
+
+                <TextView
+                    android:id="@+id/ColerChoose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@id/ColerFix"
+                    app:layout_constraintTop_toBottomOf="@+id/btnSection" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/ColerFix">
+
+                    <RadioGroup
+                        android:id="@+id/GrpColor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/Color1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/teal_200" />
+
+                        <RadioButton
+                            android:id="@+id/Color2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/black" />
+
+                        <RadioButton
+                            android:id="@+id/Color3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#F31808" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/btnDesSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/choose"
+                android:padding="16dp"
+                >
+                <Button
+                    android:id="@+id/btnDes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_des"
+                    android:text="Bảng Size"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <TableLayout
+                android:id="@+id/DesProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/btn_des"
+                android:stretchColumns="1"
+                android:visibility="invisible"
+                app:layout_constraintTop_toBottomOf="@+id/btnDesSection">
+
+                <TableRow android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:gravity="center_horizontal"
+                        android:paddingRight="16dp"
+                        android:text="Bảng Size"
+                        android:textColor="#000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_weight="3"
+                        android:gravity="left"
+                        android:text="S"
+                        android:textColor="#000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_weight="3"
+                        android:gravity="center_horizontal"
+                        android:text="M"
+                        android:textColor="#000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:text="L"
+                        android:textColor="#000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </TableRow>
+            </TableLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:padding="16dp">
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+    <Button
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/BuyProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_buy"
+        android:clickable="true"
+        android:minHeight="50dp"
+        android:text="Mua Ngay"
+        android:textColor="#FFF"
+        android:textStyle="bold" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

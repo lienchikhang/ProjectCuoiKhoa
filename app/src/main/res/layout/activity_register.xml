@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity"
+    android:padding="8dp"
+    android:background="@color/primary_color"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/twRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="REGISTER INFORMATION"
+            android:textColor="#2196F3"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tên đăng nhập"
+                android:inputType="text"
+                android:padding="16dp"
+                />
+
+            <EditText
+                android:id="@+id/edPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Mật khẩu"
+                android:inputType="numberPassword"
+                android:padding="16dp" />
+
+            <EditText
+                android:id="@+id/edConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Xác nhận mật khẩu"
+                android:inputType="numberPassword"
+                android:padding="16dp" />
+
+            <EditText
+                android:id="@+id/edEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:padding="16dp" />
+
+            <EditText
+                android:id="@+id/edPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Số điện thoại"
+                android:inputType="numberPassword"
+                android:padding="16dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Giới tính: "
+                android:textSize="14sp" />
+
+            <RadioGroup
+                android:id="@+id/rdGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nam" />
+
+                <RadioButton
+                    android:id="@+id/rdFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Nữ" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnRegisterAbc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng Ký"
+            android:textStyle="bold"
+            android:background="@drawable/btn_size"
+
+            />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
