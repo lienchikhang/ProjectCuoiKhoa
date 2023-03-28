@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity"
-    >
+    tools:context=".DetailActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fillViewport="true"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -43,25 +42,25 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageButton
-                    android:layout_marginTop="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:padding="4dp"
                     android:id="@+id/ivBackBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_arrow_back"
-                    android:background="@android:color/transparent"/>
-                    />
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/transparent"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_arrow_back" />
+                />
 
                 <ImageButton
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="8dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:src="@drawable/ic_shoppingcart"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@android:color/transparent"
                     android:padding="4dp"
-                    android:background="@android:color/transparent"/>/>
+                    android:src="@drawable/ic_shoppingcart" />/>
             </FrameLayout>
 
             <LinearLayout
@@ -82,11 +81,11 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:text="test"
                     android:id="@+id/PriceProduct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
+                    android:text="test"
                     android:textColor="#7B8FA1"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -112,31 +111,31 @@
 
                 <TextView
                     android:id="@+id/SizeChoose"
-                    android:text="s"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-
                     android:layout_marginTop="10dp"
+
+                    android:text="s"
                     android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@+id/SizeFix"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
-                    android:padding="8dp"
                     android:id="@+id/btnSection"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="8dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/SizeFix">
+
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/BtnSizeS"
                         android:layout_width="64dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:background="@drawable/btn_size_default"
-                        android:text="S"
-                        />
+                        android:text="S" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/BtnSizeM"
@@ -222,10 +221,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/choose"
                 android:padding="16dp"
-                >
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/choose">
+
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnDes"
                     android:layout_width="match_parent"
@@ -298,31 +297,30 @@
                         android:textStyle="bold" />
                 </TableRow>
             </TableLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:padding="16dp">
+                android:padding="16dp"
+                app:layout_constraintBottom_toBottomOf="parent">
 
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
     <androidx.appcompat.widget.AppCompatButton
-        app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/BuyProduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:background="@drawable/btn_buy"
         android:clickable="false"
-
         android:minHeight="50dp"
         android:text="Mua Ngay"
         android:textColor="#FFF"
-        android:textStyle="bold" />
-
-
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
