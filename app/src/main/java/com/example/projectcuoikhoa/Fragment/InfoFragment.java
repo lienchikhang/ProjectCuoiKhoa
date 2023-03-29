@@ -1,6 +1,7 @@
 package com.example.projectcuoikhoa.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.projectcuoikhoa.MainActivity;
 import com.example.projectcuoikhoa.R;
 import com.example.projectcuoikhoa.Ultils;
 import com.example.projectcuoikhoa.User;
@@ -37,6 +39,7 @@ public class InfoFragment extends Fragment {
     public InfoFragment() {
         // Required empty public constructor
     }
+
 
     /**
      * Use this factory method to create a new instance of
@@ -81,7 +84,9 @@ public class InfoFragment extends Fragment {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i=new Intent(getActivity(),MainActivity.class);
+                i.putExtra("bool",false);
+                startActivity(i);
             }
         });
 

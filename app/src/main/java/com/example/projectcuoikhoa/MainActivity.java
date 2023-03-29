@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
@@ -27,19 +28,16 @@ public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     ArrayList<Clothes> list;
-
     Boolean isLogin = false;
     HorizontalScrollView scrollView;
     ClothesAdapter clothesAdapter;
     ClothesGridAdapter clothesGridAdapter;
-
     TextView tvMoreCate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         Intent i = getIntent();
         Boolean isLogined = i.getBooleanExtra("bool", false);
         //top
@@ -47,35 +45,12 @@ public class MainActivity extends AppCompatActivity {
         scrollView.setVisibility(View.VISIBLE);
         //bottom nav
         bottomNavigationView = findViewById(R.id.navbarBottom);
-
         loadFragment(new MainFragment());
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Home");
-
-
-
         bottomNavigationView.setOnItemSelectedListener(getListener(isLogined));
-        //GridView & recycleView
-//        rvList = findViewById(R.id.rwProduct);
-//        rvGridMain = findViewById(R.id.rvGridMain);
-//        LoadData();
-//
-//        clothesAdapter = new ClothesAdapter(list);
-//        clothesGridAdapter = new ClothesGridAdapter(list);
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
-//        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
-//        rvList.setAdapter(clothesAdapter);
-//        rvGridMain.setAdapter(clothesGridAdapter);
-//        rvList.setLayoutManager(linearLayoutManager);
-//        rvGridMain.setLayoutManager(gridLayoutManager);
-//
-//        tvMoreCate = findViewById(R.id.tvMoreCate);
-//        tvMoreCate.setOnClickListener(this);
-
-
-
     }
+
 
     @NonNull
     private NavigationBarView.OnItemSelectedListener getListener(Boolean isLogined) {
@@ -89,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.info:
                         scrollView.setVisibility(View.INVISIBLE);
-                        if(isLogined) {
+                        if (isLogined) {
                             loadFragment(new InfoFragment());
                         } else {
                             loadFragment(new InfoNotLoginFragment(isLogined));
@@ -104,8 +79,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     void loadFragment(Fragment fmNew) {
         FragmentTransaction fmOld = getSupportFragmentManager().beginTransaction();
         fmOld.replace(R.id.main_fragment, fmNew);
@@ -114,9 +87,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public void sendData(String id) {
-//        DetailFragment detail = (DetailFragment) getSupportFragmentManager().findFragmentById(R.id.detailed_fragment);
-//        detail.receiveData(id);
-//    }
+
 }
