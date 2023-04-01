@@ -12,12 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class ClothesAdapter extends RecyclerView.Adapter<ClothesAdapter.ClothesViewHolder>{
-    ArrayList<Clothes> list;
+public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ClothesViewHolder>{
+    ArrayList<Shoes> list;
     Context context;
     UserCallBack userCallBack;
 
-    public ClothesAdapter(ArrayList<Clothes> list, UserCallBack userCallBack) {
+    public ShoesAdapter(ArrayList<Shoes> list, UserCallBack userCallBack) {
         this.list = list;
         this.userCallBack = userCallBack;
     }
@@ -36,12 +36,12 @@ public class ClothesAdapter extends RecyclerView.Adapter<ClothesAdapter.ClothesV
 
     @Override
     public void onBindViewHolder(@NonNull ClothesViewHolder holder, int position) {
-        Clothes item = list.get(position);
+        Shoes item = list.get(position);
 
         holder.imageView.setImageBitmap(Ultils.convertToBitmapFromAssets(context,item.getImage()));
         holder.tvName.setText(item.getName());
         holder.tvPrice.setText(item.getPrice());
-        holder.itemView.setOnClickListener(view -> userCallBack.onItemClick(item.getId()));
+        holder.itemView.setOnClickListener(view -> userCallBack.onItemClick(String.valueOf(item.getId())));
         holder.tvType.setText("Loại: " + item.getType());
     }
 
@@ -64,5 +64,8 @@ public class ClothesAdapter extends RecyclerView.Adapter<ClothesAdapter.ClothesV
     }
     public interface UserCallBack {
         void onItemClick(String id);
+
+        void onItemDeleteClick(Shoes sh, int position);
+        void onItemEditClick(Shoes sh, int position);
     }
 }

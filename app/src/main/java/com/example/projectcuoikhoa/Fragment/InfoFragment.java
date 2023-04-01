@@ -81,6 +81,7 @@ public class InfoFragment extends Fragment {
         Button btnLogout = view.findViewById(R.id.btnLogout);
 
 
+
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

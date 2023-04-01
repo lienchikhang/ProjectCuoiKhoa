@@ -1,11 +1,8 @@
 package com.example.projectcuoikhoa;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -14,10 +11,10 @@ public class showMoreProductActivity extends AppCompatActivity {
 
     RecyclerView rvGridProduct;
 
-    ArrayList<Clothes> arrayList;
+    ArrayList<Shoes> arrayList;
 
 
-    ClothesGridAdapter clothesGridAdapter;
+    ShoesGridAdapter shoesGridAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

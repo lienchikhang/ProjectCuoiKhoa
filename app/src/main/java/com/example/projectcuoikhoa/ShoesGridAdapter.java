@@ -5,25 +5,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projectcuoikhoa.Fragment.MainFragment;
-
 import java.util.ArrayList;
 
-public class ClothesGridAdapter extends RecyclerView.Adapter<ClothesGridAdapter.ClothesGridViewHolder> {
-    ArrayList<Clothes> clothesArrayList;
+public class ShoesGridAdapter extends RecyclerView.Adapter<ShoesGridAdapter.ClothesGridViewHolder> {
+    ArrayList<Shoes> shoesArrayList;
 
     Context context;
 
     UserGridCallBack userGridCallBack;
 
-    public ClothesGridAdapter(ArrayList<Clothes> clothesArrayList, UserGridCallBack userGridCallBack) {
-        this.clothesArrayList = clothesArrayList;
+    public ShoesGridAdapter(ArrayList<Shoes> shoesArrayList, UserGridCallBack userGridCallBack) {
+        this.shoesArrayList = shoesArrayList;
         this.userGridCallBack = userGridCallBack;
     }
 
@@ -43,18 +40,18 @@ public class ClothesGridAdapter extends RecyclerView.Adapter<ClothesGridAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ClothesGridViewHolder holder, int position) {
-        Clothes item = clothesArrayList.get(position);
+        Shoes item = shoesArrayList.get(position);
         holder.imageView.setImageBitmap(Ultils.convertToBitmapFromAssets(context, item.getImage()));
         holder.tvName.setText(item.getName());
         holder.tvPrice.setText(item.getPrice());
-        holder.itemView.setOnClickListener(view -> userGridCallBack.onItemClick(item.getId()));
+        holder.itemView.setOnClickListener(view -> userGridCallBack.onItemClick(String.valueOf(item.getId())));
         holder.tvTypeG.setText("Loại: " + item.getType());
 //        holder.lnProduct.setOnClickListener(view -> userGridCallBack.onItemClick(item.getId()));
     }
 
     @Override
     public int getItemCount() {
-        return clothesArrayList.size();
+        return shoesArrayList.size();
     }
 
 //    public interface UserGridCallBack {

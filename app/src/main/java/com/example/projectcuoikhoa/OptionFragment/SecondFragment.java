@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,8 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
-import com.example.projectcuoikhoa.Clothes;
-import com.example.projectcuoikhoa.ClothesGridAdapter;
+import com.example.projectcuoikhoa.Shoes;
+import com.example.projectcuoikhoa.ShoesGridAdapter;
 import com.example.projectcuoikhoa.DetailActivity;
 import com.example.projectcuoikhoa.R;
 
@@ -26,7 +25,7 @@ import java.util.ArrayList;
  * Use the {@link SecondFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SecondFragment extends Fragment implements ClothesGridAdapter.UserGridCallBack {
+public class SecondFragment extends Fragment implements ShoesGridAdapter.UserGridCallBack {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,9 +72,9 @@ public class SecondFragment extends Fragment implements ClothesGridAdapter.UserG
     }
     RecyclerView rvProductList;
 
-    ArrayList<Clothes> list, preList;
+    ArrayList<Shoes> list, preList;
     ImageButton ivBackFrag2;
-    ClothesGridAdapter clothesGridAdapter;
+    ShoesGridAdapter shoesGridAdapter;
     String chooseType;
     int opt;
     LinearLayout firstOption, secondOption, thirdOption, fouthOption;
@@ -93,9 +92,9 @@ public class SecondFragment extends Fragment implements ClothesGridAdapter.UserG
             }
         });
         LoadData(chooseType);
-        clothesGridAdapter = new ClothesGridAdapter(list, this);
+        shoesGridAdapter = new ShoesGridAdapter(list, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
-        rvProductList.setAdapter(clothesGridAdapter);
+        rvProductList.setAdapter(shoesGridAdapter);
         rvProductList.setLayoutManager(gridLayoutManager);
         return view;
     }
@@ -105,11 +104,11 @@ public class SecondFragment extends Fragment implements ClothesGridAdapter.UserG
         preList = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             if(i < 10) {
-                preList.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","run"));
+                preList.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","run"));
             } else {
                 int ndu = i % 10;
                 int nNg = i / 10;
-                preList.add(new Clothes(String.valueOf(i), "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
+                preList.add(new Shoes(i, "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
             }
         }
 
@@ -117,11 +116,11 @@ public class SecondFragment extends Fragment implements ClothesGridAdapter.UserG
         for(int i = 0; i < 20; i++) {
             if(preList.get(i).getType() == type) {
                 if(i < 10) {
-                    list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","walk"));
+                    list.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","walk"));
                 } else {
                     int ndu = i % 10;
                     int nNg = i / 10;
-                    list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
+                    list.add(new Shoes(i, "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
                 }
             }
         }

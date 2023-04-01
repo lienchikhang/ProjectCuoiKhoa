@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
@@ -27,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rvList, rvGridMain;
 
     BottomNavigationView bottomNavigationView;
-    ArrayList<Clothes> list;
+    ArrayList<Shoes> list;
     Boolean isLogin = false;
     HorizontalScrollView scrollView;
-    ClothesAdapter clothesAdapter;
-    ClothesGridAdapter clothesGridAdapter;
+    ShoesAdapter shoesAdapter;
+    ShoesGridAdapter shoesGridAdapter;
     TextView tvMoreCate;
 
     @Override

@@ -1,13 +1,10 @@
 package com.example.projectcuoikhoa.Fragment;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,13 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.example.projectcuoikhoa.Clothes;
-import com.example.projectcuoikhoa.ClothesGridAdapter;
+import com.example.projectcuoikhoa.Shoes;
+import com.example.projectcuoikhoa.ShoesGridAdapter;
 import com.example.projectcuoikhoa.DetailActivity;
 import com.example.projectcuoikhoa.OptionFragment.FirstFragment;
 import com.example.projectcuoikhoa.OptionFragment.FouthFragment;
@@ -36,7 +31,7 @@ import java.util.ArrayList;
  * Use the {@link ProductListFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProductListFragment extends Fragment implements ClothesGridAdapter.UserGridCallBack {
+public class ProductListFragment extends Fragment implements ShoesGridAdapter.UserGridCallBack {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -88,12 +83,12 @@ public class ProductListFragment extends Fragment implements ClothesGridAdapter.
     RecyclerView rvProductList;
 
     LinearLayout firstOption, secondOption, thirdOption, fouthOption;
-    ArrayList<Clothes> list;
+    ArrayList<Shoes> list;
     Boolean checkButtonCLick;
     String type;
     int op;
     ImageButton ivBackFrag;
-    ClothesGridAdapter clothesGridAdapter;
+    ShoesGridAdapter shoesGridAdapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -102,9 +97,9 @@ public class ProductListFragment extends Fragment implements ClothesGridAdapter.
         rvProductList = view.findViewById(R.id.rvGridProductList);
         LoadData();
 
-        clothesGridAdapter = new ClothesGridAdapter(list, this);
+        shoesGridAdapter = new ShoesGridAdapter(list, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
-        rvProductList.setAdapter(clothesGridAdapter);
+        rvProductList.setAdapter(shoesGridAdapter);
         rvProductList.setLayoutManager(gridLayoutManager);
 
         ivBackFrag = view.findViewById(R.id.ivBackFrag);
@@ -156,11 +151,11 @@ public class ProductListFragment extends Fragment implements ClothesGridAdapter.
         list = new ArrayList<>();
         for (int i = 1; i < 20; i++) {
             if(i < 10) {
-                list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","run"));
+                list.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","run"));
             } else {
                 int ndu = i % 10;
                 int nNg = i / 10;
-                list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
+                list.add(new Shoes(i, "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
             }
         }
     }

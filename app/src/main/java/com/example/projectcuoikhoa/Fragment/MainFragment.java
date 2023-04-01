@@ -1,13 +1,10 @@
 package com.example.projectcuoikhoa.Fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,19 +14,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.example.projectcuoikhoa.Clothes;
-import com.example.projectcuoikhoa.ClothesAdapter;
-import com.example.projectcuoikhoa.ClothesGridAdapter;
+import com.example.projectcuoikhoa.Shoes;
+import com.example.projectcuoikhoa.ShoesAdapter;
+import com.example.projectcuoikhoa.ShoesGridAdapter;
 import com.example.projectcuoikhoa.DetailActivity;
 import com.example.projectcuoikhoa.OptionFragment.FirstFragment;
 import com.example.projectcuoikhoa.OptionFragment.FouthFragment;
 import com.example.projectcuoikhoa.OptionFragment.SecondFragment;
 import com.example.projectcuoikhoa.OptionFragment.ThirdFragment;
 import com.example.projectcuoikhoa.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
@@ -38,7 +33,7 @@ import java.util.ArrayList;
  * Use the {@link MainFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainFragment extends Fragment implements ClothesAdapter.UserCallBack, ClothesGridAdapter.UserGridCallBack {
+public class MainFragment extends Fragment implements ShoesAdapter.UserCallBack, ShoesGridAdapter.UserGridCallBack {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -85,9 +80,9 @@ public class MainFragment extends Fragment implements ClothesAdapter.UserCallBac
     String type;
     int op;
     RecyclerView rvList, rvGridMain;
-    ArrayList<Clothes> list;
-    ClothesAdapter clothesAdapter;
-    ClothesGridAdapter clothesGridAdapter;
+    ArrayList<Shoes> list;
+    ShoesAdapter shoesAdapter;
+    ShoesGridAdapter shoesGridAdapter;
     LinearLayout firstOption, secondOption, thirdOption, fouthOption;
 
     TextView tvMoreCate, tvMoreCate2;
@@ -107,12 +102,12 @@ public class MainFragment extends Fragment implements ClothesAdapter.UserCallBac
         LoadData();
 
         //tao view
-        clothesAdapter = new ClothesAdapter(list, this);
-        clothesGridAdapter = new ClothesGridAdapter(list,this);
+        shoesAdapter = new ShoesAdapter(list, this);
+        shoesGridAdapter = new ShoesGridAdapter(list,this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
-        rvList.setAdapter(clothesAdapter);
-        rvGridMain.setAdapter(clothesGridAdapter);
+        rvList.setAdapter(shoesAdapter);
+        rvGridMain.setAdapter(shoesGridAdapter);
         rvList.setLayoutManager(linearLayoutManager);
         rvGridMain.setLayoutManager(gridLayoutManager);
 
@@ -156,11 +151,11 @@ public class MainFragment extends Fragment implements ClothesAdapter.UserCallBac
         list = new ArrayList<>();
         for (int i = 1; i <= 6; i++) {
             if(i < 10) {
-                list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","Chạy bộ"));
+                list.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","Chạy bộ"));
             } else {
                 int ndu = i % 10;
                 int nNg = i / 10;
-                list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","Đi bộ"));
+                list.add(new Shoes(i, "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","Đi bộ"));
             }
 
         }
@@ -172,6 +167,17 @@ public class MainFragment extends Fragment implements ClothesAdapter.UserCallBac
         i.putExtra("id", id);
         startActivity(i);
     }
+
+    @Override
+    public void onItemDeleteClick(Shoes sh, int position) {
+
+    }
+
+    @Override
+    public void onItemEditClick(Shoes sh, int position) {
+
+    }
+
     void makeBtnDefault2(LinearLayout option1, LinearLayout option2, LinearLayout option3, LinearLayout option4){
         option1.setBackgroundResource(R.drawable.btn_size_default);
         option2.setBackgroundResource(R.drawable.btn_size_default);

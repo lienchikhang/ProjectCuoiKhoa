@@ -1,7 +1,7 @@
 package com.example.projectcuoikhoa;
 
-public class Clothes {
-    String id;
+public class Shoes {
+    int id;
     String name;
     String image;
 
@@ -9,7 +9,7 @@ public class Clothes {
 
     String price;
 
-    public Clothes(String id, String name, String image, String price, String type) {
+    public Shoes(int id, String name, String image, String price, String type) {
         this.id = id;
         this.name = name;
         this.image = image;
@@ -25,11 +25,11 @@ public class Clothes {
         this.price = price;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

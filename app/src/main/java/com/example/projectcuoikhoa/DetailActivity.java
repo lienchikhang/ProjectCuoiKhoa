@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -34,7 +33,7 @@ public class DetailActivity extends AppCompatActivity {
     boolean CheckClickSize=false;
     TextView NameProduct;
     ImageView ivAvatar;
-    ArrayList<Clothes> list;
+    ArrayList<Shoes> list;
     String id;
     ImageButton ivBackBtn;
     @Override
@@ -82,11 +81,11 @@ public class DetailActivity extends AppCompatActivity {
         list = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             if(i < 10) {
-                list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","run"));
+                list.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","run"));
             } else {
                 int ndu = i % 10;
                 int nNg = i / 10;
-                list.add(new Clothes(String.valueOf(i), "giày " + i,"giay_0" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
+                list.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
             }
         }
     }

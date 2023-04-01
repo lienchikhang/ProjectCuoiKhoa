@@ -15,6 +15,14 @@ public class Ultils {
     public static final String KEY_IS_LOGIN = "key_is_login";
     public static final String KEY_USER = "key_user";
     public static final String KEY_USER_PROFILE = "key_user_profile";
+
+    //database
+
+    public static final String DATABASE_NAME = "db-user";
+    public static final String TABLE_SHOE = "shoe";
+    public static final String COLUMN_SHOE_NAME = "name";
+    public static final String COLUMN_SHOE_ID = "id";
+    public static final String COLUMN_SHOE_AVATAR = "avatar";
     public static Bitmap convertToBitmapFromAssets(Context context,String nameImage) {
         AssetManager assetManager = context.getAssets();
         try {
@@ -27,7 +35,7 @@ public class Ultils {
         return null;
     }
 
-    public static void LoadData(ArrayList<Clothes> clothesArrayList) {
+    public static void LoadData(ArrayList<Shoes> shoesArrayList) {
 
     }
 }
