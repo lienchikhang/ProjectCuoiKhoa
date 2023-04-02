@@ -14,14 +14,16 @@ public class ShoeDataQuery {
         ContentValues values = new ContentValues();
         values.put(Ultils.COLUMN_SHOE_NAME,sh.name);
         values.put(Ultils.COLUMN_SHOE_AVATAR, sh.image);
+        values.put(Ultils.COLUMN_SHOE_PRICE,sh.price);
+        values.put(Ultils.COLUMN_SHOE_TYPE, sh.type);
         long rs = sqLiteDatabase.insert(Ultils.TABLE_SHOE,null,values);
         return (rs);
     }
 
     public static ArrayList<Shoes> getAll(Context context) {
         ArrayList<Shoes> lstUser = new ArrayList<>();
-        ShoeDBHelper userDBHelper = new ShoeDBHelper(context);
-        SQLiteDatabase db = userDBHelper.getReadableDatabase();
+        ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
+        SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
         Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_SHOE, null);
         cs.moveToFirst();
         while(!cs.isAfterLast()) {
@@ -44,6 +46,8 @@ public class ShoeDataQuery {
         ContentValues values = new ContentValues();
         values.put(Ultils.COLUMN_SHOE_NAME,(sh.getName()));
         values.put(Ultils.COLUMN_SHOE_AVATAR,sh.getImage());
+        values.put(Ultils.COLUMN_SHOE_PRICE, sh.getPrice());
+        values.put(Ultils.COLUMN_SHOE_TYPE, sh.getType());
         int rs = sqLiteDatabase.update(Ultils.TABLE_SHOE, values, Ultils.COLUMN_SHOE_ID +"=?", new String[] {String.valueOf(sh.id)});
         return (rs);
     }
@@ -54,4 +58,6 @@ public class ShoeDataQuery {
         int rs = sqLiteDatabase.delete(Ultils.TABLE_SHOE,Ultils.COLUMN_SHOE_ID +"=?", new String[] {String.valueOf(id)});
         return (rs > 0);
     }
+
+
 }

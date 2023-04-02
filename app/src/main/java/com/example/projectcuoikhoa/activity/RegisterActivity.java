@@ -1,4 +1,4 @@
-package com.example.projectcuoikhoa;
+package com.example.projectcuoikhoa.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,16 +8,21 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.projectcuoikhoa.MainAdminActivity;
+import com.example.projectcuoikhoa.R;
+import com.example.projectcuoikhoa.ShoeDataQuery;
+import com.example.projectcuoikhoa.Ultils;
+import com.example.projectcuoikhoa.User;
+import com.example.projectcuoikhoa.UserDataQuery;
 import com.google.gson.Gson;
 
-public class RegisterActivity extends AppCompatActivity  {
+public class RegisterActivity extends AppCompatActivity implements UserDataQuery.UserCallback {
 
     private EditText edUsername, edPassword, edEmail, edPhone, edConfirmpassword;
     private RadioGroup rdGender;
@@ -26,6 +31,7 @@ public class RegisterActivity extends AppCompatActivity  {
 
     private SharedPreferences.Editor editor;
     SharedPreferences sharedPreferences;
+    UserDataQuery userDataQuery;
 
     private final Gson gson = new Gson();
     @Override
@@ -58,28 +64,26 @@ public class RegisterActivity extends AppCompatActivity  {
         String passWord = edPassword.getText().toString().trim();
         String confirmPassword = edConfirmpassword.getText().toString().trim();
         String email = edEmail.getText().toString().trim();
-
+        String phone = edPhone.getText().toString().trim();
         int gender = 1;
         boolean isValid = checkUserName(userName) && checkPassword(passWord, confirmPassword);
         if(isValid) {
-            User user = new User();
-            user.setUsername(userName);
-            user.setPassword(passWord);
-            user.setEmail(email);
-
             int selectedRadio = rdGender.getCheckedRadioButtonId();
             if(selectedRadio == R.id.rdFemale) {
                 gender = 0;
             }
-
-            user.getGender(gender);
-
-            String userStr = gson.toJson(user);
-            editor.putString(Ultils.KEY_USER, userStr);
-            editor.commit();
+            User user = new User(0,userName,passWord,gender,email,phone);
+            long id = UserDataQuery.insert(RegisterActivity.this,user);
+            if( id > 0) {
+                Toast.makeText(this, "them thanh cong", Toast.LENGTH_SHORT).show();
+            }
+//
+//            String userStr = gson.toJson(user);
+//            editor.putString(Ultils.KEY_USER, userStr);
+//            editor.commit();
 
             Toast.makeText(RegisterActivity.this,"Register Success!",Toast.LENGTH_LONG);
-            Intent i = new Intent(this,LoginActivity.class);
+            Intent i = new Intent(this, LoginActivity.class);
             startActivity(i);
         }
     }
@@ -118,4 +122,8 @@ public class RegisterActivity extends AppCompatActivity  {
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public void Check() {
+
+    }
 }

@@ -18,9 +18,10 @@ import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.projectcuoikhoa.Adapter.ShoesAdapter;
 import com.example.projectcuoikhoa.Fragment.InfoFragment;
 import com.example.projectcuoikhoa.Fragment.InfoNotLoginFragment;
-import com.example.projectcuoikhoa.Fragment.MainFragment;
+import com.example.projectcuoikhoa.Fragment.MainAdminFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -42,11 +43,11 @@ public class MainAdminActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_admin);
         Intent i = getIntent();
         Boolean isLogined = i.getBooleanExtra("bool", false);
-        scrollViewAdmin = findViewById(R.id.scrollViewAdmin);
-        scrollViewAdmin.setVisibility(View.VISIBLE);
+//        scrollViewAdmin = findViewById(R.id.scrollViewAdmin);
+//        scrollViewAdmin.setVisibility(View.VISIBLE);
         //bottom nav
         bottomNavigationView = findViewById(R.id.navbarBottom);
-        loadFragment(new MainFragment());
+        loadFragment(new MainAdminFragment());
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Home");
         bottomNavigationView.setOnItemSelectedListener(getListener(isLogined));
@@ -60,7 +61,7 @@ public class MainAdminActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.home:
                         scrollViewAdmin.setVisibility(View.VISIBLE);
-                        loadFragment(new MainFragment());
+                        loadFragment(new MainAdminFragment());
                         break;
                     case R.id.info:
                         scrollViewAdmin.setVisibility(View.INVISIBLE);
@@ -115,7 +116,7 @@ public class MainAdminActivity extends AppCompatActivity {
     }
     void loadFragment(Fragment fmNew) {
         FragmentTransaction fmOld = getSupportFragmentManager().beginTransaction();
-        fmOld.replace(R.id.main_fragment, fmNew);
+        fmOld.replace(R.id.mainAdmin_fragment, fmNew);
         fmOld.addToBackStack(null);
         fmOld.commit();
 
@@ -168,4 +169,5 @@ public class MainAdminActivity extends AppCompatActivity {
         alertDialog.create();
         alertDialog.show();
     }
+
 }

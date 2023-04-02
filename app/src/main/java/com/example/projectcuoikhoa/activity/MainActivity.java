@@ -1,4 +1,4 @@
-package com.example.projectcuoikhoa;
+package com.example.projectcuoikhoa.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -12,11 +12,16 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.projectcuoikhoa.Adapter.ShoesAdapter;
 import com.example.projectcuoikhoa.Fragment.InfoFragment;
 import com.example.projectcuoikhoa.Fragment.InfoNotLoginFragment;
 import com.example.projectcuoikhoa.Fragment.MainFragment;
+import com.example.projectcuoikhoa.R;
+import com.example.projectcuoikhoa.Shoes;
+import com.example.projectcuoikhoa.ShoesGridAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -32,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     ShoesAdapter shoesAdapter;
     ShoesGridAdapter shoesGridAdapter;
     TextView tvMoreCate;
+    LinearLayout firstOption, secondOption, thirdOption, fouthOption;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
         //top
         scrollView = findViewById(R.id.scrollView);
         scrollView.setVisibility(View.VISIBLE);
+
+        firstOption = findViewById(R.id.firstOption);
+        secondOption = findViewById(R.id.secondOption);
+
+
         //bottom nav
         bottomNavigationView = findViewById(R.id.navbarBottom);
         loadFragment(new MainFragment());

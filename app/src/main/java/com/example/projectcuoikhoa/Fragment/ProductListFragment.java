@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 
 import com.example.projectcuoikhoa.Shoes;
 import com.example.projectcuoikhoa.ShoesGridAdapter;
-import com.example.projectcuoikhoa.DetailActivity;
+import com.example.projectcuoikhoa.activity.DetailActivity;
 import com.example.projectcuoikhoa.OptionFragment.FirstFragment;
 import com.example.projectcuoikhoa.OptionFragment.FouthFragment;
 import com.example.projectcuoikhoa.OptionFragment.SecondFragment;
@@ -170,7 +170,7 @@ public class ProductListFragment extends Fragment implements ShoesGridAdapter.Us
     void loadFragment(Fragment fmNew) {
         FragmentTransaction fmOld = getParentFragmentManager().beginTransaction();
         fmOld.replace(R.id.main_fragment, fmNew);
-        fmOld.addToBackStack(FirstFragment.tag);
+        fmOld.addToBackStack(null);
         fmOld.commit();
     }
 

@@ -1,4 +1,4 @@
-package com.example.projectcuoikhoa;
+package com.example.projectcuoikhoa.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +15,10 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TableLayout;
 import android.widget.TextView;
+
+import com.example.projectcuoikhoa.R;
+import com.example.projectcuoikhoa.ShoeDataQuery;
+import com.example.projectcuoikhoa.Shoes;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -49,8 +53,8 @@ public class DetailActivity extends AppCompatActivity {
         id = i.getStringExtra("id");
 
         //lOAD DU LIEU
-        list = new ArrayList<>();
-        LoadData();
+        list = ShoeDataQuery.getAll(this);
+//        LoadData();
 
 
         //THAY DOI TEN + GIA

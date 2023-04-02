@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -13,13 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.projectcuoikhoa.ShoeDataQuery;
 import com.example.projectcuoikhoa.Shoes;
-import com.example.projectcuoikhoa.ShoesAdapter;
+import com.example.projectcuoikhoa.Adapter.ShoesAdapter;
 import com.example.projectcuoikhoa.ShoesGridAdapter;
-import com.example.projectcuoikhoa.DetailActivity;
+import com.example.projectcuoikhoa.activity.DetailActivity;
 import com.example.projectcuoikhoa.OptionFragment.FirstFragment;
 import com.example.projectcuoikhoa.OptionFragment.FouthFragment;
 import com.example.projectcuoikhoa.OptionFragment.SecondFragment;
@@ -33,7 +37,7 @@ import java.util.ArrayList;
  * Use the {@link MainFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainFragment extends Fragment implements ShoesAdapter.UserCallBack, ShoesGridAdapter.UserGridCallBack {
+public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack, ShoesGridAdapter.UserGridCallBack {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -99,24 +103,27 @@ public class MainFragment extends Fragment implements ShoesAdapter.UserCallBack,
         tvMoreCate2 = view.findViewById(R.id.tvMoreCate2);
 
         //load du lieu
-        LoadData();
+//        LoadData();
 
         //tao view
+        list = ShoeDataQuery.getAll(getActivity());
         shoesAdapter = new ShoesAdapter(list, this);
         shoesGridAdapter = new ShoesGridAdapter(list,this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
         rvList.setAdapter(shoesAdapter);
+
         rvGridMain.setAdapter(shoesGridAdapter);
         rvList.setLayoutManager(linearLayoutManager);
         rvGridMain.setLayoutManager(gridLayoutManager);
 
         anhXaOption();
-        makeBtnDefault2(firstOption,secondOption,thirdOption,fouthOption);
-        getOptionsListener();
+//        makeBtnDefault2(firstOption,secondOption,thirdOption,fouthOption);
+//        getOptionsListener();
 
         tvMoreCate.setOnClickListener(getL());
         tvMoreCate2.setOnClickListener(getL());
+
 
 
         return view;
@@ -147,24 +154,25 @@ public class MainFragment extends Fragment implements ShoesAdapter.UserCallBack,
         fmOld.commit();
 
     }
-    void LoadData() {
-        list = new ArrayList<>();
-        for (int i = 1; i <= 6; i++) {
-            if(i < 10) {
-                list.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","Chạy bộ"));
-            } else {
-                int ndu = i % 10;
-                int nNg = i / 10;
-                list.add(new Shoes(i, "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","Đi bộ"));
-            }
-
-        }
-    }
+//    void LoadData() {
+//        list = new ArrayList<>();
+//        for (int i = 1; i <= 6; i++) {
+//            if(i < 10) {
+//                list.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","Chạy bộ"));
+//            } else {
+//                int ndu = i % 10;
+//                int nNg = i / 10;
+//                list.add(new Shoes(i, "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","Đi bộ"));
+//            }
+//
+//        }
+//    }
 
     @Override
     public void onItemClick(String id) {
         Intent i = new Intent(getActivity(), DetailActivity.class);
         i.putExtra("id", id);
+        Toast.makeText(getActivity(), String.valueOf(id), Toast.LENGTH_SHORT).show();
         startActivity(i);
     }
 
@@ -178,12 +186,12 @@ public class MainFragment extends Fragment implements ShoesAdapter.UserCallBack,
 
     }
 
-    void makeBtnDefault2(LinearLayout option1, LinearLayout option2, LinearLayout option3, LinearLayout option4){
-        option1.setBackgroundResource(R.drawable.btn_size_default);
-        option2.setBackgroundResource(R.drawable.btn_size_default);
-        option3.setBackgroundResource(R.drawable.btn_size_default);
-        option4.setBackgroundResource(R.drawable.btn_size_default);
-    }
+//    void makeBtnDefault2(LinearLayout option1, LinearLayout option2, LinearLayout option3, LinearLayout option4){
+//        option1.setBackgroundResource(R.drawable.btn_size_default);
+//        option2.setBackgroundResource(R.drawable.btn_size_default);
+//        option3.setBackgroundResource(R.drawable.btn_size_default);
+//        option4.setBackgroundResource(R.drawable.btn_size_default);
+//    }
 
     void getOptionsListener() {
         firstOption.setOnClickListener(getListenerOption());
@@ -243,4 +251,9 @@ public class MainFragment extends Fragment implements ShoesAdapter.UserCallBack,
         option3.setBackgroundResource(R.drawable.btn_size_default);
         option4.setBackgroundResource(R.drawable.btn_size_default);
     }
+
+
+
+
+
 }

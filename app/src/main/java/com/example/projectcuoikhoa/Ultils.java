@@ -16,13 +16,29 @@ public class Ultils {
     public static final String KEY_USER = "key_user";
     public static final String KEY_USER_PROFILE = "key_user_profile";
 
-    //database
+    //sql shoes
 
-    public static final String DATABASE_NAME = "db-user";
+    public static final String DATABASE_NAME = "db-shoe";
     public static final String TABLE_SHOE = "shoe";
     public static final String COLUMN_SHOE_NAME = "name";
     public static final String COLUMN_SHOE_ID = "id";
     public static final String COLUMN_SHOE_AVATAR = "avatar";
+    public static final String COLUMN_SHOE_PRICE = "price";
+    public static final String COLUMN_SHOE_TYPE = "type";
+
+    // sql user
+    public static final String DATABASE_USERNAME = "db-User";
+    public static final String TABLE_USER = "user";
+    public static final String COLUMN_USER_NAME = "name";
+    public static final String COLUMN_USER_ID = "id";
+    public static final String COLUMN_USER_AVATAR = "avatar";
+    public static final String COLUMN_USER_PASSWORD = "password";
+
+    public static final String COLUMN_USER_EMAIL = "email";
+
+    public static final String COLUMN_USER_PHONE = "phone";
+    public static final String COLUMN_USER_GENDER= "gender";
+
     public static Bitmap convertToBitmapFromAssets(Context context,String nameImage) {
         AssetManager assetManager = context.getAssets();
         try {
