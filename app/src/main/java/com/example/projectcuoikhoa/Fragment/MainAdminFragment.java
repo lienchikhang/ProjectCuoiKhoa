@@ -88,6 +88,7 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
         fbAdd = view.findViewById(R.id.fbAdd);
         fbAdd.setOnClickListener(view1 -> addShoeDialog());
         rvList = view.findViewById(R.id.rvGridAdmin);
+
         list = ShoeDataQuery.getAll(getActivity());
         shoesAdapterAdmin = new ShoesAdapter(list,this);
         shoesAdapterAdmin.setCallBack(this);
@@ -192,12 +193,15 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
         View dialogView = layoutInflater.inflate(R.layout.dialog_add_shoe,null);
         alertDialog.setView(dialogView);
 
+        EditText edID = (EditText) dialogView.findViewById(R.id.edID);
         EditText edName = (EditText) dialogView.findViewById(R.id.edName);
         EditText edAvatar = (EditText) dialogView.findViewById(R.id.edAvatar);
         EditText edType = (EditText) dialogView.findViewById(R.id.edType);
         EditText edPrice = (EditText) dialogView.findViewById(R.id.edPrice);
 
+
         alertDialog.setPositiveButton("dong y", (dialog,which) -> {
+            int idEd = Integer.parseInt(edID.getText().toString());
             String name = edName.getText().toString();
             String avatar = edAvatar.getText().toString();
             String type = edType.getText().toString();
@@ -205,7 +209,7 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
             if(name.isEmpty()) {
                 Toast.makeText(getActivity(), "nhap du lieu khong dung", Toast.LENGTH_SHORT).show();
             } else {
-                Shoes sh = new Shoes(0, name,avatar,price,type);
+                Shoes sh = new Shoes(idEd, name,avatar,price,type);
                 long id = ShoeDataQuery.insert(getActivity(),sh);
                 if( id >= 0) {
                     Toast.makeText(getActivity(), "them thanh cong", Toast.LENGTH_SHORT).show();

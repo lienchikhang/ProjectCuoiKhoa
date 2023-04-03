@@ -80,6 +80,15 @@
                 android:inputType="numberPassword"
                 android:padding="16dp" />
 
+            <EditText
+                android:id="@+id/edRole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="role"
+                android:inputType="text"
+                android:padding="16dp" />
+
         </LinearLayout>
 
         <LinearLayout

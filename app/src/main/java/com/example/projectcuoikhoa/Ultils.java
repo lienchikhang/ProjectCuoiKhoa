@@ -39,6 +39,8 @@ public class Ultils {
     public static final String COLUMN_USER_PHONE = "phone";
     public static final String COLUMN_USER_GENDER= "gender";
 
+    public static final String COLUMN_USER_ROLE = "role";
+
     public static Bitmap convertToBitmapFromAssets(Context context,String nameImage) {
         AssetManager assetManager = context.getAssets();
         try {

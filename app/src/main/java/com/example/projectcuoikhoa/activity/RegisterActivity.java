@@ -24,7 +24,7 @@ import com.google.gson.Gson;
 
 public class RegisterActivity extends AppCompatActivity implements UserDataQuery.UserCallback {
 
-    private EditText edUsername, edPassword, edEmail, edPhone, edConfirmpassword;
+    private EditText edUsername, edPassword, edEmail, edPhone, edConfirmpassword, edRole;
     private RadioGroup rdGender;
     private ImageView imAvatar;
     private Button btnRegisterAbc;
@@ -50,6 +50,7 @@ public class RegisterActivity extends AppCompatActivity implements UserDataQuery
         edConfirmpassword = findViewById(R.id.edConfirmPassword);
         edPhone = findViewById(R.id.edPhone);
         edEmail = findViewById(R.id.edEmail);
+        edRole = findViewById(R.id.edRole);
         rdGender = findViewById(R.id.rdGender);
         btnRegisterAbc = findViewById(R.id.btnRegisterAbc);
     }
@@ -65,6 +66,7 @@ public class RegisterActivity extends AppCompatActivity implements UserDataQuery
         String confirmPassword = edConfirmpassword.getText().toString().trim();
         String email = edEmail.getText().toString().trim();
         String phone = edPhone.getText().toString().trim();
+        String role = edRole.getText().toString().trim();
         int gender = 1;
         boolean isValid = checkUserName(userName) && checkPassword(passWord, confirmPassword);
         if(isValid) {
@@ -72,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity implements UserDataQuery
             if(selectedRadio == R.id.rdFemale) {
                 gender = 0;
             }
-            User user = new User(0,userName,passWord,gender,email,phone);
+            User user = new User(0,userName,passWord,gender,email,phone,role);
             long id = UserDataQuery.insert(RegisterActivity.this,user);
             if( id > 0) {
                 Toast.makeText(this, "them thanh cong", Toast.LENGTH_SHORT).show();

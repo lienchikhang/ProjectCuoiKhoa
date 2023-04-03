@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,8 +21,10 @@ import com.example.projectcuoikhoa.Fragment.InfoFragment;
 import com.example.projectcuoikhoa.Fragment.InfoNotLoginFragment;
 import com.example.projectcuoikhoa.Fragment.MainFragment;
 import com.example.projectcuoikhoa.R;
+import com.example.projectcuoikhoa.ShoeDBHelper;
 import com.example.projectcuoikhoa.Shoes;
 import com.example.projectcuoikhoa.ShoesGridAdapter;
+import com.example.projectcuoikhoa.UserDBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -52,6 +55,18 @@ public class MainActivity extends AppCompatActivity {
         firstOption = findViewById(R.id.firstOption);
         secondOption = findViewById(R.id.secondOption);
 
+        ShoeDBHelper shoeDBHelper = new ShoeDBHelper(this);
+
+        //tạo bảng user
+        UserDBHelper userDBHelper = new UserDBHelper(this);
+//        userDBHelper.dropTable();
+//         userDBHelper.createTable();
+
+        // Drop bangr shoe
+//        shoeDBHelper.dropTableShoe();
+//
+//        //tao bảng shoe + set cột id = 0
+//        shoeDBHelper.createTableShoe();
 
         //bottom nav
         bottomNavigationView = findViewById(R.id.navbarBottom);
