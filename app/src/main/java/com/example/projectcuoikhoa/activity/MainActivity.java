@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         ShoeDBHelper shoeDBHelper = new ShoeDBHelper(this);
 
         //tạo bảng user
-        UserDBHelper userDBHelper = new UserDBHelper(this);
+//        UserDBHelper userDBHelper = new UserDBHelper(this);
 //        userDBHelper.dropTable();
 //         userDBHelper.createTable();
 

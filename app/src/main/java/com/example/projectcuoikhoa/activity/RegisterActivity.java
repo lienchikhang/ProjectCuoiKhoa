@@ -74,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity implements UserDataQuery
             if(selectedRadio == R.id.rdFemale) {
                 gender = 0;
             }
-            User user = new User(0,userName,passWord,gender,email,phone,role);
+            User user = new User(userName,passWord,gender,email,phone,role);
             long id = UserDataQuery.insert(RegisterActivity.this,user);
             if( id > 0) {
                 Toast.makeText(this, "them thanh cong", Toast.LENGTH_SHORT).show();

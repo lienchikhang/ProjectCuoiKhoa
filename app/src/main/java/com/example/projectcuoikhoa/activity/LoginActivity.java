@@ -81,8 +81,8 @@ public class LoginActivity extends AppCompatActivity {
         String role = "";
         boolean existUser = false;
         while(listUser.moveToNext()) {
-            if(username.equals(listUser.getString(2)) && password.equals(listUser.getString(3))) {
-                role = listUser.getString(7);
+            if(username.equals(listUser.getString(1)) && password.equals(listUser.getString(2))) {
+                role = listUser.getString(6);
                 existUser = true;
                 break;
             }
