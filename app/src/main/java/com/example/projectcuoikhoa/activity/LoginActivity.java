@@ -94,6 +94,10 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             } else {
                 Intent i = new Intent(this,MainActivity.class);
+                isLogined=true;
+                i.putExtra("bool",isLogined);
+                i.putExtra("UserName",username);
+                i.putExtra("Password",password);
                 startActivity(i);
             }
         } else {

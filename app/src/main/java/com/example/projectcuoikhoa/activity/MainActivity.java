@@ -58,12 +58,13 @@ public class MainActivity extends AppCompatActivity {
         ShoeDBHelper shoeDBHelper = new ShoeDBHelper(this);
 
         //tạo bảng user
-//        UserDBHelper userDBHelper = new UserDBHelper(this);
-//        userDBHelper.dropTable();
-//         userDBHelper.createTable();
+       UserDBHelper userDBHelper = new UserDBHelper(this);
+       //userDBHelper.dropTable();
+        //userDBHelper.createTable();
+         //shoeDBHelper.createTableShoe();
 
         // Drop bangr shoe
-//        shoeDBHelper.dropTableShoe();
+        //shoeDBHelper.dropTableShoe();
 //
 //        //tao bảng shoe
 //        shoeDBHelper.createTableShoe();
@@ -94,8 +95,6 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             loadFragment(new InfoNotLoginFragment(isLogined));
                         }
-
-
                 }
                 return true;
 

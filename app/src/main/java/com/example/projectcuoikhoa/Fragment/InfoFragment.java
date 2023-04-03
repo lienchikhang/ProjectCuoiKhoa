@@ -78,9 +78,10 @@ public class InfoFragment extends Fragment {
         TextView tvPass = view.findViewById(R.id.tvPassword);
         TextView tvEmail = view.findViewById(R.id.tvEmail);
         Button btnLogout = view.findViewById(R.id.btnLogout);
-
-
-
+        String username=getActivity().getIntent().getStringExtra("UserName");
+        String pass=getActivity().getIntent().getStringExtra("Password");
+        tvUsername.setText(username);
+        tvPass.setText(pass);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,24 +90,6 @@ public class InfoFragment extends Fragment {
                 startActivity(i);
             }
         });
-
-        SharedPreferences shareGet = getActivity().getSharedPreferences(Ultils.SHARE_PREFERENCES_APP, Context.MODE_PRIVATE);
-        String userPref = shareGet.getString(Ultils.KEY_USER,null);
-
-        User user = gson.fromJson(userPref, User.class);
-        if(user == null) {
-            tvUsername.setText("empty");
-        }
-
-        else {
-            String info = "Xin Chào: " + user.getUsername();
-            String pass = "Mật Khẩu: " + user.getPassword();
-            String email = "Email: " + user.getEmail();
-            tvUsername.setText(info);
-            tvPass.setText(pass);
-            tvEmail.setText(email);
-        }
-
         return view;
     }
 }
