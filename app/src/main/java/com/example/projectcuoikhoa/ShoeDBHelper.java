@@ -44,7 +44,7 @@ public class ShoeDBHelper extends SQLiteOpenHelper {
     public void createTableShoe() {
         SQLiteDatabase db = getWritableDatabase();
         String CREATE_USER_TABLE = "CREATE TABLE " + Ultils.TABLE_SHOE + "("
-                + Ultils.COLUMN_SHOE_ID + " INTEGER PRIMARY KEY DEFAULT 0, "
+                + Ultils.COLUMN_SHOE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + Ultils.COLUMN_SHOE_NAME + " TEXT, "
                 + Ultils.COLUMN_SHOE_AVATAR + " TEXT, "
                 + Ultils.COLUMN_SHOE_PRICE + " TEXT, "

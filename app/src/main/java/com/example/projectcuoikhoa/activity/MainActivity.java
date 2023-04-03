@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         // Drop bangr shoe
 //        shoeDBHelper.dropTableShoe();
 //
-//        //tao bảng shoe + set cột id = 0
+//        //tao bảng shoe
 //        shoeDBHelper.createTableShoe();
 
         //bottom nav

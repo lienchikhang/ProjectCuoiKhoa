@@ -193,7 +193,7 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
         View dialogView = layoutInflater.inflate(R.layout.dialog_add_shoe,null);
         alertDialog.setView(dialogView);
 
-        EditText edID = (EditText) dialogView.findViewById(R.id.edID);
+//        EditText edID = (EditText) dialogView.findViewById(R.id.edID);
         EditText edName = (EditText) dialogView.findViewById(R.id.edName);
         EditText edAvatar = (EditText) dialogView.findViewById(R.id.edAvatar);
         EditText edType = (EditText) dialogView.findViewById(R.id.edType);
@@ -201,7 +201,7 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
 
 
         alertDialog.setPositiveButton("dong y", (dialog,which) -> {
-            int idEd = Integer.parseInt(edID.getText().toString());
+//            int idEd = Integer.parseInt(edID.getText().toString());
             String name = edName.getText().toString();
             String avatar = edAvatar.getText().toString();
             String type = edType.getText().toString();
@@ -209,9 +209,9 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
             if(name.isEmpty()) {
                 Toast.makeText(getActivity(), "nhap du lieu khong dung", Toast.LENGTH_SHORT).show();
             } else {
-                Shoes sh = new Shoes(idEd, name,avatar,price,type);
+                Shoes sh = new Shoes(0, name,avatar,price,type);
                 long id = ShoeDataQuery.insert(getActivity(),sh);
-                if( id >= 0) {
+                if( id > 0) {
                     Toast.makeText(getActivity(), "them thanh cong", Toast.LENGTH_SHORT).show();
                     resetData();
                     dialog.dismiss();
