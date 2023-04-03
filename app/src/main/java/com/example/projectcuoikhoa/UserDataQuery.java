@@ -9,7 +9,6 @@ public class UserDataQuery {
         UserDBHelper userDBHelper = new UserDBHelper(context);
         SQLiteDatabase sqLiteDatabase = userDBHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(Ultils.COLUMN_USER_ID,us.getId());
         values.put(Ultils.COLUMN_USER_NAME,us.getUsername());
         values.put(Ultils.COLUMN_USER_PASSWORD, us.getPassword());
         values.put(Ultils.COLUMN_USER_GENDER,us.getGender(1));

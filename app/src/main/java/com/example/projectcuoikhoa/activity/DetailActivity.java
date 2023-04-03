@@ -38,6 +38,7 @@ public class DetailActivity extends AppCompatActivity {
     TextView NameProduct;
     ImageView ivAvatar;
     ArrayList<Shoes> list;
+    Shoes temp;
     String id;
     ImageButton ivBackBtn;
     @Override
@@ -53,13 +54,18 @@ public class DetailActivity extends AppCompatActivity {
         id = i.getStringExtra("id");
 
         //lOAD DU LIEU
-        list = ShoeDataQuery.getAll(this);
+        list=ShoeDataQuery.getAll(this);
 //        LoadData();
-
+        for (Shoes shoesTemp:list
+        ) {
+            if(shoesTemp.getId()==Integer.parseInt(id)){
+                temp=shoesTemp;
+            }
+        }
 
         //THAY DOI TEN + GIA
-        NameProduct.setText(list.get(Integer.parseInt(id)).getName());
-        PriceProduct.setText(list.get(Integer.parseInt(id)).getPrice());
+        NameProduct.setText(temp.getName());
+        PriceProduct.setText(temp.getPrice());
         ivAvatar.setImageResource(R.drawable.giay);
 
         //su kien onclick
