@@ -209,7 +209,7 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
             if(name.isEmpty()) {
                 Toast.makeText(getActivity(), "nhap du lieu khong dung", Toast.LENGTH_SHORT).show();
             } else {
-                Shoes sh = new Shoes(0, name,avatar,price,type);
+                Shoes sh = new Shoes(name,avatar,price,type);
                 long id = ShoeDataQuery.insert(getActivity(),sh);
                 if( id > 0) {
                     Toast.makeText(getActivity(), "them thanh cong", Toast.LENGTH_SHORT).show();

@@ -34,33 +34,75 @@
             android:layout_marginTop="20dp"
             android:orientation="vertical"
             android:padding="20dp">
-
-            <EditText
-                android:id="@+id/edUsername"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Tên đăng nhập"
-                android:inputType="text"
-                android:padding="16dp"
-                />
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="test"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:textColor="#F30202"
+                    android:visibility="invisible"
+                    android:id="@+id/tvSubUsername"/>
+                <EditText
+                    android:id="@+id/edUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tên đăng nhập"
+                    android:inputType="text"
+                    android:padding="16dp"
+                    />
 
-            <EditText
-                android:id="@+id/edPassword"
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="Mật khẩu"
-                android:inputType="numberPassword"
-                android:padding="16dp" />
+                android:orientation="vertical"
+                android:layout_marginTop="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="test"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:textColor="#F30202"
+                    android:visibility="invisible"
+                    android:id="@+id/tvSubPassword"/>
+                <EditText
+                    android:id="@+id/edPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Mật khẩu"
+                    android:inputType="numberPassword"
+                    android:padding="16dp" />
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/edConfirmPassword"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="Xác nhận mật khẩu"
-                android:inputType="numberPassword"
-                android:padding="16dp" />
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="test"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:textColor="#F30202"
+                    android:visibility="invisible"
+                    android:id="@+id/tvSubRePassword"/>
+                <EditText
+                    android:id="@+id/edConfirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Xác nhận mật khẩu"
+                    android:inputType="numberPassword"
+                    android:padding="16dp" />
+            </LinearLayout>
+
 
             <EditText
                 android:id="@+id/edEmail"

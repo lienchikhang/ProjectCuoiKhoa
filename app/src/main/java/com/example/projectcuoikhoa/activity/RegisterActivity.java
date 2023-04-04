@@ -8,10 +8,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.projectcuoikhoa.MainAdminActivity;
@@ -25,6 +27,8 @@ import com.google.gson.Gson;
 public class RegisterActivity extends AppCompatActivity implements UserDataQuery.UserCallback {
 
     private EditText edUsername, edPassword, edEmail, edPhone, edConfirmpassword, edRole;
+
+    private TextView tvUsername, tvPassword, tvRePassword;
     private RadioGroup rdGender;
     private ImageView imAvatar;
     private Button btnRegisterAbc;
@@ -53,6 +57,9 @@ public class RegisterActivity extends AppCompatActivity implements UserDataQuery
         edRole = findViewById(R.id.edRole);
         rdGender = findViewById(R.id.rdGender);
         btnRegisterAbc = findViewById(R.id.btnRegisterAbc);
+        tvUsername = findViewById(R.id.tvSubUsername);
+        tvPassword = findViewById(R.id.tvSubPassword);
+        tvRePassword = findViewById(R.id.tvSubRePassword);
     }
 
     void taoSuKien() {
@@ -77,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity implements UserDataQuery
             User user = new User(userName,passWord,gender,email,phone,role);
             long id = UserDataQuery.insert(RegisterActivity.this,user);
             if( id > 0) {
-                Toast.makeText(this, "them thanh cong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Đăng kí thành công", Toast.LENGTH_SHORT).show();
             }
 //
 //            String userStr = gson.toJson(user);
@@ -92,29 +99,39 @@ public class RegisterActivity extends AppCompatActivity implements UserDataQuery
 
     boolean checkUserName(String username) {
         if (username.isEmpty()) {
-            edUsername.setText("Please enter username!");
+            tvUsername.setVisibility(View.VISIBLE);
+            tvUsername.setText("Vui lòng nhập tên!");
             return false;
         }
         if (username.length() <= 5) {
-            edUsername.setText("More than 5 characters");
+            tvUsername.setVisibility(View.VISIBLE);
+            tvUsername.setText("Tên phải dài hơn 5 kí tự");
             return false;
         }
+        tvUsername.setVisibility(View.INVISIBLE);
         return true;
     }
 
     boolean checkPassword(String password, String confirmPassword) {
         if(password.isEmpty()) {
-            edPassword.setText("Please enter password");
+            tvPassword.setVisibility(View.VISIBLE);
+            tvPassword.setText("Vui lòng nhập mật khẩu");
             return false;
         }
+        tvPassword.setVisibility(View.INVISIBLE);
         if(password.length() <= 5 ) {
-            edPassword.setText("More than 5 characters!");
-        }
-
-        if(!password.equals(confirmPassword)) {
-            edConfirmpassword.setText("Incorrect password!");
+            tvPassword.setVisibility(View.VISIBLE);
+            tvPassword.setText("Mật khẩu phải dài hơn 5 kí tự");
             return false;
         }
+        tvPassword.setVisibility(View.INVISIBLE);
+        if(!password.equals(confirmPassword)) {
+            tvRePassword.setVisibility(View.VISIBLE);
+            tvRePassword.setText("Mật khẩu không đúng!");
+            return false;
+        }
+        tvPassword.setVisibility(View.INVISIBLE);
+        tvRePassword.setVisibility(View.INVISIBLE);
         return true;
     }
     @Override

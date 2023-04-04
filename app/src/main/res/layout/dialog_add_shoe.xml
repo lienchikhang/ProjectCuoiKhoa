@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-<!--    <EditText-->
-<!--        android:id="@+id/edID"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:hint="ID"-->
-<!--        android:textSize="25sp"-->
-<!--        android:layout_marginBottom="16dp"/>-->
+    <EditText
+        android:id="@+id/edID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID"
+        android:textSize="25sp"
+        android:layout_marginBottom="16dp"/>
     <EditText
         android:id="@+id/edName"
         android:layout_width="match_parent"

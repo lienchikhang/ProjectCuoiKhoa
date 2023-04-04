@@ -12,6 +12,7 @@ public class ShoeDataQuery {
         ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
         SQLiteDatabase sqLiteDatabase = shoeDBHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
+//        values.put(Ultils.COLUMN_SHOE_ID, sh.id);
         values.put(Ultils.COLUMN_SHOE_NAME,sh.name);
         values.put(Ultils.COLUMN_SHOE_AVATAR, sh.image);
         values.put(Ultils.COLUMN_SHOE_PRICE,sh.price);

@@ -9,6 +9,13 @@ public class Shoes {
 
     String price;
 
+    public Shoes(String name, String image, String type, String price) {
+        this.name = name;
+        this.image = image;
+        this.type = type;
+        this.price = price;
+    }
+
     public Shoes(int id, String name, String image, String price, String type) {
         this.id = id;
         this.name = name;
