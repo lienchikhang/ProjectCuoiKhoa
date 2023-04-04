@@ -90,11 +90,13 @@ public class LoginActivity extends AppCompatActivity {
         if(existUser) {
             if(role.equals("admin")) {
                 Intent i = new Intent(this, MainAdminActivity.class);
+                i.putExtra("role", role);
                 startActivity(i);
                 return;
             } else {
                 Intent i = new Intent(this,MainActivity.class);
                 isLogined=true;
+                i.putExtra("role", role);
                 i.putExtra("bool",isLogined);
                 i.putExtra("UserName",username);
                 i.putExtra("Password",password);

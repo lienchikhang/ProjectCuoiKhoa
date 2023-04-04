@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.projectcuoikhoa.Adapter.ShoesAdapter;
+import com.example.projectcuoikhoa.Fragment.InfoAdminFragment;
 import com.example.projectcuoikhoa.Fragment.InfoFragment;
 import com.example.projectcuoikhoa.Fragment.InfoNotLoginFragment;
 import com.example.projectcuoikhoa.Fragment.MainAdminFragment;
@@ -43,33 +44,30 @@ public class MainAdminActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_admin);
         Intent i = getIntent();
         Boolean isLogined = i.getBooleanExtra("bool", false);
+        String role = i.getStringExtra("role");
 //        scrollViewAdmin = findViewById(R.id.scrollViewAdmin);
 //        scrollViewAdmin.setVisibility(View.VISIBLE);
         //bottom nav
-        bottomNavigationView = findViewById(R.id.navbarBottom);
+        bottomNavigationView = findViewById(R.id.navbarBottomAdmin);
         loadFragment(new MainAdminFragment());
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Home");
-        bottomNavigationView.setOnItemSelectedListener(getListener(isLogined));
+        bottomNavigationView.setOnItemSelectedListener(getListener(isLogined,role));
     }
 
     @NonNull
-    private NavigationBarView.OnItemSelectedListener getListener(Boolean isLogined) {
+    private NavigationBarView.OnItemSelectedListener getListener(Boolean isLogined, String role) {
         return new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        scrollViewAdmin.setVisibility(View.VISIBLE);
                         loadFragment(new MainAdminFragment());
                         break;
                     case R.id.info:
-                        scrollViewAdmin.setVisibility(View.INVISIBLE);
-                        if (isLogined) {
-                            loadFragment(new InfoFragment());
-                        } else {
-                            loadFragment(new InfoNotLoginFragment(isLogined));
-                        }
+                        loadFragment(new InfoAdminFragment());
+                        break;
+//
 
 
                 }
