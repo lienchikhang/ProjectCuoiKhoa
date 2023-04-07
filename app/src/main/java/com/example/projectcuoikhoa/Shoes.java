@@ -7,16 +7,16 @@ public class Shoes {
 
     String type;
 
-    String price;
+    int price;
 
-    public Shoes(String name, String image, String price, String type) {
+    public Shoes(String name, String image, int price, String type) {
         this.name = name;
         this.image = image;
         this.type = type;
         this.price = price;
     }
 
-    public Shoes(int id, String name, String image, String price, String type) {
+    public Shoes(int id, String name, String image, int price, String type) {
         this.id = id;
         this.name = name;
         this.image = image;
@@ -24,11 +24,11 @@ public class Shoes {
         this.type = type;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

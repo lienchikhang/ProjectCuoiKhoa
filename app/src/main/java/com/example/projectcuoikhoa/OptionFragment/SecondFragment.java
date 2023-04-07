@@ -89,6 +89,7 @@ public class SecondFragment extends Fragment implements ShoesGridAdapter.UserGri
         ivBackFrag2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 getParentFragmentManager().popBackStack();
             }
         });
@@ -100,34 +101,6 @@ public class SecondFragment extends Fragment implements ShoesGridAdapter.UserGri
         rvProductList.setLayoutManager(gridLayoutManager);
         return view;
     }
-
-    void LoadData(String type) {
-        list = new ArrayList<>();
-        preList = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            if(i < 10) {
-                preList.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","run"));
-            } else {
-                int ndu = i % 10;
-                int nNg = i / 10;
-                preList.add(new Shoes(i, "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
-            }
-        }
-
-        //kiem tra neu list item co getType == "walk" thi list moi add vao
-        for(int i = 0; i < 20; i++) {
-            if(preList.get(i).getType() == type) {
-                if(i < 10) {
-                    list.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","walk"));
-                } else {
-                    int ndu = i % 10;
-                    int nNg = i / 10;
-                    list.add(new Shoes(i, "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
-                }
-            }
-        }
-    }
-
     @Override
     public void onItemClick(String id) {
         Intent i = new Intent(getActivity(), DetailActivity.class);

@@ -31,7 +31,7 @@ public class ShoeDataQuery {
             int id = cs.getInt(0);
             String name = cs.getString(1);
             String image = cs.getString(2);
-            String price = cs.getString(3);
+            int price = cs.getInt(3);
             String type = cs.getString(4);
             lstUser.add(new Shoes(id,name,image,price,type));
             cs.moveToNext();
@@ -48,11 +48,12 @@ public class ShoeDataQuery {
         int id = cs.getInt(0);
         String name = cs.getString(1);
         String image = cs.getString(2);
-        String price = cs.getString(3);
+        int price = cs.getInt(3);
         String type = cs.getString(4);
         Shoes shoes=new Shoes(name,image,price,type);
         return shoes;
     }
+
 
     public static int update(Context context, Shoes sh) {
         ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
@@ -83,7 +84,26 @@ public class ShoeDataQuery {
             int id = cs.getInt(0);
             String name = cs.getString(1);
             String image = cs.getString(2);
-            String price = cs.getString(3);
+            int price = cs.getInt(3);
+            String type = cs.getString(4);
+            lstUser.add(new Shoes(id,name,image,price,type));
+            cs.moveToNext();
+        }
+        cs.close();
+        db.close();
+        return lstUser;
+    }
+    public static ArrayList<Shoes> SerchByName(Context context,String Name){
+        ArrayList<Shoes> lstUser = new ArrayList<>();
+        ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
+        SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
+        Cursor cs=db.rawQuery("Select * from "+Ultils.TABLE_SHOE+" Where "+Ultils.COLUMN_SHOE_NAME+" like"+" %"+Name+"%",null);
+        cs.moveToFirst();
+        while(!cs.isAfterLast()) {
+            int id = cs.getInt(0);
+            String name = cs.getString(1);
+            String image = cs.getString(2);
+            int price = cs.getInt(3);
             String type = cs.getString(4);
             lstUser.add(new Shoes(id,name,image,price,type));
             cs.moveToNext();

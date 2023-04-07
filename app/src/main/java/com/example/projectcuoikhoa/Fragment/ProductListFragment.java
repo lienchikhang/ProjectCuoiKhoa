@@ -144,18 +144,7 @@ public class ProductListFragment extends Fragment implements ShoesGridAdapter.Us
         };
     }
 
-    void LoadData() {
-        list = new ArrayList<>();
-        for (int i = 1; i < 20; i++) {
-            if(i < 10) {
-                list.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","run"));
-            } else {
-                int ndu = i % 10;
-                int nNg = i / 10;
-                list.add(new Shoes(i, "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
-            }
-        }
-    }
+
 
     void anhXaOption() {
         firstOption = getActivity().findViewById(R.id.firstOption);

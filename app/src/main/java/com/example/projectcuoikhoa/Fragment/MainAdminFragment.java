@@ -104,19 +104,7 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
 
 
 
-    void LoadData() {
-        list = new ArrayList<>();
-        for (int i = 1; i <= 6; i++) {
-            if(i < 10) {
-                list.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","Chạy bộ"));
-            } else {
-                int ndu = i % 10;
-                int nNg = i / 10;
-                list.add(new Shoes(i, "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","Đi bộ"));
-            }
 
-        }
-    }
 
 
     @Override
@@ -166,7 +154,7 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
         alertDialog.setPositiveButton("dong y", (dialog,which) -> {
             sh.setName(edName.getText().toString());
             sh.setImage(edAvatar.getText().toString());
-            sh.setPrice(edPrice.getText().toString());
+            sh.setPrice(Integer.parseInt(edPrice.getText().toString()));
             sh.setType(edType.getText().toString());
 
             if(sh.getName().isEmpty()) {
@@ -205,7 +193,7 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
             String name = edName.getText().toString();
             String avatar = edAvatar.getText().toString();
             String type = edType.getText().toString();
-            String price = edPrice.getText().toString();
+            int price = Integer.parseInt(edPrice.getText().toString());
             if(name.isEmpty()) {
                 Toast.makeText(getActivity(), "nhap du lieu khong dung", Toast.LENGTH_SHORT).show();
             } else {

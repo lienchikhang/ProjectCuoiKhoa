@@ -92,7 +92,7 @@ public class MainAdminActivity extends AppCompatActivity {
             String name = edName.getText().toString();
             String avatar = edAvatar.getText().toString();
             String type = edType.getText().toString();
-            String price = edPrice.getText().toString();
+            int price =Integer.parseInt(edPrice.getText().toString()) ;
             if(name.isEmpty()) {
                 Toast.makeText(this, "nhap du lieu khong dung", Toast.LENGTH_SHORT).show();
             } else {
@@ -146,7 +146,7 @@ public class MainAdminActivity extends AppCompatActivity {
         alertDialog.setPositiveButton("dong y", (dialog,which) -> {
             sh.setName(edName.getText().toString());
             sh.setImage(edAvatar.getText().toString());
-            sh.setPrice(edPrice.getText().toString());
+            sh.setPrice(Integer.parseInt(edPrice.getText().toString()));
             sh.setType(edType.getText().toString());
 
             if(sh.name.isEmpty()) {

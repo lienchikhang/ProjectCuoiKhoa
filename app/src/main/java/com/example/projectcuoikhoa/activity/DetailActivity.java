@@ -67,7 +67,7 @@ public class DetailActivity extends AppCompatActivity {
 
         //THAY DOI TEN + GIA
         NameProduct.setText(temp.getName());
-        PriceProduct.setText(temp.getPrice());
+        PriceProduct.setText(String.valueOf(temp.getPrice()));
         ivAvatar.setImageBitmap(Ultils.convertToBitmapFromAssets(this,temp.getImage()));
 
         //su kien onclick
@@ -89,18 +89,7 @@ public class DetailActivity extends AppCompatActivity {
         };
     }
 
-    void LoadData() {
-        list = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            if(i < 10) {
-                list.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","run"));
-            } else {
-                int ndu = i % 10;
-                int nNg = i / 10;
-                list.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
-            }
-        }
-    }
+
 
     void anhXadulieu(){
         ivBackBtn = findViewById(R.id.ivBackBtn);

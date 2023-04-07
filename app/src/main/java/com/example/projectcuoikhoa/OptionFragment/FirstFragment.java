@@ -94,15 +94,7 @@ public class FirstFragment extends Fragment implements ShoesGridAdapter.UserGrid
         return view;
     }
 
-    public ArrayList<Shoes> FilterData(ArrayList<Shoes> list, String type) {
-        preList = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getType() == "run") {
-                preList.add(list.get(i));
-            }
-        }
-        return preList;
-    }
+
 
     @Override
     public void onItemClick(String id) {

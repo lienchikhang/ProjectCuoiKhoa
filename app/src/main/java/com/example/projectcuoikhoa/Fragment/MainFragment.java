@@ -154,20 +154,6 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
         fmOld.commit();
 
     }
-//    void LoadData() {
-//        list = new ArrayList<>();
-//        for (int i = 1; i <= 6; i++) {
-//            if(i < 10) {
-//                list.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","Chạy bộ"));
-//            } else {
-//                int ndu = i % 10;
-//                int nNg = i / 10;
-//                list.add(new Shoes(i, "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","Đi bộ"));
-//            }
-//
-//        }
-//    }
-
     @Override
     public void onItemClick(String id) {
         Intent i = new Intent(getActivity(), DetailActivity.class);
