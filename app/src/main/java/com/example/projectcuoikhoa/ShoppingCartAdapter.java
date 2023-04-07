@@ -59,8 +59,8 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
         ImageView ImgShoes;
         TextView Size;
         TextView PriceCart;
-        TextView Name;
-        ImageButton add, delete, minus;
+        TextView Name, delete;
+        ImageButton add, minus;
 
         public CartHolder(@NonNull View itemView) {
             super(itemView);
