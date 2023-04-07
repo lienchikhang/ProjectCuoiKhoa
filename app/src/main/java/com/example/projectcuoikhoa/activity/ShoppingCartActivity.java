@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Size;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.projectcuoikhoa.CartShoes;
 import com.example.projectcuoikhoa.R;
@@ -24,21 +25,25 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
     ShoppingCartAdapter shoppingCartAdapter;
 
     ArrayList<CartShoes> listCart=new ArrayList<>();
-
+    ImageView btnback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_cart);
         SukienthemlistCart();
-        TextView PriceBig;
-        PriceBig=findViewById(R.id.PriceSum);
         rvlistCart=findViewById(R.id.rvListCart);
+        btnback = findViewById(R.id.btnback);
         shoppingCartAdapter=new ShoppingCartAdapter(listCart,this);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         rvlistCart.setAdapter(shoppingCartAdapter);
         rvlistCart.setLayoutManager(linearLayoutManager);
-
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
     void SukienthemlistCart(){
         Intent i=getIntent();
@@ -47,7 +52,6 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
         Shoes shoes= ShoeDataQuery.getShoes(this,Integer.parseInt(id));
         CartShoes cartShoes=new CartShoes(shoes,1,Size,shoes.getImage());
         listCart.add(cartShoes);
-
     }
     public void onItemAdd(CartShoes cartShoes, int position){
         listCart.remove(cartShoes);
@@ -69,13 +73,4 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
         listCart.remove(cartShoes);
         shoppingCartAdapter.notifyItemRemoved(position);
     }
-    public int SumPriceinList(ArrayList<CartShoes> cartShoes){
-        int Price=0;
-        for (CartShoes cart:cartShoes
-             ) {
-            Price+= cart.getQuantity()*cart.getShoes().getPrice();
-        }
-        return Price;
-    }
-
 }

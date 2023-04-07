@@ -186,33 +186,6 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/ColerFix">
 
-                    <RadioGroup
-                        android:id="@+id/GrpColor"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:orientation="horizontal"
-                        android:paddingLeft="9dp"
-                        android:paddingRight="9dp">
-
-                        <RadioButton
-                            android:id="@+id/Color1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:buttonTint="@color/teal_200" />
-
-                        <RadioButton
-                            android:id="@+id/Color2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:buttonTint="@color/black" />
-
-                        <RadioButton
-                            android:id="@+id/Color3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:buttonTint="#F31808" />
-                    </RadioGroup>
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 

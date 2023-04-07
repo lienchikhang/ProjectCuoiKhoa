@@ -103,9 +103,9 @@ public class DetailActivity extends AppCompatActivity {
         BtnSizeS=findViewById(R.id.BtnSizeS);
         BuyProduct=findViewById(R.id.BuyProduct);
         BtnDes=findViewById(R.id.btnDes);
-        Color1=findViewById(R.id.Color1);
-        Color2=findViewById(R.id.Color2);
-        Color3=findViewById(R.id.Color3);
+//        Color1=findViewById(R.id.Color1);
+//        Color2=findViewById(R.id.Color2);
+//        Color3=findViewById(R.id.Color3);
         PriceProduct=findViewById(R.id.PriceProduct);
     }
 
