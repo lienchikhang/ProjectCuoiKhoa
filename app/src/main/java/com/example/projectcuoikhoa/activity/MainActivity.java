@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.navbarBottom);
         loadFragment(new MainFragment());
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Home");
+        actionBar.hide();
         bottomNavigationView.setOnItemSelectedListener(getListener(isLogined));
     }
 

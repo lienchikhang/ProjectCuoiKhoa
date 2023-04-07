@@ -151,7 +151,7 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
         alertDialog.setPositiveButton("Đồng ý", (dialog,which) -> {
             sh.setName(edName.getText().toString());
             sh.setImage(edAvatar.getText().toString());
-            sh.setPrice(edPrice.getText().toString());
+            sh.setPrice(Integer.parseInt(edPrice.getText().toString()));
             sh.setType(edType.getText().toString());
 
             if(sh.getName().isEmpty()) {
@@ -190,7 +190,7 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
             String name = edName.getText().toString();
             String avatar = edAvatar.getText().toString();
             String type = edType.getText().toString();
-            String price = edPrice.getText().toString();
+            int price = Integer.parseInt(edPrice.getText().toString());
             if(name.isEmpty()) {
                 Toast.makeText(getActivity(), "Nhập dữ liệu không đúng", Toast.LENGTH_SHORT).show();
             } else {
