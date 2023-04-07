@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Size;
 
 import com.example.projectcuoikhoa.CartShoes;
 import com.example.projectcuoikhoa.R;
@@ -27,12 +28,7 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_cart);
-        Intent i=getIntent();
-        String id=i.getStringExtra("ID");
-        String Size=i.getStringExtra("Size");
-        Shoes shoes= ShoeDataQuery.getShoes(this,Integer.parseInt(id));
-        CartShoes cartShoes=new CartShoes(shoes,1,Size,shoes.getImage());
-        listCart.add(cartShoes);
+        SukienthemlistCart();
         rvlistCart=findViewById(R.id.rvListCart);
         shoppingCartAdapter=new ShoppingCartAdapter(listCart,this);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
@@ -40,8 +36,18 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
         rvlistCart.setLayoutManager(linearLayoutManager);
 
     }
+    void SukienthemlistCart(){
+        Intent i=getIntent();
+        String id=i.getStringExtra("ID");
+        String Size=i.getStringExtra("Size");
+        Shoes shoes= ShoeDataQuery.getShoes(this,Integer.parseInt(id));
+        CartShoes cartShoes=new CartShoes(shoes,1,Size,shoes.getImage());
+        listCart.add(cartShoes);
+    }
     public void onItemAdd(CartShoes cartShoes, int position){
-        cartShoes.setQuantity(cartShoes.getQuantity()+1);
+        listCart.remove(cartShoes);
+        listCart.add(new CartShoes(cartShoes.getShoes(),cartShoes.getQuantity()+1,cartShoes.getSize(),cartShoes.getImgShoes()));
+        shoppingCartAdapter.notifyItemChanged(position);
     }
     public void onItemMinus(CartShoes cartShoes, int position){
 
@@ -49,10 +55,13 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
             onItemDelete(cartShoes,position);
         }
         else {
-            cartShoes.setQuantity(cartShoes.getQuantity()-1);
+            listCart.remove(cartShoes);
+            listCart.add(new CartShoes(cartShoes.getShoes(),cartShoes.getQuantity()-1,cartShoes.getSize(),cartShoes.getImgShoes()));
+            shoppingCartAdapter.notifyItemChanged(position);
         }
     }
     public void onItemDelete(CartShoes cartShoes,int position){
         listCart.remove(cartShoes);
+        shoppingCartAdapter.notifyItemRemoved(position);
     }
 }
