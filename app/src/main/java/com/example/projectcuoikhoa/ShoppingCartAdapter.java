@@ -41,6 +41,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
         holder.ImgShoes.setImageBitmap(Ultils.convertToBitmapFromAssets(context, item.getImgShoes()));
         holder.Name.setText(item.getShoes().getName());
         holder.Size.setText(item.getSize());
+        holder.Quantity.setText(Integer.toString(item.getQuantity()));
         holder.PriceCart.setText(item.getShoes().getPrice());
         holder.add.setOnClickListener(view -> cartCallback.onItemAdd(item, position));
         holder.minus.setOnClickListener(view -> cartCallback.onItemMinus(item,position));
@@ -58,12 +59,14 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
     class CartHolder extends RecyclerView.ViewHolder {
         ImageView ImgShoes;
         TextView Size;
+        TextView Quantity;
         TextView PriceCart;
         TextView Name, delete;
         ImageButton add, minus;
 
         public CartHolder(@NonNull View itemView) {
             super(itemView);
+            Quantity=itemView.findViewById(R.id.QuantityCart);
             ImgShoes = itemView.findViewById(R.id.ImgSP);
             Size = itemView.findViewById(R.id.SizeCart);
             PriceCart = itemView.findViewById(R.id.PriceCart);
