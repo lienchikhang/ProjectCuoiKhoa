@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Size;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.projectcuoikhoa.CartShoes;
 import com.example.projectcuoikhoa.R;
@@ -23,6 +25,7 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
     ShoppingCartAdapter shoppingCartAdapter;
 
     ArrayList<CartShoes> listCart=new ArrayList<>();
+    ImageView btnback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +33,17 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
         setContentView(R.layout.activity_shopping_cart);
         SukienthemlistCart();
         rvlistCart=findViewById(R.id.rvListCart);
+        btnback = findViewById(R.id.btnback);
         shoppingCartAdapter=new ShoppingCartAdapter(listCart,this);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         rvlistCart.setAdapter(shoppingCartAdapter);
         rvlistCart.setLayoutManager(linearLayoutManager);
-
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
     void SukienthemlistCart(){
         Intent i=getIntent();

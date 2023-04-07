@@ -54,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity implements UserDataQuery
         edConfirmpassword = findViewById(R.id.edConfirmPassword);
         edPhone = findViewById(R.id.edPhone);
         edEmail = findViewById(R.id.edEmail);
-        edRole = findViewById(R.id.edRole);
+//        edRole = findViewById(R.id.edRole);
         rdGender = findViewById(R.id.rdGender);
         btnRegisterAbc = findViewById(R.id.btnRegisterAbc);
         tvUsername = findViewById(R.id.tvSubUsername);
@@ -73,13 +73,17 @@ public class RegisterActivity extends AppCompatActivity implements UserDataQuery
         String confirmPassword = edConfirmpassword.getText().toString().trim();
         String email = edEmail.getText().toString().trim();
         String phone = edPhone.getText().toString().trim();
-        String role = edRole.getText().toString().trim();
+//        String role = edRole.getText().toString().trim();
+        String role ="";
         int gender = 1;
         boolean isValid = checkUserName(userName) && checkPassword(passWord, confirmPassword);
         if(isValid) {
             int selectedRadio = rdGender.getCheckedRadioButtonId();
             if(selectedRadio == R.id.rdFemale) {
                 gender = 0;
+            }
+            if(userName.contains("admin")) {
+                role = "admin";
             }
             User user = new User(userName,passWord,gender,email,phone,role);
             long id = UserDataQuery.insert(RegisterActivity.this,user);

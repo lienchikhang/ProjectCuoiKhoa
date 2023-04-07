@@ -104,21 +104,6 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
 
 
 
-    void LoadData() {
-        list = new ArrayList<>();
-        for (int i = 1; i <= 6; i++) {
-            if(i < 10) {
-                list.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","Chạy bộ"));
-            } else {
-                int ndu = i % 10;
-                int nNg = i / 10;
-                list.add(new Shoes(i, "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","Đi bộ"));
-            }
-
-        }
-    }
-
-
     @Override
     public void onItemClick(String id) {
     }
@@ -127,10 +112,10 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
     public void onItemDeleteClick(Shoes sh, int position) {
         boolean rs = ShoeDataQuery.delete(getActivity(),sh.getId());
         if(rs) {
-            Toast.makeText(getActivity(), "xoa thanh cong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Xoá thành công", Toast.LENGTH_SHORT).show();
             resetData();
         } else {
-            Toast.makeText(getActivity(), "xoa khong thanh cong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Xoá không thành công", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -147,7 +132,7 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
 
     void updateShoeDialog(Shoes sh) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
-        alertDialog.setTitle("cap nhat");
+        alertDialog.setTitle("Cập Nhật");
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.dialog_add_shoe,null);
         alertDialog.setView(dialogView);
@@ -163,24 +148,24 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
         edPrice.setText(sh.getPrice());
         edType.setText(sh.getType());
 
-        alertDialog.setPositiveButton("dong y", (dialog,which) -> {
+        alertDialog.setPositiveButton("Đồng ý", (dialog,which) -> {
             sh.setName(edName.getText().toString());
             sh.setImage(edAvatar.getText().toString());
             sh.setPrice(edPrice.getText().toString());
             sh.setType(edType.getText().toString());
 
             if(sh.getName().isEmpty()) {
-                Toast.makeText(getActivity(), "vui long nhap du lieu", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Vui lòng nhập dữ liệu", Toast.LENGTH_SHORT).show();
             } else {
                 int id = ShoeDataQuery.update(getActivity(),sh);
                 if( id >= 0) {
-                    Toast.makeText(getActivity(), "cap nhat thanh cong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
                     resetData();
                     dialog.dismiss();
                 }
             }
         });
-        alertDialog.setNegativeButton("Huy",(dialog,which)->{
+        alertDialog.setNegativeButton("Huỷ",(dialog,which)->{
             dialog.dismiss();
         });
         alertDialog.create();
@@ -188,7 +173,7 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
     }
     void addShoeDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
-        alertDialog.setTitle("Them moi");
+        alertDialog.setTitle("Thêm mới");
         LayoutInflater layoutInflater = this.getLayoutInflater();
         View dialogView = layoutInflater.inflate(R.layout.dialog_add_shoe,null);
         alertDialog.setView(dialogView);
@@ -200,25 +185,25 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
         EditText edPrice = (EditText) dialogView.findViewById(R.id.edPrice);
 
 
-        alertDialog.setPositiveButton("dong y", (dialog,which) -> {
+        alertDialog.setPositiveButton("Đồng ý", (dialog,which) -> {
 //            int idEd = Integer.parseInt(edID.getText().toString());
             String name = edName.getText().toString();
             String avatar = edAvatar.getText().toString();
             String type = edType.getText().toString();
             String price = edPrice.getText().toString();
             if(name.isEmpty()) {
-                Toast.makeText(getActivity(), "nhap du lieu khong dung", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Nhập dữ liệu không đúng", Toast.LENGTH_SHORT).show();
             } else {
                 Shoes sh = new Shoes(name,avatar,price,type);
                 long id = ShoeDataQuery.insert(getActivity(),sh);
                 if( id > 0) {
-                    Toast.makeText(getActivity(), "them thanh cong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Thêm thành công", Toast.LENGTH_SHORT).show();
                     resetData();
                     dialog.dismiss();
                 }
             }
         });
-        alertDialog.setNegativeButton("Huy",(dialog,which)->{
+        alertDialog.setNegativeButton("Huỷ",(dialog,which)->{
             dialog.dismiss();
         });
         alertDialog.create();
