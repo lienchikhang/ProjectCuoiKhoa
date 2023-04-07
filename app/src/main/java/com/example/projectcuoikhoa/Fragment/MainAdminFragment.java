@@ -67,7 +67,7 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
     int op;
     RecyclerView rvList;
     ArrayList<Shoes> list;
-    ShoesAdapter shoesAdapterAdmin;
+    ShoesAdapterAdmin shoesAdapterAdmin;
 
     FloatingActionButton fbAdd;
 
@@ -90,8 +90,8 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
         rvList = view.findViewById(R.id.rvGridAdmin);
 
         list = ShoeDataQuery.getAll(getActivity());
-        shoesAdapterAdmin = new ShoesAdapter(list,this);
-        shoesAdapterAdmin.setCallBack(this);
+        shoesAdapterAdmin = new ShoesAdapterAdmin(list,this);
+        shoesAdapterAdmin.setCallBackAdmin(this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         rvList.setAdapter(shoesAdapterAdmin);

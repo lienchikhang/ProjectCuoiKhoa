@@ -24,6 +24,7 @@ import com.example.projectcuoikhoa.R;
 import com.example.projectcuoikhoa.ShoeDBHelper;
 import com.example.projectcuoikhoa.Shoes;
 import com.example.projectcuoikhoa.ShoesGridAdapter;
+import com.example.projectcuoikhoa.ShoppingCartFragment;
 import com.example.projectcuoikhoa.UserDBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -95,6 +96,10 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             loadFragment(new InfoNotLoginFragment(isLogined));
                         }
+//                    case R.id.ShoppingCart:
+//                            scrollView.setVisibility(View.INVISIBLE);
+//                            loadFragment(new ShoppingCartFragment());
+//                            break;
                 }
                 return true;
 

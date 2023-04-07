@@ -19,15 +19,7 @@
         android:layout_height="match_parent">
 
     </FrameLayout>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    android:id="@+id/fbAdd"
-    android:layout_marginBottom="24dp"
-    android:layout_marginRight="24dp"
-    />
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navbarBottomAdmin"

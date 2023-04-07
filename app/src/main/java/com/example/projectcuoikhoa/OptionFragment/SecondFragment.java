@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.example.projectcuoikhoa.ShoeDataQuery;
 import com.example.projectcuoikhoa.Shoes;
 import com.example.projectcuoikhoa.ShoesGridAdapter;
 import com.example.projectcuoikhoa.activity.DetailActivity;
@@ -91,7 +92,8 @@ public class SecondFragment extends Fragment implements ShoesGridAdapter.UserGri
                 getParentFragmentManager().popBackStack();
             }
         });
-        LoadData(chooseType);
+        list = ShoeDataQuery.FilterData(getActivity(),chooseType);
+
         shoesGridAdapter = new ShoesGridAdapter(list, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
         rvProductList.setAdapter(shoesGridAdapter);

@@ -19,8 +19,9 @@ public class ShoesAdapterAdmin extends RecyclerView.Adapter<ShoesAdapterAdmin.Sh
     Context context;
     ShoesCallBackAdmin shoesCallBackAdmin;
 
-    public ShoesAdapterAdmin(ArrayList<Shoes> list) {
+    public ShoesAdapterAdmin(ArrayList<Shoes> list, ShoesCallBackAdmin shoesCallBackAdmin) {
         this.list = list;
+        this.shoesCallBackAdmin = shoesCallBackAdmin;
     }
 
 

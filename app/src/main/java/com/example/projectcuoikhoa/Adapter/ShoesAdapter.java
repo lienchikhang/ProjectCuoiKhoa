@@ -34,6 +34,7 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ClothesViewH
     public ClothesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
+
         View clothesView = inflater.inflate(R.layout.product_layout, parent, false);
         ClothesViewHolder viewHolder = new ClothesViewHolder(clothesView);
 
