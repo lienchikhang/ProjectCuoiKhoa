@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,7 +23,6 @@ import com.example.projectcuoikhoa.R;
 import com.example.projectcuoikhoa.ShoeDBHelper;
 import com.example.projectcuoikhoa.Shoes;
 import com.example.projectcuoikhoa.ShoesGridAdapter;
-import com.example.projectcuoikhoa.ShoppingCartFragment;
 import com.example.projectcuoikhoa.UserDBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;

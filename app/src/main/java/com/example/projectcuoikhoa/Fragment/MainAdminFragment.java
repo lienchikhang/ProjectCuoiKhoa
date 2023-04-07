@@ -142,7 +142,7 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
     void resetData() {
         list.clear();
         list.addAll(ShoeDataQuery.getAll(getActivity()));
-//        ShoesAdapter.notifyDataSetChanged();
+        shoesAdapterAdmin.notifyDataSetChanged();
     }
 
     void updateShoeDialog(Shoes sh) {

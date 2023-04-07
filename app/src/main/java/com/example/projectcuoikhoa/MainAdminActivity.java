@@ -123,7 +123,7 @@ public class MainAdminActivity extends AppCompatActivity {
     void resetData() {
         listShoes.clear();
         listShoes.addAll(ShoeDataQuery.getAll(MainAdminActivity.this));
-//        ShoesAdapter.notifyDataSetChanged();
+       // shoesAdapter.notifyDataSetChanged();
     }
 
     void updateUserDialog(Shoes sh) {
