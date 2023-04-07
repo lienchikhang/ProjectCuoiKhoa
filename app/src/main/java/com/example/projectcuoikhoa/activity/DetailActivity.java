@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.example.projectcuoikhoa.CartShoes;
 import com.example.projectcuoikhoa.R;
 import com.example.projectcuoikhoa.ShoeDataQuery;
 import com.example.projectcuoikhoa.Shoes;
+import com.example.projectcuoikhoa.Ultils;
 import com.google.gson.Gson;
 
 import java.text.NumberFormat;
@@ -66,7 +68,7 @@ public class DetailActivity extends AppCompatActivity {
         //THAY DOI TEN + GIA
         NameProduct.setText(temp.getName());
         PriceProduct.setText(temp.getPrice());
-        ivAvatar.setImageResource(R.drawable.giay);
+        ivAvatar.setImageBitmap(Ultils.convertToBitmapFromAssets(this,temp.getImage()));
 
         //su kien onclick
         ivBackBtn.setOnClickListener(getL());

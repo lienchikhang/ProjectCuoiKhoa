@@ -34,7 +34,7 @@
         android:textColor="#000"
         android:textSize="10sp"
         android:textStyle="bold"
-        app:layou_constraintLeft_toRightOf="@+id/ImgSP"
+        app:layout_constraintLeft_toRightOf="@+id/ImgSP"
         app:layout_constraintTop_toBottomOf="@id/NameSp" />
 
     <TextView
