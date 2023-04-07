@@ -125,15 +125,28 @@
                     android:padding="16dp" />
             </LinearLayout>
 
-
-            <EditText
-                android:id="@+id/edPhone"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="Số điện thoại"
-                android:inputType="numberPassword"
-                android:padding="16dp" />
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:textColor="#F30202"
+                    android:visibility="invisible"
+                    />
+                <EditText
+                    android:id="@+id/edPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Số điện thoại"
+                    android:inputType="numberPassword"
+                    android:padding="16dp" />
+            </LinearLayout>
+
 
 <!--            <EditText-->
 <!--                android:id="@+id/edRole"-->
