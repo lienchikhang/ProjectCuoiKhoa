@@ -143,7 +143,6 @@ public class MainAdminActivity extends AppCompatActivity {
         edName.setText(sh.getName());
         edPrice.setText(sh.getPrice());
         edType.setText(sh.getType());
-
         alertDialog.setPositiveButton("dong y", (dialog,which) -> {
             sh.setName(edName.getText().toString());
             sh.setImage(edAvatar.getText().toString());

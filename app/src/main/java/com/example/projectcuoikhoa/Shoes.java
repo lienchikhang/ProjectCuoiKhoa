@@ -9,7 +9,7 @@ public class Shoes {
 
     String price;
 
-    public Shoes(String name, String image, String type, String price) {
+    public Shoes(String name, String image, String price, String type) {
         this.name = name;
         this.image = image;
         this.type = type;

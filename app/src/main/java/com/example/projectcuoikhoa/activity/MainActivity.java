@@ -64,10 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Drop bangr shoe
-//        shoeDBHelper.dropTableShoe();
+     // shoeDBHelper.dropTableShoe();
 //
 //        //tao bảng shoe
-//        shoeDBHelper.createTableShoe();
+     // shoeDBHelper.createTableShoe();
 
         //bottom nav
         bottomNavigationView = findViewById(R.id.navbarBottom);

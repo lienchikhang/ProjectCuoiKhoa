@@ -16,9 +16,11 @@ import android.widget.RadioButton;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
+import com.example.projectcuoikhoa.CartShoes;
 import com.example.projectcuoikhoa.R;
 import com.example.projectcuoikhoa.ShoeDataQuery;
 import com.example.projectcuoikhoa.Shoes;
+import com.google.gson.Gson;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -28,11 +30,9 @@ public class DetailActivity extends AppCompatActivity {
     TableLayout TableSizeProduct;
     Button BtnSizeS
      ,BtnSizeM
-    ,BtnSizeL,BtnDes,Buy;
+    ,BtnSizeL,BtnDes,BuyProduct;
     TextView PriceProduct,SizeChoose;
     RadioButton Color1,Color2,Color3;
-    Locale locale=new Locale("vi","VN");
-    NumberFormat format=NumberFormat.getCurrencyInstance(locale);
     boolean checkDes=false;
     boolean CheckClickSize=false;
     TextView NameProduct;
@@ -110,7 +110,7 @@ public class DetailActivity extends AppCompatActivity {
         BtnSizeL=findViewById(R.id.BtnSizeL);
         BtnSizeM=findViewById(R.id.BtnSizeM);
         BtnSizeS=findViewById(R.id.BtnSizeS);
-        Buy=findViewById(R.id.BuyProduct);
+        BuyProduct=findViewById(R.id.BuyProduct);
         BtnDes=findViewById(R.id.btnDes);
         Color1=findViewById(R.id.Color1);
         Color2=findViewById(R.id.Color2);
@@ -125,6 +125,7 @@ public class DetailActivity extends AppCompatActivity {
         BtnSizeM.setOnClickListener(BtnMclick());
         BtnSizeL.setOnClickListener(BtnLclick());
         BtnDes.setOnClickListener(view -> BtnDesClick());
+        BuyProduct.setOnClickListener(view -> BuyProductEvent());
     }
 
     void BtnDesClick() {
@@ -138,6 +139,12 @@ public class DetailActivity extends AppCompatActivity {
             TableSizeProduct.setVisibility(View.INVISIBLE);
             checkDes=false;
         }
+    }
+    void BuyProductEvent(){
+        Intent i=new Intent(this,ShoppingCartActivity.class);
+        i.putExtra("ID",id.toString());
+        i.putExtra("Size",SizeChoose.getText().toString());
+        startActivity(i);
     }
     @NonNull
     private View.OnClickListener BtnSclick() {
@@ -185,12 +192,12 @@ public class DetailActivity extends AppCompatActivity {
         Click2.setTextColor(Color.parseColor("#000000"));
         if(ClickAbleBuy())
         {
-            Buy.setClickable(true);
+            BuyProduct.setClickable(true);
         }
     }
 
     boolean ClickAbleBuy(){
-        if(CheckClickSize&&(Color1.isChecked()||Color2.isChecked()||Color3.isChecked()))
+        if(CheckClickSize)
         {
             return true;
         }

@@ -12,10 +12,11 @@
         android:theme="@style/Theme.ProjectCuoiKhoa"
         tools:targetApi="31">
         <activity
+            android:name=".activity.ShoppingCartActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainAdminActivity"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".activity.DetailActivity"
             android:exported="false" />

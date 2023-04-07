@@ -30,15 +30,28 @@ public class ShoeDataQuery {
         while(!cs.isAfterLast()) {
             int id = cs.getInt(0);
             String name = cs.getString(1);
-            String avatar = cs.getString(2);
+            String image = cs.getString(2);
             String price = cs.getString(3);
             String type = cs.getString(4);
-            lstUser.add(new Shoes(id,name,avatar,price,type));
+            lstUser.add(new Shoes(id,name,image,price,type));
             cs.moveToNext();
         }
         cs.close();
         db.close();
         return lstUser;
+    }
+    public static Shoes getShoes(Context context,int ID){
+        ShoeDBHelper shoeDBHelper=new ShoeDBHelper(context);
+        SQLiteDatabase db=shoeDBHelper.getReadableDatabase();
+        Cursor cs=db.rawQuery("Select * from "+Ultils.TABLE_SHOE+" Where "+Ultils.COLUMN_SHOE_ID+"="+ID,null);
+        cs.moveToFirst();
+        int id = cs.getInt(0);
+        String name = cs.getString(1);
+        String image = cs.getString(2);
+        String price = cs.getString(3);
+        String type = cs.getString(4);
+        Shoes shoes=new Shoes(name,image,price,type);
+        return shoes;
     }
 
     public static int update(Context context, Shoes sh) {

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ImgSP"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/NameSp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="Ten SP"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/ImgSP"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/SizeSP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:text="Size:"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/ImgSP"
+        app:layout_constraintTop_toBottomOf="@id/NameSp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="20"
+        android:id="@+id/SizeCart"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/SizeSP"
+        app:layout_constraintTop_toBottomOf="@id/NameSp" />
+
+    <TextView
+        android:id="@+id/PriceCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:text="100.000.000"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@id/ImgSP"
+        app:layout_constraintTop_toBottomOf="@id/SizeSP" />
+
+    <ImageButton
+        android:id="@+id/minusBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/minus"
+        app:layout_constraintLeft_toRightOf="@id/ImgSP"
+        app:layout_constraintTop_toBottomOf="@id/PriceCart" />
+
+    <TextView
+        android:id="@+id/Quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_item"
+        android:padding="10dp"
+        android:text="1"
+        app:layout_constraintLeft_toRightOf="@id/minusBtn"
+        app:layout_constraintTop_toBottomOf="@id/PriceCart" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/add"
+        android:id="@+id/addBtn"
+        app:layout_constraintLeft_toRightOf="@id/Quantity"
+        app:layout_constraintTop_toBottomOf="@id/PriceCart" />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/DeleteCart"
+        android:background="@drawable/delete_cart_item"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
