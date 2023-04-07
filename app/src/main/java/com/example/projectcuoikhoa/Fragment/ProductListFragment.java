@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.example.projectcuoikhoa.ShoeDataQuery;
 import com.example.projectcuoikhoa.Shoes;
 import com.example.projectcuoikhoa.ShoesGridAdapter;
 import com.example.projectcuoikhoa.activity.DetailActivity;
@@ -73,11 +74,6 @@ public class ProductListFragment extends Fragment implements ShoesGridAdapter.Us
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
-
-
-
     }
 
     RecyclerView rvProductList;
@@ -95,7 +91,8 @@ public class ProductListFragment extends Fragment implements ShoesGridAdapter.Us
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_product_list, container, false);
         rvProductList = view.findViewById(R.id.rvGridProductList);
-        LoadData();
+
+        list = ShoeDataQuery.getAll(getActivity());
 
         shoesGridAdapter = new ShoesGridAdapter(list, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);

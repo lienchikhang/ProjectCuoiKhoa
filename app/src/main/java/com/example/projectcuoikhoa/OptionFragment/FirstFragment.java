@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.example.projectcuoikhoa.ShoeDataQuery;
 import com.example.projectcuoikhoa.Shoes;
 import com.example.projectcuoikhoa.ShoesGridAdapter;
 import com.example.projectcuoikhoa.activity.DetailActivity;
@@ -85,7 +86,7 @@ public class FirstFragment extends Fragment implements ShoesGridAdapter.UserGrid
         rvProductList = view.findViewById(R.id.rvGridProductList);
         ivBackFrag = view.findViewById(R.id.ivBackFrag1);
         ivBackFrag.setOnClickListener(view1 -> getParentFragmentManager().popBackStack());
-        LoadData(chooseType);
+        list = ShoeDataQuery.FilterData(getActivity(),chooseType);
         shoesGridAdapter = new ShoesGridAdapter(list, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
         rvProductList.setAdapter(shoesGridAdapter);
@@ -93,31 +94,14 @@ public class FirstFragment extends Fragment implements ShoesGridAdapter.UserGrid
         return view;
     }
 
-    void LoadData(String type) {
-        list = new ArrayList<>();
+    public ArrayList<Shoes> FilterData(ArrayList<Shoes> list, String type) {
         preList = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-                if(i < 10) {
-                    preList.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","run"));
-                } else {
-                    int ndu = i % 10;
-                    int nNg = i / 10;
-                    preList.add(new Shoes(i, "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","walk"));
-                }
-        }
-
-        //kiem tra neu list item co getType == "run" thi list moi add vao
-        for(int i = 0; i < 20; i++) {
-            if(preList.get(i).getType() == type) {
-                if(i < 10) {
-                    list.add(new Shoes(i, "giày " + i,"giay_0" + i + ".png",i+"00.000 VNĐ","run"));
-                } else {
-                    int ndu = i % 10;
-                    int nNg = i / 10;
-                    list.add(new Shoes(i, "giày " + i,"giay_" + i + ".png",nNg + "." + ndu + "00.000 VNĐ","run"));
-                }
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getType() == "run") {
+                preList.add(list.get(i));
             }
         }
+        return preList;
     }
 
     @Override

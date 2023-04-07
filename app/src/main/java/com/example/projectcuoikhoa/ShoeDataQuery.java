@@ -73,5 +73,25 @@ public class ShoeDataQuery {
         return (rs > 0);
     }
 
+    public static ArrayList<Shoes> FilterData(Context context, String typeFilter) {
+        ArrayList<Shoes> lstUser = new ArrayList<>();
+        ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
+        SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
+        Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_SHOE + " where " + Ultils.COLUMN_SHOE_TYPE + "=?", new String[] {String.valueOf(typeFilter)});
+        cs.moveToFirst();
+        while(!cs.isAfterLast()) {
+            int id = cs.getInt(0);
+            String name = cs.getString(1);
+            String image = cs.getString(2);
+            String price = cs.getString(3);
+            String type = cs.getString(4);
+            lstUser.add(new Shoes(id,name,image,price,type));
+            cs.moveToNext();
+        }
+        cs.close();
+        db.close();
+        return lstUser;
+    }
+
 
 }
