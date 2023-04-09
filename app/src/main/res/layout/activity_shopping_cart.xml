@@ -92,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:text="0đ"
+                android:id="@+id/PriceDelivery"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
