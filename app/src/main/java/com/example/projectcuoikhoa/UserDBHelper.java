@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+
 public class UserDBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_USERNAME = Ultils.DATABASE_USERNAME;

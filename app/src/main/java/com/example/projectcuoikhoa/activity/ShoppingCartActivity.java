@@ -1,13 +1,11 @@
 package com.example.projectcuoikhoa.activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Size;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -15,8 +13,7 @@ import com.example.projectcuoikhoa.CartShoes;
 import com.example.projectcuoikhoa.R;
 import com.example.projectcuoikhoa.ShoeDataQuery;
 import com.example.projectcuoikhoa.Shoes;
-import com.example.projectcuoikhoa.ShoppingCartAdapter;
-import com.google.gson.Gson;
+import com.example.projectcuoikhoa.Adapter.ShoppingCartAdapter;
 
 import java.util.ArrayList;
 

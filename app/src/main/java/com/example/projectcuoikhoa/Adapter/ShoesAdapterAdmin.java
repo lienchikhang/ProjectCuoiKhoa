@@ -1,4 +1,4 @@
-package com.example.projectcuoikhoa;
+package com.example.projectcuoikhoa.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projectcuoikhoa.Fragment.MainAdminFragment;
+import com.example.projectcuoikhoa.R;
+import com.example.projectcuoikhoa.Shoes;
+import com.example.projectcuoikhoa.Ultils;
 
 import java.util.ArrayList;
 
@@ -46,7 +48,7 @@ public class ShoesAdapterAdmin extends RecyclerView.Adapter<ShoesAdapterAdmin.Sh
         Shoes item = list.get(position);
         holder.imageView.setImageBitmap(Ultils.convertToBitmapFromAssets(context,item.getImage()));
         holder.tvName.setText(item.getName());
-        holder.tvPrice.setText(item.getPrice());
+        holder.tvPrice.setText(String.valueOf(item.getPrice()));
         holder.ivEdit.setOnClickListener(view -> shoesCallBackAdmin.onItemEditClick(item, position));
         holder.ivDelete.setOnClickListener(view -> shoesCallBackAdmin.onItemDeleteClick(item,position));
     }

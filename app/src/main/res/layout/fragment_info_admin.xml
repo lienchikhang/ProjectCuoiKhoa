@@ -13,11 +13,12 @@
        android:gravity="center"
        android:padding="16dp"
        >
-       <Button
+       <androidx.appcompat.widget.AppCompatButton
            android:id="@+id/btnLogoutAdmin"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:text="dang xuat"/>
+           android:background="@drawable/custom_btn_border_regis"
+           android:text="Đăng xuất"/>
    </LinearLayout>
 
 </FrameLayout>

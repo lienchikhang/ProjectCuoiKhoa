@@ -22,7 +22,7 @@ import com.example.projectcuoikhoa.Fragment.MainFragment;
 import com.example.projectcuoikhoa.R;
 import com.example.projectcuoikhoa.ShoeDBHelper;
 import com.example.projectcuoikhoa.Shoes;
-import com.example.projectcuoikhoa.ShoesGridAdapter;
+import com.example.projectcuoikhoa.Adapter.ShoesGridAdapter;
 import com.example.projectcuoikhoa.UserDBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     HorizontalScrollView scrollView;
     ShoesAdapter shoesAdapter;
     ShoesGridAdapter shoesGridAdapter;
+
+    UserDBHelper userDBHelper;
+    ShoeDBHelper shoeDBHelper;
     TextView tvMoreCate;
     LinearLayout firstOption, secondOption, thirdOption, fouthOption;
 
@@ -54,25 +57,19 @@ public class MainActivity extends AppCompatActivity {
         firstOption = findViewById(R.id.firstOption);
         secondOption = findViewById(R.id.secondOption);
 
-        ShoeDBHelper shoeDBHelper = new ShoeDBHelper(this);
 
-        //tạo bảng user
-       UserDBHelper userDBHelper = new UserDBHelper(this);
-//       userDBHelper.dropTable();
-//        userDBHelper.createTable();
-
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         // Drop bangr shoe
      // shoeDBHelper.dropTableShoe();
-//
+//        userDBHelper.dropTable();
+//        userDBHelper.createTable();
 //        //tao bảng shoe
      // shoeDBHelper.createTableShoe();
 
         //bottom nav
         bottomNavigationView = findViewById(R.id.navbarBottom);
         loadFragment(new MainFragment());
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
         bottomNavigationView.setOnItemSelectedListener(getListener(isLogined));
     }
 

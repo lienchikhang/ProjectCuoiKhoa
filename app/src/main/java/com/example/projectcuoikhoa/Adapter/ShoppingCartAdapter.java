@@ -1,16 +1,19 @@
-package com.example.projectcuoikhoa;
+package com.example.projectcuoikhoa.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.projectcuoikhoa.CartShoes;
+import com.example.projectcuoikhoa.R;
+import com.example.projectcuoikhoa.Ultils;
 
 import java.util.ArrayList;
 
@@ -61,8 +64,10 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
         TextView Size;
         TextView Quantity;
         TextView PriceCart;
-        TextView Name, delete;
-        ImageButton add, minus;
+        TextView Name;
+
+
+        ImageView add, minus, delete;
 
         public CartHolder(@NonNull View itemView) {
             super(itemView);

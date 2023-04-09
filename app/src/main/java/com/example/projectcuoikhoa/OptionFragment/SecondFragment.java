@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 
 import com.example.projectcuoikhoa.ShoeDataQuery;
 import com.example.projectcuoikhoa.Shoes;
-import com.example.projectcuoikhoa.ShoesGridAdapter;
+import com.example.projectcuoikhoa.Adapter.ShoesGridAdapter;
 import com.example.projectcuoikhoa.activity.DetailActivity;
 import com.example.projectcuoikhoa.R;
 

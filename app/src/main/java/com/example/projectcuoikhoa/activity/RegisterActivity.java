@@ -73,7 +73,6 @@ public class RegisterActivity extends AppCompatActivity implements UserDataQuery
         String confirmPassword = edConfirmpassword.getText().toString().trim();
         String email = edEmail.getText().toString().trim();
         String phone = edPhone.getText().toString().trim();
-//        String role = edRole.getText().toString().trim();
         String role ="";
         int gender = 1;
         boolean isValid = checkUserName(userName) && checkPassword(passWord, confirmPassword);
@@ -90,10 +89,6 @@ public class RegisterActivity extends AppCompatActivity implements UserDataQuery
             if( id > 0) {
                 Toast.makeText(this, "Đăng kí thành công", Toast.LENGTH_SHORT).show();
             }
-//
-//            String userStr = gson.toJson(user);
-//            editor.putString(Ultils.KEY_USER, userStr);
-//            editor.commit();
 
             Toast.makeText(RegisterActivity.this,"Register Success!",Toast.LENGTH_LONG);
             Intent i = new Intent(this, LoginActivity.class);

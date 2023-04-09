@@ -29,10 +29,6 @@ public class LoginActivity extends AppCompatActivity {
     Button btLogin, btRegister;
     EditText edUsername, edPassword;
 
-//    SharedPreferences.Editor editor;
-
-//    private final Gson gson = new Gson();
-//    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,14 +36,13 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         Intent i = getIntent();
-        Boolean isLogined = i.getBooleanExtra("bool",false);
+        Boolean isLogined = i.getBooleanExtra("bool", false);
 
         //Anh Xa
         anhXa();
         taoSuKien(isLogined);
-
-//        sharedPreferences = getSharedPreferences(Ultils.SHARE_PREFERENCES_APP, Context.MODE_PRIVATE);
     }
+
     void anhXa() {
         btLogin = findViewById(R.id.loginbtn);
         btRegister = findViewById(R.id.registerBtn);
@@ -74,81 +69,36 @@ public class LoginActivity extends AppCompatActivity {
         String username = edUsername.getText().toString().trim();
         String password = edPassword.getText().toString().trim();
         UserDBHelper userDBHelper = new UserDBHelper(this);
-//        SQLiteDatabase db = userDBHelper.getReadableDatabase();
         Cursor listUser = userDBHelper.getData(
                 "Select * From " + Ultils.TABLE_USER
         );
         String role = "";
         boolean existUser = false;
-        while(listUser.moveToNext()) {
-            if(username.equals(listUser.getString(1)) && password.equals(listUser.getString(2))) {
+        while (listUser.moveToNext()) {
+            if (username.equals(listUser.getString(1)) && password.equals(listUser.getString(2))) {
                 role = listUser.getString(6);
                 existUser = true;
                 break;
             }
         }
-        if(existUser) {
-            if(role.equals("admin")) {
+        if (existUser) {
+            if (role.equals("admin")) {
                 Intent i = new Intent(this, MainAdminActivity.class);
                 i.putExtra("role", role);
                 startActivity(i);
                 return;
             } else {
-                Intent i = new Intent(this,MainActivity.class);
-                isLogined=true;
+                Intent i = new Intent(this, MainActivity.class);
+                isLogined = true;
                 i.putExtra("role", role);
-                i.putExtra("bool",isLogined);
-                i.putExtra("UserName",username);
-                i.putExtra("Password",password);
+                i.putExtra("bool", isLogined);
+                i.putExtra("UserName", username);
+                i.putExtra("Password", password);
+
                 startActivity(i);
             }
         } else {
-            Toast.makeText(getApplicationContext(),"sai mat khau hoac tai khoan",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "sai mat khau hoac tai khoan", Toast.LENGTH_LONG).show();
         }
-//        String query = "SELECT * FROM " + Ultils.TABLE_USER + " WHERE " +Ultils.COLUMN_USER_NAME + "= ? AND " + Ultils.COLUMN_USER_PASSWORD + " = ?";
-//        Cursor cursor = db.rawQuery(query, new String[]{Ultils.COLUMN_USER_NAME,Ultils.COLUMN_USER_PASSWORD});
-
-//        boolean isValid = username.trim().equals(x.getUsername) && edPassword.getText().toString().trim().equals(x.getPassword());
-//        if(cursor.getCount() > 0) {
-//            Intent intent = new Intent(this, MainActivity.class);
-//            Bundle bundle = new Bundle();
-//            bundle.putSerializable(Ultils.KEY_USER_PROFILE,user);
-//            isLogined = true;
-//            intent.putExtra("bool", isLogined);
-//            intent.putExtras(bundle);
-//            startActivity(intent);
-//        } else {
-//            // Username không tồn tại trong cơ sở dữ liệu
-//        }
-//        if(cursor.moveToFirst()) {
-//            int id = cursor.getInt(0);
-//            String dbUsername = cursor.getString(1);
-//            String dbPassword = cursor.getString(2);
-//            User user = new User(id, dbUsername, dbPassword);
-//            boolean isValid = username.equals(user.getUsername()) && password.equals(user.getPassword());
-//            if(isValid) {
-//                Intent intent = new Intent(this, MainActivity.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putSerializable(Ultils.KEY_USER_PROFILE,user);
-//                isLogined = true;
-//                intent.putExtra("bool", isLogined);
-//                intent.putExtras(bundle);
-//                startActivity(intent);
-//            } else {
-//                // Đăng nhập thất bại
-//            }
-//        }
-//        cursor.close();
-//        db.close();
-
-//        String userPref = sharedPreferences.getString(Ultils.KEY_USER, null);
-//        User user = gson.fromJson(userPref, User.class);
-//        if(user == null) {
-//            return;
-//        }
-
-
     }
-
-
 }

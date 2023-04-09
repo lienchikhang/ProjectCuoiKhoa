@@ -1,6 +1,5 @@
 package com.example.projectcuoikhoa.Fragment;
 
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
@@ -15,12 +14,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.projectcuoikhoa.R;
-import com.example.projectcuoikhoa.ShoeDBHelper;
 import com.example.projectcuoikhoa.ShoeDataQuery;
 import com.example.projectcuoikhoa.Shoes;
 import com.example.projectcuoikhoa.Adapter.ShoesAdapter;
-import com.example.projectcuoikhoa.ShoesAdapterAdmin;
-import com.example.projectcuoikhoa.Ultils;
+import com.example.projectcuoikhoa.Adapter.ShoesAdapterAdmin;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;

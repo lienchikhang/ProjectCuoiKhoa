@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.projectcuoikhoa.Adapter.ShoesGridAdapter;
+
 import java.util.ArrayList;
 
 public class showMoreProductActivity extends AppCompatActivity {
