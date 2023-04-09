@@ -26,6 +26,9 @@ public class CartShoes implements Serializable {
         Size = size;
     }
 
+    public CartShoes() {
+    }
+
     public Shoes getShoes() {
         return shoes;
     }
@@ -49,4 +52,9 @@ public class CartShoes implements Serializable {
     public void setSize(String size) {
         Size = size;
     }
-}
+
+    public boolean equals(String name,String size){
+        return  this.getShoes().getName().equals(name)&&this.getSize().equals(size);
+        }
+    }
+

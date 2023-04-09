@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Size;
 import android.view.View;
 import android.widget.ImageView;
@@ -33,19 +36,20 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
     TextView PriceSum;
     TextView PriceDelivery;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_cart);
         LoadData();
         SukienthemlistCart();
-        rvlistCart=findViewById(R.id.rvListCart);
+        rvlistCart = findViewById(R.id.rvListCart);
         btnback = findViewById(R.id.btnback);
-        PriceSum=findViewById(R.id.PriceSum);
-        PriceDelivery=findViewById(R.id.PriceDelivery);
+        PriceSum = findViewById(R.id.PriceSum);
+        PriceDelivery = findViewById(R.id.PriceDelivery);
         SetPriceSumAndDelivery();
-        shoppingCartAdapter=new ShoppingCartAdapter(listCart,this);
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+        shoppingCartAdapter = new ShoppingCartAdapter(listCart, this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvlistCart.setAdapter(shoppingCartAdapter);
         rvlistCart.setLayoutManager(linearLayoutManager);
         btnback.setOnClickListener(new View.OnClickListener() {
@@ -56,65 +60,82 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
             }
         });
     }
-    void SukienthemlistCart(){
-        Intent i=getIntent();
-        String id=i.getStringExtra("ID");
-        String Size=i.getStringExtra("Size");
-        Shoes shoes= ShoeDataQuery.getShoes(this,Integer.parseInt(id));
-        CartShoes cartShoes=new CartShoes(shoes,1,Size,shoes.getImage());
+
+    void SukienthemlistCart() {
+        Intent i = getIntent();
+        String id = i.getStringExtra("ID");
+        String Size = i.getStringExtra("Size");
+        Shoes shoes = ShoeDataQuery.getShoes(this, Integer.parseInt(id));
+        CartShoes cartShoes = new CartShoes(shoes, 1, Size, shoes.getImage());
+        for(int a=0;a<listCart.size();a++){
+            if(listCart.get(a).equals(cartShoes.getShoes().getName(),Size)){
+                int OldQuan=listCart.get(a).getQuantity();
+                listCart.get(a).setQuantity(OldQuan+1);
+                return;
+            }
+        }
         listCart.add(cartShoes);
     }
-    public void onItemAdd(CartShoes cartShoes, int position){
-        listCart.remove(cartShoes);
-        listCart.add(new CartShoes(cartShoes.getShoes(),cartShoes.getQuantity()+1,cartShoes.getSize(),cartShoes.getImgShoes()));
+
+    public void onItemAdd(CartShoes cartShoes, int position) {
+        cartShoes.setQuantity(cartShoes.getQuantity()+1);
+        listCart.set(position,cartShoes);
         SetPriceSumAndDelivery();
         shoppingCartAdapter.notifyItemChanged(position);
-    }
-    public void onItemMinus(CartShoes cartShoes, int position){
 
-        if(cartShoes.getQuantity()==1){
-            onItemDelete(cartShoes,position);
-        }
-        else {
-            listCart.remove(cartShoes);
-            listCart.add(new CartShoes(cartShoes.getShoes(),cartShoes.getQuantity()-1,cartShoes.getSize(),cartShoes.getImgShoes()));
+    }
+
+    public void onItemMinus(CartShoes cartShoes, int position) {
+
+        if (cartShoes.getQuantity() == 1) {
+            onItemDelete(cartShoes, position);
+        } else {
+            cartShoes.setQuantity(cartShoes.getQuantity()-1);
+            listCart.set(position,cartShoes);
             SetPriceSumAndDelivery();
             shoppingCartAdapter.notifyItemChanged(position);
         }
     }
-    public void onItemDelete(CartShoes cartShoes,int position){
+
+    public void onItemDelete(CartShoes cartShoes, int position) {
         listCart.remove(cartShoes);
         SetPriceSumAndDelivery();
         shoppingCartAdapter.notifyItemRemoved(position);
     }
-    void SaveData(){
-        SharedPreferences sharedPreferences=getSharedPreferences("shared preferences", MODE_PRIVATE);
+
+
+    void SaveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        Gson gson=new Gson();
-        String Save=gson.toJson(listCart);
-        editor.putString("listCart",Save);
+        Gson gson = new Gson();
+        String Save = gson.toJson(listCart);
+        editor.putString("listCart", Save);
         editor.apply();
     }
-    void LoadData(){
+
+    void LoadData() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();
-        String Save=sharedPreferences.getString("listCart",null);
-        Type type = new TypeToken<ArrayList<CartShoes>>() {}.getType();
-        listCart=gson.fromJson(Save,type);
-        if(listCart==null){
-            listCart=new ArrayList<>();
+        String Save = sharedPreferences.getString("listCart", null);
+        Type type = new TypeToken<ArrayList<CartShoes>>() {
+        }.getType();
+        listCart = gson.fromJson(Save, type);
+        if (listCart == null) {
+            listCart = new ArrayList<>();
         }
     }
-    void SetPriceSumAndDelivery(){
-        int PriceS=0;
-        int PriceD=0;
-        for (CartShoes cartshoes:listCart
-             ) {
-            PriceS+=cartshoes.getQuantity()*cartshoes.getShoes().getPrice();
-            PriceD+=cartshoes.getQuantity()*2000;
+
+    void SetPriceSumAndDelivery() {
+        int PriceS = 0;
+        int PriceD = 0;
+        for (CartShoes cartshoes : listCart
+        ) {
+            PriceS += cartshoes.getQuantity() * cartshoes.getShoes().getPrice();
+            PriceD += cartshoes.getQuantity() * 2000;
         }
         PriceSum.setText(Integer.toString(PriceS));
         PriceDelivery.setText(Integer.toString(PriceD));
     }
+
 
 }
