@@ -1,19 +1,14 @@
-package com.example.projectcuoikhoa.Adapter;
+package com.example.projectcuoikhoa;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.projectcuoikhoa.CartShoes;
-import com.example.projectcuoikhoa.R;
-import com.example.projectcuoikhoa.Ultils;
 
 import java.util.ArrayList;
 

@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import com.example.projectcuoikhoa.Adapter.ShoesAdapter;
 import com.example.projectcuoikhoa.Adapter.ShoesGridAdapter;
 import com.example.projectcuoikhoa.Fragment.InfoAdminFragment;
 import com.example.projectcuoikhoa.Fragment.MainAdminFragment;
+import com.example.projectcuoikhoa.Fragment.ManageUserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -36,7 +38,8 @@ public class MainAdminActivity extends AppCompatActivity {
     HorizontalScrollView scrollViewAdmin;
     ShoesAdapter shoesAdapter;
     ShoesGridAdapter shoesGridAdapter;
-    TextView tvMoreCate;
+
+    LinearLayout firstOption, secondOption, thirdOption, fouthOption;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,12 +49,41 @@ public class MainAdminActivity extends AppCompatActivity {
         String role = i.getStringExtra("role");
 //        scrollViewAdmin = findViewById(R.id.scrollViewAdmin);
 //        scrollViewAdmin.setVisibility(View.VISIBLE);
+
+        firstOption = findViewById(R.id.firstOptionAdmin);
+        secondOption = findViewById(R.id.secondOptionAdmin);
+        getOptionsListener();
+
         //bottom nav
         bottomNavigationView = findViewById(R.id.navbarBottomAdmin);
         loadFragment(new MainAdminFragment());
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Home");
         bottomNavigationView.setOnItemSelectedListener(getListener(isLogined,role));
+    }
+
+    void getOptionsListener() {
+        firstOption.setOnClickListener(getListentOptionAdmin());
+        secondOption.setOnClickListener(getListentOptionAdmin());
+//        thirdOption.setOnClickListener(getListenerOption());
+//        fouthOption.setOnClickListener(getListenerOption());
+    }
+
+    @NonNull
+    private View.OnClickListener getListentOptionAdmin() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.firstOptionAdmin:
+                        loadFragment(new MainAdminFragment());
+                        break;
+                    case R.id.secondOptionAdmin:
+                        loadFragment(new ManageUserFragment());
+                        break;
+                }
+            }
+        };
     }
 
     @NonNull
