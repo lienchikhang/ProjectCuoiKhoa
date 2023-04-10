@@ -7,7 +7,9 @@ import android.graphics.BitmapFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Ultils {
     public static final String SHARE_PREFERENCES_APP = "share_preferences_app";
@@ -55,5 +57,11 @@ public class Ultils {
 
     public static void LoadData(ArrayList<Shoes> shoesArrayList) {
 
+    }
+    public static String ConvertToVND(int Price){
+        Locale localeVN = new Locale("vi", "VN");
+        NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+        String str1 = currencyVN.format(Price);
+        return str1;
     }
 }

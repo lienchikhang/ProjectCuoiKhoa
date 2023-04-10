@@ -47,7 +47,7 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ClothesViewH
 
         holder.imageView.setImageBitmap(Ultils.convertToBitmapFromAssets(context,item.getImage()));
         holder.tvName.setText(item.getName());
-        holder.tvPrice.setText(String.valueOf(item.getPrice()));
+        holder.tvPrice.setText(Ultils.ConvertToVND(item.getPrice()));
         holder.itemView.setOnClickListener(view -> shoesCallBack.onItemClick(String.valueOf(item.getId())));
 
 

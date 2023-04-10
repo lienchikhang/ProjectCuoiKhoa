@@ -39,7 +39,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
         holder.Name.setText(item.getShoes().getName());
         holder.Size.setText(item.getSize());
         holder.Quantity.setText(Integer.toString(item.getQuantity()));
-        holder.PriceCart.setText(String.valueOf(item.getShoes().getPrice()));
+        holder.PriceCart.setText(Ultils.ConvertToVND(item.getShoes().getPrice()));
         holder.add.setOnClickListener(view -> cartCallback.onItemAdd(item,position));
         holder.minus.setOnClickListener(view -> cartCallback.onItemMinus(item,position));
         holder.delete.setOnClickListener(view -> cartCallback.onItemDelete(item,position));

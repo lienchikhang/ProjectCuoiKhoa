@@ -47,7 +47,7 @@ public class ShoesGridAdapter extends RecyclerView.Adapter<ShoesGridAdapter.Clot
         Shoes item = shoesArrayList.get(position);
         holder.imageView.setImageBitmap(Ultils.convertToBitmapFromAssets(context, item.getImage()));
         holder.tvName.setText(item.getName());
-        holder.tvPrice.setText(String.valueOf(item.getPrice()));
+        holder.tvPrice.setText(Ultils.ConvertToVND(item.getPrice()));
         holder.itemView.setOnClickListener(view -> userGridCallBack.onItemClick(String.valueOf(item.getId())));
         holder.tvTypeG.setText("Loại: " + item.getType());
 //        holder.lnProduct.setOnClickListener(view -> userGridCallBack.onItemClick(item.getId()));

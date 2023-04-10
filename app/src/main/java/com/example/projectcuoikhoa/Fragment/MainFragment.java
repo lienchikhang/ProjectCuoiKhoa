@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ import com.example.projectcuoikhoa.OptionFragment.FouthFragment;
 import com.example.projectcuoikhoa.OptionFragment.SecondFragment;
 import com.example.projectcuoikhoa.OptionFragment.ThirdFragment;
 import com.example.projectcuoikhoa.R;
+import com.example.projectcuoikhoa.activity.ShoppingCartActivity;
 
 import java.util.ArrayList;
 
@@ -88,6 +90,7 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
     LinearLayout firstOption, secondOption, thirdOption, fouthOption;
 
     TextView tvMoreCate, tvMoreCate2;
+    ImageButton ImgBtnCart;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -99,6 +102,7 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
         rvGridMain = view.findViewById(R.id.rvGridMain);
         tvMoreCate = view.findViewById(R.id.tvMoreCate);
         tvMoreCate2 = view.findViewById(R.id.tvMoreCate2);
+        ImgBtnCart=view.findViewById(R.id.shoppingCartMain);
 
         //load du lieu
 //        LoadData();
@@ -120,7 +124,7 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
 //        getOptionsListener();
         tvMoreCate.setOnClickListener(getL());
         tvMoreCate2.setOnClickListener(getL());
-
+        ImgBtnCart.setOnClickListener(v->ClickCart());
 
 
         return view;
@@ -233,6 +237,10 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
         option2.setBackgroundResource(R.drawable.btn_size_default);
         option3.setBackgroundResource(R.drawable.btn_size_default);
         option4.setBackgroundResource(R.drawable.btn_size_default);
+    }
+    void ClickCart(){
+        Intent i=new Intent(getActivity(), ShoppingCartActivity.class);
+        startActivity(i);
     }
 
 

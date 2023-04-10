@@ -48,7 +48,7 @@ public class ShoesAdapterAdmin extends RecyclerView.Adapter<ShoesAdapterAdmin.Sh
         Shoes item = list.get(position);
         holder.imageView.setImageBitmap(Ultils.convertToBitmapFromAssets(context,item.getImage()));
         holder.tvName.setText(item.getName());
-        holder.tvPrice.setText(String.valueOf(item.getPrice()));
+        holder.tvPrice.setText(Ultils.ConvertToVND(item.getPrice()));
         holder.ivEdit.setOnClickListener(view -> shoesCallBackAdmin.onItemEditClick(item, position));
         holder.ivDelete.setOnClickListener(view -> shoesCallBackAdmin.onItemDeleteClick(item,position));
     }

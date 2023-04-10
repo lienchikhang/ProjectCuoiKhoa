@@ -21,6 +21,7 @@ import com.example.projectcuoikhoa.R;
 import com.example.projectcuoikhoa.ShoeDataQuery;
 import com.example.projectcuoikhoa.Shoes;
 import com.example.projectcuoikhoa.ShoppingCartAdapter;
+import com.example.projectcuoikhoa.Ultils;
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
@@ -64,6 +65,9 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
     void SukienthemlistCart() {
         Intent i = getIntent();
         String id = i.getStringExtra("ID");
+        if(id==null){
+            return;
+        }
         String Size = i.getStringExtra("Size");
         Shoes shoes = ShoeDataQuery.getShoes(this, Integer.parseInt(id));
         CartShoes cartShoes = new CartShoes(shoes, 1, Size, shoes.getImage());
@@ -133,8 +137,8 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
             PriceS += cartshoes.getQuantity() * cartshoes.getShoes().getPrice();
             PriceD += cartshoes.getQuantity() * 2000;
         }
-        PriceSum.setText(Integer.toString(PriceS));
-        PriceDelivery.setText(Integer.toString(PriceD));
+        PriceSum.setText(Ultils.ConvertToVND(PriceS+PriceD));
+        PriceDelivery.setText(Ultils.ConvertToVND(PriceD));
     }
 
 
