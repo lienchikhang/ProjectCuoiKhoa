@@ -10,8 +10,8 @@ public class User implements Serializable {
     private String email;
     private String avatar;
     private String phone;
-
     private String role;
+
 
     public User() {
     }
@@ -104,4 +104,9 @@ public class User implements Serializable {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public int getGender() {
+        return gender;
+    }
+
 }

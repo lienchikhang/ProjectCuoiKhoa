@@ -84,6 +84,7 @@ public class RegisterActivity extends AppCompatActivity implements UserDataQuery
             if(userName.contains("admin")) {
                 role = "admin";
             }
+            int loginTime = 0;
             User user = new User(userName,passWord,gender,email,phone,role);
             long id = UserDataQuery.insert(RegisterActivity.this,user);
             if( id > 0) {

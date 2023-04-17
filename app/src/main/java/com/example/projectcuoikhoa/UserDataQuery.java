@@ -54,6 +54,7 @@ public class UserDataQuery {
             String email = cs.getString(4);
             String phone = cs.getString(5);
             String role = cs.getString(6);
+
             lstUser.add(new User(id,name,pass,gender,email,phone,role));
             cs.moveToNext();
         }

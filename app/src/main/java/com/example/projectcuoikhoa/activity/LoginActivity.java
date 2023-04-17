@@ -73,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                 "Select * From " + Ultils.TABLE_USER
         );
         String role = "";
+        int loginTime = 0;
         boolean existUser = false;
         while (listUser.moveToNext()) {
             if (username.equals(listUser.getString(1)) && password.equals(listUser.getString(2))) {
@@ -94,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                 i.putExtra("bool", isLogined);
                 i.putExtra("UserName", username);
                 i.putExtra("Password", password);
-
+                i.putExtra("loginTime", loginTime);
                 startActivity(i);
             }
         } else {

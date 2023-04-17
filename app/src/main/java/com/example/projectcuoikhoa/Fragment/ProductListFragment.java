@@ -103,6 +103,7 @@ public class ProductListFragment extends Fragment implements ShoesGridAdapter.Us
         ivBackFrag.setOnClickListener(view1 -> getParentFragmentManager().popBackStack());
         //anh xa 4 options
         anhXaOption();
+
         makeBtnDefault2(firstOption,secondOption,thirdOption,fouthOption);
         //onClickListener
         getOptionsListener();
@@ -121,6 +122,7 @@ public class ProductListFragment extends Fragment implements ShoesGridAdapter.Us
                         BtnClick(firstOption);
                         makeBtnDefault(secondOption,thirdOption, fouthOption);
                         loadFragment(new FirstFragment(type));
+                        unDoOptionListener();
                         break;
                     case R.id.secondOption:
                         type = "walk";
@@ -128,16 +130,19 @@ public class ProductListFragment extends Fragment implements ShoesGridAdapter.Us
                         BtnClick(secondOption);
                         makeBtnDefault(firstOption,thirdOption, fouthOption);
                         loadFragment(new SecondFragment(type,op));
+                        unDoOptionListener();
                         break;
                     case R.id.thirdOption:
                         BtnClick(thirdOption);
                         makeBtnDefault(secondOption,firstOption, fouthOption);
                         loadFragment(new ThirdFragment());
+                        unDoOptionListener();
                         break;
                     case R.id.fouthOption:
                         BtnClick(fouthOption);
                         makeBtnDefault(secondOption,thirdOption, firstOption);
                         loadFragment(new FouthFragment());
+                        unDoOptionListener();
                         break;
                 }
             }
@@ -170,6 +175,13 @@ public class ProductListFragment extends Fragment implements ShoesGridAdapter.Us
         secondOption.setOnClickListener(getListenerOption());
         thirdOption.setOnClickListener(getListenerOption());
         fouthOption.setOnClickListener(getListenerOption());
+    }
+
+    void unDoOptionListener() {
+        firstOption.setOnClickListener(null);
+        secondOption.setOnClickListener(null);
+        thirdOption.setOnClickListener(null);
+        fouthOption.setOnClickListener(null);
     }
 
     @Override

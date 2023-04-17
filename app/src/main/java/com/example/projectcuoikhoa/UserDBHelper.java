@@ -28,7 +28,8 @@ public class UserDBHelper extends SQLiteOpenHelper {
                 + Ultils.COLUMN_USER_GENDER + " TEXT, "
                 + Ultils.COLUMN_USER_EMAIL + " TEXT, "
                 + Ultils.COLUMN_USER_PHONE + " TEXT, "
-                + Ultils.COLUMN_USER_ROLE + " TEXT"
+                + Ultils.COLUMN_USER_ROLE + " TEXT, "
+                + Ultils.COLUMN_USER_LOGINTIME + " INTEGER"
                 + ")";
         sqLiteDatabase.execSQL(CREATE_USER_TABLE);
     }

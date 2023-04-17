@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 
 import com.example.projectcuoikhoa.activity.LoginActivity;
 import com.example.projectcuoikhoa.R;
@@ -38,6 +39,8 @@ public class InfoNotLoginFragment extends Fragment {
         // Required empty public constructor
         isLogined = isLogin;
     }
+
+    HorizontalScrollView scrollView;
 
     /**
      * Use this factory method to create a new instance of

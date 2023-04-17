@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ import com.example.projectcuoikhoa.Adapter.ShoesGridAdapter;
 import com.example.projectcuoikhoa.Fragment.InfoAdminFragment;
 import com.example.projectcuoikhoa.Fragment.MainAdminFragment;
 import com.example.projectcuoikhoa.Fragment.ManageUserFragment;
+import com.example.projectcuoikhoa.activity.MainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -39,7 +41,8 @@ public class MainAdminActivity extends AppCompatActivity {
     ShoesAdapter shoesAdapter;
     ShoesGridAdapter shoesGridAdapter;
 
-    LinearLayout firstOption, secondOption, thirdOption, fouthOption;
+    LinearLayout manageProduct, manageUser, thirdOption, fouthOption;
+    ImageView btnLogout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,24 +50,25 @@ public class MainAdminActivity extends AppCompatActivity {
         Intent i = getIntent();
         Boolean isLogined = i.getBooleanExtra("bool", false);
         String role = i.getStringExtra("role");
-//        scrollViewAdmin = findViewById(R.id.scrollViewAdmin);
-//        scrollViewAdmin.setVisibility(View.VISIBLE);
 
-        firstOption = findViewById(R.id.firstOptionAdmin);
-        secondOption = findViewById(R.id.secondOptionAdmin);
+//        scrollViewAdmin = findViewById(R.id.scrollViewAdminn);
+        manageProduct = findViewById(R.id.manageProduct);
+        manageUser = findViewById(R.id.manageUser);
+        btnLogout = findViewById(R.id.btnLogoutt);
         getOptionsListener();
 
         //bottom nav
         bottomNavigationView = findViewById(R.id.navbarBottomAdmin);
-        loadFragment(new MainAdminFragment());
+//        loadFragment(new MainAdminFragment());
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Home");
         bottomNavigationView.setOnItemSelectedListener(getListener(isLogined,role));
     }
 
     void getOptionsListener() {
-        firstOption.setOnClickListener(getListentOptionAdmin());
-        secondOption.setOnClickListener(getListentOptionAdmin());
+        manageProduct.setOnClickListener(getListentOptionAdmin());
+        manageUser.setOnClickListener(getListentOptionAdmin());
+        btnLogout.setOnClickListener(getListentOptionAdmin());
 //        thirdOption.setOnClickListener(getListenerOption());
 //        fouthOption.setOnClickListener(getListenerOption());
     }
@@ -75,11 +79,17 @@ public class MainAdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
-                    case R.id.firstOptionAdmin:
-                        loadFragment(new MainAdminFragment());
+                    case R.id.manageProduct:
+                        Intent i = new Intent(MainAdminActivity.this, ManageProductActivity.class);
+                        startActivity(i);
                         break;
-                    case R.id.secondOptionAdmin:
-                        loadFragment(new ManageUserFragment());
+                    case R.id.manageUser:
+                        i = new Intent(MainAdminActivity.this, ManageUserActivity.class);
+                        startActivity(i);
+                        break;
+                    case R.id.btnLogoutt:
+                        i = new Intent(MainAdminActivity.this, MainActivity.class);
+                        startActivity(i);
                         break;
                 }
             }
@@ -93,9 +103,11 @@ public class MainAdminActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
+                        scrollViewAdmin.setVisibility(View.VISIBLE);
                         loadFragment(new MainAdminFragment());
                         break;
                     case R.id.info:
+                        scrollViewAdmin.setVisibility(View.INVISIBLE);
                         loadFragment(new InfoAdminFragment());
                         break;
 //

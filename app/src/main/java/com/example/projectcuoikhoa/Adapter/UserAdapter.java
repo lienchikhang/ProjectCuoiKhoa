@@ -43,6 +43,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 //        holder.imageView.setImageBitmap(Ultils.convertToBitmapFromAssets(context,item.getImage()));
         holder.tvManagePass.setText(item.getPassword());
         holder.tvManageUsername.setText(item.getUsername());
+        holder.tvManagePhone.setText(item.getPhone());
 //        holder.itemView.setOnClickListener(view -> shoesCallBack.onItemClick(String.valueOf(item.getId())));
     }
 
@@ -52,11 +53,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     }
 
     public class UserViewHolder extends RecyclerView.ViewHolder {
-         TextView tvManageUsername, tvManagePass;
+         TextView tvManageUsername, tvManagePass, tvManagePhone, tvManageLoginTime;
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             tvManageUsername= itemView.findViewById(R.id.tvManageUsername);
             tvManagePass= itemView.findViewById(R.id.tvManageUserPass);
+            tvManagePhone = itemView.findViewById(R.id.tvManageUserPhone);
+            tvManageLoginTime = itemView.findViewById(R.id.tvManageLoginTime);
         }
     }
 }

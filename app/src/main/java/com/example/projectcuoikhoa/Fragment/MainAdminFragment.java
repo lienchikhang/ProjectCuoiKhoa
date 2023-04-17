@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.HorizontalScrollView;
 import android.widget.Toast;
 
 import com.example.projectcuoikhoa.R;
@@ -66,6 +67,7 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
     ArrayList<Shoes> list;
     ShoesAdapterAdmin shoesAdapterAdmin;
 
+    HorizontalScrollView scrollView;
     FloatingActionButton fbAdd;
 
     @Override
@@ -81,130 +83,149 @@ public class MainAdminFragment extends Fragment implements ShoesAdapterAdmin.Sho
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_main_admin, container, false);
-        fbAdd = view.findViewById(R.id.fbAdd);
-        fbAdd.setOnClickListener(view1 -> addShoeDialog());
-        rvList = view.findViewById(R.id.rvGridAdmin);
-
-        list = ShoeDataQuery.getAll(getActivity());
-        shoesAdapterAdmin = new ShoesAdapterAdmin(list,this);
-        shoesAdapterAdmin.setCallBackAdmin(this);
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        rvList.setAdapter(shoesAdapterAdmin);
-        rvList.setLayoutManager(linearLayoutManager);
-
-
-
-        return view;
+//        View view = inflater.inflate(R.layout.fragment_main_admin, container, false);
+//        fbAdd = view.findViewById(R.id.fbAdd);
+//        fbAdd.setOnClickListener(view1 -> addShoeDialog());
+//        rvList = view.findViewById(R.id.rvGridAdmin);
+//
+//
+//        list = ShoeDataQuery.getAll(getActivity());
+//        shoesAdapterAdmin = new ShoesAdapterAdmin(list,this);
+//        shoesAdapterAdmin.setCallBackAdmin(this);
+//
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+//        rvList.setAdapter(shoesAdapterAdmin);
+//        rvList.setLayoutManager(linearLayoutManager);
+//
+//
+//
+//        return view;
+        return null;
     }
-
-
 
     @Override
     public void onItemClick(String id) {
+
     }
 
     @Override
     public void onItemDeleteClick(Shoes sh, int position) {
-        boolean rs = ShoeDataQuery.delete(getActivity(),sh.getId());
-        if(rs) {
-            Toast.makeText(getActivity(), "Xoá thành công", Toast.LENGTH_SHORT).show();
-            resetData();
-        } else {
-            Toast.makeText(getActivity(), "Xoá không thành công", Toast.LENGTH_SHORT).show();
-        }
+
     }
 
     @Override
     public void onItemEditClick(Shoes sh, int position) {
-        updateShoeDialog(sh);
-    }
-
-    void resetData() {
-        list.clear();
-        list.addAll(ShoeDataQuery.getAll(getActivity()));
-        shoesAdapterAdmin.notifyDataSetChanged();
-    }
-
-    void updateShoeDialog(Shoes sh) {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
-        alertDialog.setTitle("Cập Nhật");
-        LayoutInflater inflater = this.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.dialog_add_shoe,null);
-        alertDialog.setView(dialogView);
-
-        EditText edName = (EditText) dialogView.findViewById(R.id.edName);
-        EditText edAvatar = (EditText) dialogView.findViewById(R.id.edAvatar);
-        EditText edType = (EditText) dialogView.findViewById(R.id.edType);
-        EditText edPrice = (EditText) dialogView.findViewById(R.id.edPrice);
-
-        //gan du lieu
-        edAvatar.setText(sh.getImage());
-        edName.setText(sh.getName());
-        edPrice.setText(sh.getPrice());
-        edType.setText(sh.getType());
-
-        alertDialog.setPositiveButton("Đồng ý", (dialog,which) -> {
-            sh.setName(edName.getText().toString());
-            sh.setImage(edAvatar.getText().toString());
-            sh.setPrice(Integer.parseInt(edPrice.getText().toString()));
-            sh.setType(edType.getText().toString());
-
-            if(sh.getName().isEmpty()) {
-                Toast.makeText(getActivity(), "Vui lòng nhập dữ liệu", Toast.LENGTH_SHORT).show();
-            } else {
-                int id = ShoeDataQuery.update(getActivity(),sh);
-                if( id >= 0) {
-                    Toast.makeText(getActivity(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
-                    resetData();
-                    dialog.dismiss();
-                }
-            }
-        });
-        alertDialog.setNegativeButton("Huỷ",(dialog,which)->{
-            dialog.dismiss();
-        });
-        alertDialog.create();
-        alertDialog.show();
-    }
-    void addShoeDialog() {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
-        alertDialog.setTitle("Thêm mới");
-        LayoutInflater layoutInflater = this.getLayoutInflater();
-        View dialogView = layoutInflater.inflate(R.layout.dialog_add_shoe,null);
-        alertDialog.setView(dialogView);
-
-//        EditText edID = (EditText) dialogView.findViewById(R.id.edID);
-        EditText edName = (EditText) dialogView.findViewById(R.id.edName);
-        EditText edAvatar = (EditText) dialogView.findViewById(R.id.edAvatar);
-        EditText edType = (EditText) dialogView.findViewById(R.id.edType);
-        EditText edPrice = (EditText) dialogView.findViewById(R.id.edPrice);
-
-
-        alertDialog.setPositiveButton("Đồng ý", (dialog,which) -> {
-//            int idEd = Integer.parseInt(edID.getText().toString());
-            String name = edName.getText().toString();
-            String avatar = edAvatar.getText().toString();
-            String type = edType.getText().toString();
-            int price = Integer.parseInt(edPrice.getText().toString());
-            if(name.isEmpty()) {
-                Toast.makeText(getActivity(), "Nhập dữ liệu không đúng", Toast.LENGTH_SHORT).show();
-            } else {
-                Shoes sh = new Shoes(name,avatar,price,type);
-                long id = ShoeDataQuery.insert(getActivity(),sh);
-                if( id > 0) {
-                    Toast.makeText(getActivity(), "Thêm thành công", Toast.LENGTH_SHORT).show();
-                    resetData();
-                    dialog.dismiss();
-                }
-            }
-        });
-        alertDialog.setNegativeButton("Huỷ",(dialog,which)->{
-            dialog.dismiss();
-        });
-        alertDialog.create();
-        alertDialog.show();
 
     }
+
+
+//    @Override
+//    public void onItemClick(String id) {
+//    }
+//
+//    @Override
+//    public void onItemDeleteClick(Shoes sh, int position) {
+//        boolean rs = ShoeDataQuery.delete(getActivity(),sh.getId());
+//        if(rs) {
+//            Toast.makeText(getActivity(), "Xoá thành công", Toast.LENGTH_SHORT).show();
+//            resetData();
+//        } else {
+//            Toast.makeText(getActivity(), "Xoá không thành công", Toast.LENGTH_SHORT).show();
+//        }
+//    }
+//
+//    @Override
+//    public void onItemEditClick(Shoes sh, int position) {
+//        updateShoeDialog(sh);
+//    }
+//
+//    void resetData() {
+//        list.clear();
+//        list.addAll(ShoeDataQuery.getAll(getActivity()));
+//        shoesAdapterAdmin.notifyDataSetChanged();
+//    }
+//
+//    void updateShoeDialog(Shoes sh) {
+//        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+//        alertDialog.setTitle("Cập Nhật");
+//        LayoutInflater inflater = this.getLayoutInflater();
+//        View dialogView = inflater.inflate(R.layout.dialog_add_shoe,null);
+//        alertDialog.setView(dialogView);
+//
+//        EditText edName = (EditText) dialogView.findViewById(R.id.edName);
+//        EditText edAvatar = (EditText) dialogView.findViewById(R.id.edAvatar);
+//        EditText edType = (EditText) dialogView.findViewById(R.id.edType);
+//        EditText edPrice = (EditText) dialogView.findViewById(R.id.edPrice);
+//
+//        //gan du lieu
+//        edAvatar.setText(sh.getImage());
+//        edName.setText(sh.getName());
+//        edPrice.setText(sh.getPrice());
+//        edType.setText(sh.getType());
+//
+//        alertDialog.setPositiveButton("Đồng ý", (dialog,which) -> {
+//            sh.setName(edName.getText().toString());
+//            sh.setImage(edAvatar.getText().toString());
+//            sh.setPrice(Integer.parseInt(edPrice.getText().toString()));
+//            sh.setType(edType.getText().toString());
+//
+//            if(sh.getName().isEmpty()) {
+//                Toast.makeText(getActivity(), "Vui lòng nhập dữ liệu", Toast.LENGTH_SHORT).show();
+//            } else {
+//                int id = ShoeDataQuery.update(getActivity(),sh);
+//                if( id >= 0) {
+//                    Toast.makeText(getActivity(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+//                    resetData();
+//                    dialog.dismiss();
+//                }
+//            }
+//        });
+//        alertDialog.setNegativeButton("Huỷ",(dialog,which)->{
+//            dialog.dismiss();
+//        });
+//        alertDialog.create();
+//        alertDialog.show();
+//    }
+//    void addShoeDialog() {
+//        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+//        alertDialog.setTitle("Thêm mới");
+//        LayoutInflater layoutInflater = this.getLayoutInflater();
+//        View dialogView = layoutInflater.inflate(R.layout.dialog_add_shoe,null);
+//        alertDialog.setView(dialogView);
+//
+////        EditText edID = (EditText) dialogView.findViewById(R.id.edID);
+//        EditText edName = (EditText) dialogView.findViewById(R.id.edName);
+//        EditText edAvatar = (EditText) dialogView.findViewById(R.id.edAvatar);
+//        EditText edType = (EditText) dialogView.findViewById(R.id.edType);
+//        EditText edPrice = (EditText) dialogView.findViewById(R.id.edPrice);
+//
+//
+//        alertDialog.setPositiveButton("Đồng ý", (dialog,which) -> {
+////            int idEd = Integer.parseInt(edID.getText().toString());
+//            String name = edName.getText().toString();
+//            String avatar = edAvatar.getText().toString();
+//            String type = edType.getText().toString();
+//            int price = Integer.parseInt(edPrice.getText().toString());
+//            if(name.isEmpty()) {
+//                Toast.makeText(getActivity(), "Nhập dữ liệu không đúng", Toast.LENGTH_SHORT).show();
+//            } else if(price < 0) {
+//                Toast.makeText(getActivity(), "Giá tiền phải lớn hơn 0", Toast.LENGTH_SHORT).show();
+//            }
+//            else {
+//                Shoes sh = new Shoes(name,avatar,price,type);
+//                long id = ShoeDataQuery.insert(getActivity(),sh);
+//                if( id > 0) {
+//                    Toast.makeText(getActivity(), "Thêm thành công", Toast.LENGTH_SHORT).show();
+//                    resetData();
+//                    dialog.dismiss();
+//                }
+//            }
+//        });
+//        alertDialog.setNegativeButton("Huỷ",(dialog,which)->{
+//            dialog.dismiss();
+//        });
+//        alertDialog.create();
+//        alertDialog.show();
+//
+//    }
 }

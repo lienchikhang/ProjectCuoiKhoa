@@ -13,130 +13,98 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_end="680dp" />
 
-    <HorizontalScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="10dp"
-        android:fillViewport="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+<!--    <HorizontalScrollView-->
+<!--        android:id="@+id/scrollViewAdminn"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:elevation="10dp"-->
+<!--        android:fillViewport="true"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="12dp">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="12dp"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:padding="12dp">-->
 
-
-            <LinearLayout
-                android:id="@+id/firstOptionAdmin"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:background="@drawable/border_product"
-                android:orientation="horizontal"
-                android:paddingLeft="4dp"
-                android:paddingTop="2dp"
-                android:paddingRight="4dp"
-                android:paddingBottom="2dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="4dp"
-                    android:background="@drawable/bg_circle"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_shoes"
-                    android:text="test" />
-
-                <TextView
-                    android:id="@+id/firstOptionName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Quản lí sản phẩm"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/secondOptionAdmin"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:background="@drawable/border_product"
-                android:orientation="horizontal"
-                android:paddingLeft="4dp"
-                android:paddingTop="2dp"
-                android:paddingRight="4dp"
-                android:paddingBottom="2dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="4dp"
-                    android:background="@drawable/bg_circle"
-                    android:padding="6dp"
-                    android:src="@drawable/ic_men"
-                    android:text="test" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Quản lí người dùng"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/thirdOption"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:background="@drawable/border_product"
-                android:orientation="horizontal"
-                android:paddingLeft="4dp"
-                android:paddingTop="2dp"
-                android:paddingRight="4dp"
-                android:paddingBottom="2dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="4dp"
-                    android:background="@drawable/bg_circle"
-                    android:padding="6dp"
-                    android:src="@drawable/ic_child"
-                    android:text="test" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Quản lí đơn hàng"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-            </LinearLayout>
 
 <!--            <LinearLayout-->
-<!--                android:id="@+id/fouthOption"-->
+<!--                android:id="@+id/firstOptionAdmin"-->
 <!--                android:layout_width="160dp"-->
 <!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="16dp"-->
+<!--                android:background="@drawable/border_product"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:paddingLeft="4dp"-->
+<!--                android:paddingTop="2dp"-->
+<!--                android:paddingRight="4dp"-->
+<!--                android:paddingBottom="2dp">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="8dp"-->
+<!--                    android:layout_marginTop="4dp"-->
+<!--                    android:layout_marginRight="8dp"-->
+<!--                    android:layout_marginBottom="4dp"-->
+<!--                    android:background="@drawable/bg_circle"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:src="@drawable/ic_shoes"-->
+<!--                    android:text="test" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/firstOptionName"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:text="Quản lí sản phẩm"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold" />-->
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/secondOptionAdmin"-->
+<!--                android:layout_width="160dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="16dp"-->
+<!--                android:background="@drawable/border_product"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:paddingLeft="4dp"-->
+<!--                android:paddingTop="2dp"-->
+<!--                android:paddingRight="4dp"-->
+<!--                android:paddingBottom="2dp">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_marginLeft="8dp"-->
+<!--                    android:layout_marginTop="4dp"-->
+<!--                    android:layout_marginRight="8dp"-->
+<!--                    android:layout_marginBottom="4dp"-->
+<!--                    android:background="@drawable/bg_circle"-->
+<!--                    android:padding="6dp"-->
+<!--                    android:src="@drawable/ic_men"-->
+<!--                    android:text="test" />-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:text="Quản lí người dùng"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold" />-->
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/thirdOption"-->
+<!--                android:layout_width="160dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="16dp"-->
 <!--                android:background="@drawable/border_product"-->
 <!--                android:orientation="horizontal"-->
 <!--                android:paddingLeft="4dp"-->
@@ -153,30 +121,211 @@
 <!--                    android:layout_marginBottom="4dp"-->
 <!--                    android:background="@drawable/bg_circle"-->
 <!--                    android:padding="6dp"-->
-<!--                    android:src="@drawable/ic_sport"-->
+<!--                    android:src="@drawable/ic_child"-->
 <!--                    android:text="test" />-->
 
 <!--                <TextView-->
 <!--                    android:layout_width="wrap_content"-->
 <!--                    android:layout_height="wrap_content"-->
 <!--                    android:layout_gravity="center"-->
-<!--                    android:text="Giày Converse"-->
+<!--                    android:text="Quản lí đơn hàng"-->
 <!--                    android:textColor="@color/black"-->
 <!--                    android:textStyle="bold" />-->
 <!--            </LinearLayout>-->
 
-        </LinearLayout>
+<!--&lt;!&ndash;            <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/fouthOption"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="160dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:background="@drawable/border_product"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingLeft="4dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingTop="2dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingRight="4dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingBottom="2dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginLeft="8dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginTop="4dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginRight="8dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginBottom="4dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:background="@drawable/bg_circle"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:padding="6dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:src="@drawable/ic_sport"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:text="test" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:text="Giày Converse"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:textColor="@color/black"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:textStyle="bold" />&ndash;&gt;-->
+<!--&lt;!&ndash;            </LinearLayout>&ndash;&gt;-->
+
+<!--        </LinearLayout>-->
 
 
-    </HorizontalScrollView>
+<!--    </HorizontalScrollView>-->
 
-    <FrameLayout
-        app:layout_constraintTop_toBottomOf="@id/guideline11"
-        android:id="@+id/mainAdmin_fragment"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="580dp">
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/btnLogoutt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_logout"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@id/guideline11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginRight="8dp"
 
-    </FrameLayout>
+            >
+
+            <LinearLayout
+                android:id="@+id/manageProduct"
+                android:layout_width="170dp"
+                android:layout_height="180dp"
+                android:background="@drawable/border_user"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_shoes"
+                    android:background="@drawable/bg_circle"
+                    android:padding="16dp"/>
+
+                <TextView
+                    android:textAlignment="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quản lí sản phẩm"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/manageOrder"
+                android:layout_width="170dp"
+                android:layout_height="180dp"
+                android:background="@drawable/border_user"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_shoppingcart"
+                    android:background="@drawable/bg_circle"
+                    android:padding="16dp"/>
+
+                <TextView
+                    android:textAlignment="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quản lí đơn hàng"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="8dp">
+
+            <LinearLayout
+                android:id="@+id/manageUser"
+                android:layout_width="170dp"
+                android:layout_height="180dp"
+                android:background="@drawable/border_user"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_men"
+                    android:background="@drawable/bg_circle"
+                    android:padding="16dp"/>
+
+                <TextView
+                    android:textAlignment="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quản lí người dùng"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="180dp"
+                android:background="@drawable/border_user"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_shoes"
+                    android:background="@drawable/bg_circle"
+                    android:padding="16dp"/>
+
+                <TextView
+                    android:textAlignment="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quản lí sản phẩm"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+<!--    <FrameLayout-->
+<!--        app:layout_constraintTop_toBottomOf="@id/guideline11"-->
+<!--        android:id="@+id/mainAdmin_fragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="580dp">-->
+
+<!--    </FrameLayout>-->
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -195,5 +344,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="638dp" />
+        app:layout_constraintGuide_begin="147dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
