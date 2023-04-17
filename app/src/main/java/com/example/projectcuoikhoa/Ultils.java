@@ -56,10 +56,6 @@ public class Ultils {
         }
         return null;
     }
-
-    public static void LoadData(ArrayList<Shoes> shoesArrayList) {
-
-    }
     public static String ConvertToVND(int Price){
         Locale localeVN = new Locale("vi", "VN");
         NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);

@@ -78,8 +78,9 @@ public class InfoFragment extends Fragment {
         }
 
     }
+
     ArrayList<User> list;
-    private final Gson gson = new Gson();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -90,51 +91,14 @@ public class InfoFragment extends Fragment {
         TextView tvPhone = view.findViewById(R.id.tvPhone);
         Button btnLogout = view.findViewById(R.id.btnLogout);
         Button btnEditInfo = view.findViewById(R.id.btnEditInfo);
-//        list = UserDataQuery.getAll(getActivity());
-        String username=getActivity().getIntent().getStringExtra("UserName");
-        String pass=getActivity().getIntent().getStringExtra("Password");
-        UserDataQuery userDataQuery = new UserDataQuery();
-//        int id = userDataQuery.getID(getActivity(),username);
-//        User user = userDataQuery.getUser(getActivity(),id);
-
+        String username = getActivity().getIntent().getStringExtra("UserName");
+        String pass = getActivity().getIntent().getStringExtra("Password");
         tvUsername.setText(username);
         tvPass.setText(pass);
         btnLogout.setOnClickListener(getBtnClick());
-//        btnEditInfo.setOnClickListener(getBtnClick());
         return view;
     }
-    void updateUserDialog(User us) {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
-        alertDialog.setTitle("Chinh Sua");
-        LayoutInflater layoutInflater = this.getLayoutInflater();
-        View dialogView = layoutInflater.inflate(R.layout.dialog_edit_info, null);
-        alertDialog.setView(dialogView);
 
-        EditText edEditName = (EditText) dialogView.findViewById(R.id.edEditname);
-        EditText edEditPass = (EditText) dialogView.findViewById(R.id.edEditpass);
-        EditText edEditPhone = (EditText) dialogView.findViewById(R.id.edEditphone);
-//        EditText edPrice = (EditText) dialogView.findViewById(R.id.edPrice);
-
-        alertDialog.setPositiveButton("Đồng ý", (dialog,which) -> {
-            us.setUsername(edEditName.getText().toString());
-            us.setPassword(edEditPass.getText().toString());
-//            us.setPhone(Integer.parseInt(edPrice.getText().toString()));
-            us.setPhone(edEditPhone.getText().toString());
-
-            if(us.getUsername().isEmpty()) {
-                Toast.makeText(getActivity(), "Vui lòng nhập dữ liệu", Toast.LENGTH_SHORT).show();
-            } else {
-                int id = UserDataQuery.update(getActivity(),us);
-                if( id >= 0) {
-                    Toast.makeText(getActivity(), "Cập nhật thành công", Toast.LENGTH_SHORT).show();
-                    resetData();
-                    dialog.dismiss();
-                }
-            }
-        });
-        alertDialog.create();
-        alertDialog.show();
-    }
     @NonNull
     private View.OnClickListener getBtnClick() {
         return new View.OnClickListener() {
@@ -150,9 +114,5 @@ public class InfoFragment extends Fragment {
                 }
             }
         };
-    }
-    void resetData() {
-        list.clear();
-        list.addAll(UserDataQuery.getAll(getActivity()));
     }
 }

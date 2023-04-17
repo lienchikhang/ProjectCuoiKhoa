@@ -47,12 +47,33 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/header_shoppingCart">
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/btn_size_default"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Địa chỉ:"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginLeft="16dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#F8D69C"
+                android:id="@+id/AddressDelivery"
+                />
+        </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvListCart"
             android:layout_width="match_parent"
@@ -133,6 +154,7 @@
             android:background="@drawable/custom_btn_border"
             android:padding="20dp"
             android:text="Thanh Toán"
+            android:id="@+id/BuyCart"
             android:textStyle="bold"
             android:textAllCaps="false"
             android:textSize="20sp"/>

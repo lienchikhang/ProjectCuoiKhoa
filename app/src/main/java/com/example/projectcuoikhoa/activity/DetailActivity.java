@@ -42,7 +42,7 @@ public class DetailActivity extends AppCompatActivity {
     ArrayList<Shoes> list;
     Shoes temp;
     String id;
-    ImageButton ivBackBtn;
+    ImageButton ivBackBtn,btnCart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +104,7 @@ public class DetailActivity extends AppCompatActivity {
         BuyProduct=findViewById(R.id.BuyProduct);
         BtnDes=findViewById(R.id.btnDes);
         PriceProduct=findViewById(R.id.PriceProduct);
+        btnCart=findViewById(R.id.ImgBtnDetailCart);
     }
 
     void SuKienClick(){
@@ -114,6 +115,7 @@ public class DetailActivity extends AppCompatActivity {
         BtnSizeL.setOnClickListener(BtnLclick());
         BtnDes.setOnClickListener(view -> BtnDesClick());
         BuyProduct.setOnClickListener(view -> BuyProductEvent());
+        btnCart.setOnClickListener(view -> CartClick());
     }
 
     void BtnDesClick() {
@@ -190,5 +192,9 @@ public class DetailActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+    void CartClick(){
+        Intent i=new Intent(this,ShoppingCartActivity.class);
+        startActivity(i);
     }
 }

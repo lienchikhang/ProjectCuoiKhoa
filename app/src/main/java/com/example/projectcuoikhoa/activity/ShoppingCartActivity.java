@@ -13,8 +13,11 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Size;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.projectcuoikhoa.CartShoes;
 import com.example.projectcuoikhoa.R;
@@ -36,7 +39,8 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
     ImageView btnback;
     TextView PriceSum;
     TextView PriceDelivery;
-
+    EditText Address;
+    Button Buy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +48,7 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
         setContentView(R.layout.activity_shopping_cart);
         LoadData();
         SukienthemlistCart();
-        rvlistCart = findViewById(R.id.rvListCart);
-        btnback = findViewById(R.id.btnback);
-        PriceSum = findViewById(R.id.PriceSum);
-        PriceDelivery = findViewById(R.id.PriceDelivery);
+        Anhxa();
         SetPriceSumAndDelivery();
         shoppingCartAdapter = new ShoppingCartAdapter(listCart, this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -60,6 +61,32 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
                 finish();
             }
         });
+        Buy.setOnClickListener(view -> ClickBuy());
+    }
+    void Anhxa(){
+        rvlistCart = findViewById(R.id.rvListCart);
+        btnback = findViewById(R.id.btnback);
+        PriceSum = findViewById(R.id.PriceSum);
+        PriceDelivery = findViewById(R.id.PriceDelivery);
+        Address=findViewById(R.id.AddressDelivery);
+        Buy=findViewById(R.id.BuyCart);
+    }
+    void ClickBuy(){
+        if(Address.getText().toString().isEmpty()){
+            Toast.makeText(this,"Vui long nhap dia chi",Toast.LENGTH_LONG).show();
+            return;
+        }
+        SharedPreferences sharedPreferencesInfo = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
+        if(sharedPreferencesInfo.getString("username",null)==null){
+            Toast.makeText(this,"Vui long dang nhap",Toast.LENGTH_LONG).show();
+            return;
+        }
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear().apply();
+        listCart.clear();
+        shoppingCartAdapter.notifyDataSetChanged();
+        Toast.makeText(this,"dat hang thanh cong",Toast.LENGTH_LONG).show();
     }
 
     void SukienthemlistCart() {

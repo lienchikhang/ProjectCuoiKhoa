@@ -78,6 +78,10 @@ public class LoginActivity extends AppCompatActivity {
         while (listUser.moveToNext()) {
             if (username.equals(listUser.getString(1)) && password.equals(listUser.getString(2))) {
                 role = listUser.getString(6);
+                SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("username",listUser.getString(1));
+                editor.apply();
                 existUser = true;
                 break;
             }

@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     ArrayList<Shoes> list;
-    Boolean isLogin = false;
     HorizontalScrollView scrollView;
     ShoesAdapter shoesAdapter;
     ShoesGridAdapter shoesGridAdapter;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Intent i = getIntent();
         Boolean isLogined = i.getBooleanExtra("bool", false);
+
         //top
         scrollView = findViewById(R.id.scrollView);
         scrollView.setVisibility(View.VISIBLE);
@@ -60,13 +62,12 @@ public class MainActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        // Drop bangr shoe
-     // shoeDBHelper.dropTableShoe();
+        //Drop bang shoe
+//        shoeDBHelper.dropTableShoe();
 //        userDBHelper.dropTable();
 //        userDBHelper.createTable();
-//        //tao bảng shoe
-     // shoeDBHelper.createTableShoe();
-
+        //tao bảng shoe
+//        shoeDBHelper.createTableShoe();
         //bottom nav
         bottomNavigationView = findViewById(R.id.navbarBottom);
         loadFragment(new MainFragment());
