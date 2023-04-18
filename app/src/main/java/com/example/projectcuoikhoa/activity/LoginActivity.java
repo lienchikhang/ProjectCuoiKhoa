@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                 role = listUser.getString(6);
                 SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("username",listUser.getString(1));
+                editor.putInt("id",listUser.getInt(0));
                 editor.apply();
                 existUser = true;
                 break;
