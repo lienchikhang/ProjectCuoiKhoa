@@ -34,9 +34,10 @@
             android:padding="20dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher_background"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/ic_account"
+                android:background="@drawable/border_account"
                  />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,7 +52,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tên đăng :"
+                    android:text="Tên đăng nhập :"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>

@@ -2,16 +2,37 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp">
 
-    <ImageView
-        android:foregroundGravity="center"
-        android:id="@+id/ImgSP"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <FrameLayout
+        android:id="@+id/wrapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/border_item">
+
+
+        <FrameLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="30dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_circle"/>
+        <ImageView
+
+            android:foregroundGravity="center"
+            android:id="@+id/ImgSP"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </FrameLayout>
+
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +40,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp"
-        app:layout_constraintLeft_toRightOf="@+id/ImgSP"
+        app:layout_constraintLeft_toRightOf="@+id/wrapp"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
@@ -146,14 +167,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="0dp" />
+        app:layout_constraintGuide_percent="0.34" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.55" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

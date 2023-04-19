@@ -1,15 +1,24 @@
 package com.example.projectcuoikhoa;
 
+import static com.example.projectcuoikhoa.R.color.primary_color;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.projectcuoikhoa.Adapter.ShoesAdapter;
@@ -26,15 +35,26 @@ public class ManageProductActivity extends AppCompatActivity implements ShoesAda
 
     HorizontalScrollView scrollView;
     FloatingActionButton fbAdd;
+
+    ImageView btnBackManage;
+    EditText etDeleteShoe;
+    Button btnDeletePickedShoe;
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_product);
         fbAdd = findViewById(R.id.fbAddd);
         fbAdd.setOnClickListener(view1 -> addShoeDialog());
+//        fbAdd.setBackgroundTintList(ColorStateList.valueOf();
         rvList = findViewById(R.id.rvGridAdmin);
+        btnBackManage = findViewById(R.id.btnBackManage);
+//        etDeleteShoe = findViewById(R.id.etDeleteShoe);
+//        btnDeletePickedShoe = findViewById(R.id.btnDeletePickedShoe);
 
-
+//        String pickedShoe = etDeleteShoe.getText().toString();
+//        btnDeletePickedShoe.setOnClickListener(getListenPickedShoe(pickedShoe,this));
+        btnBackManage.setOnClickListener(getListen());
         list = ShoeDataQuery.getAll(this);
         shoesAdapterAdmin = new ShoesAdapterAdmin(list,this);
         shoesAdapterAdmin.setCallBackAdmin(this);
@@ -45,6 +65,20 @@ public class ManageProductActivity extends AppCompatActivity implements ShoesAda
 
 
 
+    }
+
+    @NonNull
+    private View.OnClickListener getListen() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.btnBackManage:
+                        finish();
+                        break;
+                }
+            }
+        };
     }
 
     @Override
@@ -65,7 +99,7 @@ public class ManageProductActivity extends AppCompatActivity implements ShoesAda
 
     @Override
     public void onItemEditClick(Shoes sh, int position) {
-
+        updateShoeDialog(sh);
     }
 
     void resetData() {
@@ -134,8 +168,14 @@ public class ManageProductActivity extends AppCompatActivity implements ShoesAda
             String name = edName.getText().toString();
             String avatar = edAvatar.getText().toString();
             String type = edType.getText().toString();
-            int price = Integer.parseInt(edPrice.getText().toString());
-            if(name.isEmpty()) {
+            String priceStr = edPrice.getText().toString();
+            int price = 0;
+            if(!priceStr.isEmpty()) {
+                price = Integer.parseInt(priceStr);
+            } else {
+                Toast.makeText(this, "Nhập dữ liệu không đúng", Toast.LENGTH_SHORT).show();
+            }
+            if(name.isEmpty() || type.isEmpty() || avatar.isEmpty()) {
                 Toast.makeText(this, "Nhập dữ liệu không đúng", Toast.LENGTH_SHORT).show();
             } else if(price < 0) {
                 Toast.makeText(this, "Giá tiền phải lớn hơn 0", Toast.LENGTH_SHORT).show();

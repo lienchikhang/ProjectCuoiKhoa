@@ -22,13 +22,15 @@
                 android:id="@+id/ImageProduct"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                >
                 <ImageView
                     android:id="@+id/ivAvatar"
                     android:layout_width="match_parent"
                     android:layout_height="430dp"
                     android:adjustViewBounds="true"
                     android:minHeight="300dp"
+                    android:background="@color/primary_color"
                     android:src="@drawable/ic_launcher_background" />
             </FrameLayout>
 
@@ -42,10 +44,10 @@
                     android:id="@+id/ivBackBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@android:color/transparent"
-                    android:padding="4dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/border_item"
+                    android:padding="8dp"
                     android:src="@drawable/ic_arrow_back" />
                 />
 
@@ -53,11 +55,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="12dp"
                     android:id="@+id/ImgBtnDetailCart"
-                    android:background="@android:color/transparent"
-                    android:padding="4dp"
+                    android:background="@drawable/border_item"
+                    android:padding="8dp"
+
                     android:src="@drawable/ic_shoppingcart" />
             </FrameLayout>
 
@@ -66,13 +69,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@id/ImageProduct">
+                app:layout_constraintTop_toBottomOf="@id/ImageProduct"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="16dp"
+                >
 
                 <TextView
                     android:id="@+id/NameProduct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
                     android:text="Giày Converse"
                     android:textColor="@color/black"
                     android:textSize="26sp"
@@ -82,26 +88,27 @@
                     android:id="@+id/PriceProduct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
                     android:text="test"
+                    android:layout_marginTop="8dp"
+
                     android:textColor="#7B8FA1"
-                    android:textSize="20sp" />
+                    android:textSize="22sp" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/choose"
+                android:layout_marginTop="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
                 app:layout_constraintTop_toBottomOf="@id/FirstInfo">
 
                 <TextView
                     android:id="@+id/SizeFix"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Kích cỡ"
+                    android:text="Kích cỡ:"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -112,19 +119,18 @@
                     android:id="@+id/SizeChoose"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-
+                    android:layout_marginLeft="10dp"
                     android:text="S"
                     android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@+id/SizeFix"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
+                    android:paddingBottom="4dp"
                     android:id="@+id/btnSection"
+                    android:layout_marginTop="4dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/SizeFix">
 
@@ -132,17 +138,16 @@
                         android:id="@+id/BtnSizeS"
                         android:layout_width="64dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
                         android:background="@drawable/btn_size_default"
-                        android:text="S" />
+                        android:text="S"
+                        android:layout_marginRight="4dp"/>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/BtnSizeM"
                         android:layout_width="64dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
                         android:background="@drawable/btn_size_default"
-
+                        android:layout_marginRight="4dp"
                         android:text="M"
                         app:layout_constraintStart_toEndOf="@+id/BtnSizeS"
                         app:layout_constraintTop_toBottomOf="@id/SizeFix" />
@@ -151,7 +156,6 @@
                         android:id="@+id/BtnSizeL"
                         android:layout_width="64dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
                         android:background="@drawable/btn_size_default"
                         android:text="L"
                         app:layout_constraintStart_toEndOf="@+id/BtnSizeM"
@@ -163,8 +167,7 @@
                     android:id="@+id/ColerFix"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="12dp"
                     android:text="Màu Sắc"
                     android:textColor="#000"
                     android:textSize="20sp"

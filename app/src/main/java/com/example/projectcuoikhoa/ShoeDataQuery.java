@@ -113,5 +113,12 @@ public class ShoeDataQuery {
         return lstUser;
     }
 
+    public static Boolean getDeleteShoe(Context context, String nameShoe) {
+        ShoeDBHelper shoeDBHelper=new ShoeDBHelper(context);
+        SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
+        db = shoeDBHelper.getWritableDatabase();
+        int rs = db.delete(Ultils.TABLE_SHOE,Ultils.COLUMN_SHOE_NAME+" like '%" + nameShoe + "%'",null);
+        return (rs >0);
+    }
 
 }

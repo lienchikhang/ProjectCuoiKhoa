@@ -159,7 +159,6 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
     public void onItemClick(String id) {
         Intent i = new Intent(getActivity(), DetailActivity.class);
         i.putExtra("id", id);
-        Toast.makeText(getActivity(), String.valueOf(id), Toast.LENGTH_SHORT).show();
         startActivity(i);
     }
 

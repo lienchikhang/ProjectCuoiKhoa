@@ -41,8 +41,9 @@ public class MainAdminActivity extends AppCompatActivity {
     ShoesAdapter shoesAdapter;
     ShoesGridAdapter shoesGridAdapter;
 
-    LinearLayout manageProduct, manageUser, thirdOption, fouthOption;
-    ImageView btnLogout;
+    TextView adminName;
+
+    LinearLayout manageProduct, manageUser, btnLogoutt, fouthOption;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,25 +51,28 @@ public class MainAdminActivity extends AppCompatActivity {
         Intent i = getIntent();
         Boolean isLogined = i.getBooleanExtra("bool", false);
         String role = i.getStringExtra("role");
+        String adminNames = i.getStringExtra("name");
+
+        adminName = findViewById(R.id.adminName);
+        adminName.setText(adminNames);
 
 //        scrollViewAdmin = findViewById(R.id.scrollViewAdminn);
         manageProduct = findViewById(R.id.manageProduct);
         manageUser = findViewById(R.id.manageUser);
-        btnLogout = findViewById(R.id.btnLogoutt);
+        btnLogoutt = findViewById(R.id.btnLogoutt);
         getOptionsListener();
 
         //bottom nav
-        bottomNavigationView = findViewById(R.id.navbarBottomAdmin);
 //        loadFragment(new MainAdminFragment());
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Home");
-        bottomNavigationView.setOnItemSelectedListener(getListener(isLogined,role));
+//        bottomNavigationView.setOnItemSelectedListener(getListener(isLogined,role));
     }
 
     void getOptionsListener() {
         manageProduct.setOnClickListener(getListentOptionAdmin());
         manageUser.setOnClickListener(getListentOptionAdmin());
-        btnLogout.setOnClickListener(getListentOptionAdmin());
+        btnLogoutt.setOnClickListener(getListentOptionAdmin());
 //        thirdOption.setOnClickListener(getListenerOption());
 //        fouthOption.setOnClickListener(getListenerOption());
     }

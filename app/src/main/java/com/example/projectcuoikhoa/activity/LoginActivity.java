@@ -74,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         );
         String role = "";
         int loginTime = 0;
+
         boolean existUser = false;
         while (listUser.moveToNext()) {
             if (username.equals(listUser.getString(1)) && password.equals(listUser.getString(2))) {
@@ -90,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
             if (role.equals("admin")) {
                 Intent i = new Intent(this, MainAdminActivity.class);
                 i.putExtra("role", role);
+                i.putExtra("name", username);
                 startActivity(i);
                 return;
             } else {

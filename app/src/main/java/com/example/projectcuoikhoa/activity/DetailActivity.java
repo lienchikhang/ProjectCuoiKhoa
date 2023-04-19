@@ -67,7 +67,7 @@ public class DetailActivity extends AppCompatActivity {
 
         //THAY DOI TEN + GIA
         NameProduct.setText(temp.getName());
-        PriceProduct.setText(String.valueOf(temp.getPrice()));
+        PriceProduct.setText(Ultils.ConvertToVND(temp.getPrice()));
         ivAvatar.setImageBitmap(Ultils.convertToBitmapFromAssets(this,temp.getImage()));
 
         //su kien onclick
