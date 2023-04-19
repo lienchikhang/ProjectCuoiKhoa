@@ -1,6 +1,7 @@
 package com.example.projectcuoikhoa;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -62,4 +63,5 @@ public class Ultils {
         String str1 = currencyVN.format(Price);
         return str1;
     }
+
 }

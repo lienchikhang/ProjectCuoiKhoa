@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Intent i = getIntent();
         Boolean isLogined = i.getBooleanExtra("bool", false);
-
+        SharedPreferences sharedPreferencesInfo = getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+        sharedPreferencesInfo.edit().remove("id").apply();
         //top
         scrollView = findViewById(R.id.scrollView);
         scrollView.setVisibility(View.VISIBLE);

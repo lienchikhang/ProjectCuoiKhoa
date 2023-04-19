@@ -68,27 +68,21 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
         btnback = findViewById(R.id.btnback);
         PriceSum = findViewById(R.id.PriceSum);
         PriceDelivery = findViewById(R.id.PriceDelivery);
-        Address=findViewById(R.id.AddressDelivery);
         Buy=findViewById(R.id.BuyCart);
     }
     void ClickBuy(){
-        if(Address.getText().toString().isEmpty()){
-            Toast.makeText(this,"Vui long nhap dia chi",Toast.LENGTH_LONG).show();
-            return;
-        }
         SharedPreferences sharedPreferencesInfo = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
-        if(sharedPreferencesInfo.getString("username",null)==null){
+        if(sharedPreferencesInfo.getInt("id",0)==0){
             Toast.makeText(this,"Vui long dang nhap",Toast.LENGTH_LONG).show();
             return;
         }
-        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.clear().apply();
-        listCart.clear();
-        shoppingCartAdapter.notifyDataSetChanged();
-        Toast.makeText(this,"dat hang thanh cong",Toast.LENGTH_LONG).show();
+        if(listCart.size()==0){
+            Toast.makeText(this,"San pham trong",Toast.LENGTH_LONG).show();
+            return;
+        }
+        Intent i=new Intent(this,InfoCartForCusActivity.class);
+        startActivity(i);
     }
-
     void SukienthemlistCart() {
         Intent i = getIntent();
         String id = i.getStringExtra("ID");
@@ -136,7 +130,7 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
 
 
     void SaveData() {
-        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Cart", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
         String Save = gson.toJson(listCart);
@@ -145,7 +139,7 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
     }
 
     void LoadData() {
-        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Cart", MODE_PRIVATE);
         Gson gson = new Gson();
         String Save = sharedPreferences.getString("listCart", null);
         Type type = new TypeToken<ArrayList<CartShoes>>() {
@@ -155,7 +149,6 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
             listCart = new ArrayList<>();
         }
     }
-
     void SetPriceSumAndDelivery() {
         int PriceS = 0;
         int PriceD = 0;

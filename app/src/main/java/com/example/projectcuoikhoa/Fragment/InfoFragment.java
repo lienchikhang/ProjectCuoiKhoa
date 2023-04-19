@@ -107,6 +107,10 @@ public class InfoFragment extends Fragment {
                 switch (view.getId()) {
                     case R.id.btnLogout:
                         Intent i = new Intent(getActivity(), MainActivity.class);
+                        SharedPreferences sharedPreferencesInfo = getActivity().getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+                        sharedPreferencesInfo.edit().remove("id").apply();
+                        SharedPreferences sharedPreferences =getActivity().getSharedPreferences("shared preferences Cart", Context.MODE_PRIVATE);
+                        sharedPreferences.edit().remove("listCart").apply();
                         i.putExtra("bool", false);
                         startActivity(i);
                         break;

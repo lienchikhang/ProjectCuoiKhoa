@@ -40,30 +40,7 @@ public class UserDataQuery {
     public interface UserCallback {
         void Check();
     }
-    public static int getID(Context context, String username) {
-        ArrayList<User> lstUser = new ArrayList<>();
-        UserDBHelper userDBHelper=new UserDBHelper(context);
-        SQLiteDatabase db=userDBHelper.getReadableDatabase();
-        Cursor cs=db.rawQuery("Select * from "+Ultils.TABLE_USER+" Where "+Ultils.COLUMN_USER_NAME+"="+username,null);
-        cs.moveToFirst();
-        while(!cs.isAfterLast()) {
-            int id = cs.getInt(0);
-            String name = cs.getString(1);
-            String pass = cs.getString(2);
-            int gender = cs.getInt(3);
-            String email = cs.getString(4);
-            String phone = cs.getString(5);
-            String role = cs.getString(6);
-
-            lstUser.add(new User(id,name,pass,gender,email,phone,role));
-            cs.moveToNext();
-        }
-        cs.close();
-        db.close();
-        return lstUser.get(0).getId();
-    }
     public static User getUser (Context context, int idUs) {
-
         UserDBHelper userDBHelper=new UserDBHelper(context);
         SQLiteDatabase db=userDBHelper.getReadableDatabase();
         Cursor cs=db.rawQuery("Select * from "+Ultils.TABLE_USER+" Where "+Ultils.COLUMN_SHOE_ID+"="+idUs,null);
