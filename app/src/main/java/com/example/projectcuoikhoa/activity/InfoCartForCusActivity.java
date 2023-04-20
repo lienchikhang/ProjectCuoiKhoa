@@ -1,5 +1,6 @@
 package com.example.projectcuoikhoa.activity;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -33,6 +34,8 @@ public class InfoCartForCusActivity extends AppCompatActivity {
         Anhxa();
         SetInfo();
         ThanhToan.setOnClickListener(view -> Sukien());
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
     }
 
     void Sukien() {

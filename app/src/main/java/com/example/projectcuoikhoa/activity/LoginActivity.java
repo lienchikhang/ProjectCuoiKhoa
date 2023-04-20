@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btLogin, btRegister;
     EditText edUsername, edPassword;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,18 +91,20 @@ public class LoginActivity extends AppCompatActivity {
         if (existUser) {
             if (role.equals("admin")) {
                 Intent i = new Intent(this, MainAdminActivity.class);
-                i.putExtra("role", role);
-                i.putExtra("name", username);
+//                i.putExtra("role", role);
+//                i.putExtra("name", username);
+                SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("role",role);
                 startActivity(i);
                 return;
             } else {
                 Intent i = new Intent(this, MainActivity.class);
-                isLogined = true;
-                i.putExtra("role", role);
-                i.putExtra("bool", isLogined);
-                i.putExtra("UserName", username);
-                i.putExtra("Password", password);
-                i.putExtra("loginTime", loginTime);
+//                i.putExtra("role", role);
+//                i.putExtra("bool", isLogined);
+//                i.putExtra("UserName", username);
+//                i.putExtra("Password", password);
+//                i.putExtra("loginTime", loginTime);
                 startActivity(i);
             }
         } else {

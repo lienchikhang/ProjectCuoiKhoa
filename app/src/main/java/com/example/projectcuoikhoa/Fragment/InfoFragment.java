@@ -91,12 +91,16 @@ public class InfoFragment extends Fragment {
         TextView tvPhone = view.findViewById(R.id.tvPhone);
         Button btnLogout = view.findViewById(R.id.btnLogout);
         Button btnEditInfo = view.findViewById(R.id.btnEditInfo);
-        String username = getActivity().getIntent().getStringExtra("UserName");
-        String pass = getActivity().getIntent().getStringExtra("Password");
-        tvUsername.setText(username);
-        tvPass.setText(pass);
+        SharedPreferences sharedPreferencesInfo = getActivity().getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+        User user=UserDataQuery.getUser(getActivity(),sharedPreferencesInfo.getInt("id",0));
+        tvUsername.setText(user.getUsername());
+        tvPass.setText(user.getPassword());
         btnLogout.setOnClickListener(getBtnClick());
         return view;
+    }
+
+    void Anhxa(){
+
     }
 
     @NonNull

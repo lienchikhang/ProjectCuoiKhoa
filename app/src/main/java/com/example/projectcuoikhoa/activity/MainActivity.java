@@ -43,24 +43,23 @@ public class MainActivity extends AppCompatActivity {
     UserDBHelper userDBHelper;
     ShoeDBHelper shoeDBHelper;
     TextView tvMoreCate;
+
     LinearLayout firstOption, secondOption, thirdOption, fouthOption;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent i = getIntent();
-        Boolean isLogined = i.getBooleanExtra("bool", false);
-        SharedPreferences sharedPreferencesInfo = getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
-        sharedPreferencesInfo.edit().remove("id").apply();
         //top
         scrollView = findViewById(R.id.scrollView);
         scrollView.setVisibility(View.VISIBLE);
-
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
+        boolean isLogined=false;
+        if(sharedPreferences.getInt("id",0)!=0){
+            isLogined=true;
+        }
         firstOption = findViewById(R.id.firstOption);
         secondOption = findViewById(R.id.secondOption);
-
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         //Drop bang shoe

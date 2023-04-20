@@ -1,6 +1,7 @@
 package com.example.projectcuoikhoa.activity;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,6 +47,8 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_cart);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         LoadData();
         SukienthemlistCart();
         Anhxa();

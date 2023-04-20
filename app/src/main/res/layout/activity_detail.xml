@@ -175,34 +175,11 @@
                     </LinearLayout>
 
 
-                    <TextView
-                        android:id="@+id/ColerFix"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Màu Sắc"
-                        android:textColor="#000"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/btnSection" />
 
-                    <TextView
-                        android:id="@+id/ColerChoose"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:textColor="#000"
-                        android:textSize="20sp"
-                        app:layout_constraintStart_toEndOf="@id/ColerFix"
-                        app:layout_constraintTop_toBottomOf="@+id/btnSection" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/ColerFix">
 
-                    </LinearLayout>
+
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
