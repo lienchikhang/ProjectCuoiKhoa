@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -48,13 +50,17 @@ public class MainAdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_admin);
-        Intent i = getIntent();
-        Boolean isLogined = i.getBooleanExtra("bool", false);
-        String role = i.getStringExtra("role");
-        String adminNames = i.getStringExtra("name");
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
+        boolean isLogined=false;
+        if(sharedPreferences.getInt("id",0)!=0){
+            isLogined=true;
+        }
+//        String role = i.getStringExtra("role");
+//        String adminNames = i.getStringExtra("name");
+        User user=UserDataQuery.getUser(this,sharedPreferences.getInt("id",0));
 
         adminName = findViewById(R.id.adminName);
-        adminName.setText(adminNames);
+        adminName.setText(user.getUsername());
 
 //        scrollViewAdmin = findViewById(R.id.scrollViewAdminn);
         manageProduct = findViewById(R.id.manageProduct);
@@ -93,6 +99,8 @@ public class MainAdminActivity extends AppCompatActivity {
                         break;
                     case R.id.btnLogoutt:
                         i = new Intent(MainAdminActivity.this, MainActivity.class);
+                        SharedPreferences sharedPreferencesInfo = getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+                        sharedPreferencesInfo.edit().remove("id").apply();
                         startActivity(i);
                         break;
                 }

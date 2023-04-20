@@ -96,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("role",role);
+                editor.apply();
                 startActivity(i);
                 return;
             } else {

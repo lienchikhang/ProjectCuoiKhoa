@@ -21,6 +21,7 @@ import com.example.projectcuoikhoa.Adapter.ShoesAdapter;
 import com.example.projectcuoikhoa.Fragment.InfoFragment;
 import com.example.projectcuoikhoa.Fragment.InfoNotLoginFragment;
 import com.example.projectcuoikhoa.Fragment.MainFragment;
+import com.example.projectcuoikhoa.MainAdminActivity;
 import com.example.projectcuoikhoa.R;
 import com.example.projectcuoikhoa.ShoeDBHelper;
 import com.example.projectcuoikhoa.Shoes;
@@ -57,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
         boolean isLogined=false;
         if(sharedPreferences.getInt("id",0)!=0){
             isLogined=true;
+        }
+        if(sharedPreferences.getString("role",null)!=null){
+            startActivity(new Intent(this, MainAdminActivity.class));
         }
         firstOption = findViewById(R.id.firstOption);
         secondOption = findViewById(R.id.secondOption);

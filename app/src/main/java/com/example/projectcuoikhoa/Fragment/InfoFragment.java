@@ -115,7 +115,6 @@ public class InfoFragment extends Fragment {
                         sharedPreferencesInfo.edit().remove("id").apply();
                         SharedPreferences sharedPreferences =getActivity().getSharedPreferences("shared preferences Cart", Context.MODE_PRIVATE);
                         sharedPreferences.edit().remove("listCart").apply();
-                        i.putExtra("bool", false);
                         startActivity(i);
                         break;
 
