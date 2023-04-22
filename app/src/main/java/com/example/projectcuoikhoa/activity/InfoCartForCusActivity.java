@@ -7,20 +7,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.projectcuoikhoa.CartShoes;
 import com.example.projectcuoikhoa.R;
-import com.example.projectcuoikhoa.User;
+import com.example.projectcuoikhoa.Obj.User;
 import com.example.projectcuoikhoa.UserDataQuery;
-import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 
 public class InfoCartForCusActivity extends AppCompatActivity {
 

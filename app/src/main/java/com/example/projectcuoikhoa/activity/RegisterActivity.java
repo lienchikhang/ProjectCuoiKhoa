@@ -16,11 +16,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.projectcuoikhoa.MainAdminActivity;
 import com.example.projectcuoikhoa.R;
-import com.example.projectcuoikhoa.ShoeDataQuery;
 import com.example.projectcuoikhoa.Ultils;
-import com.example.projectcuoikhoa.User;
+import com.example.projectcuoikhoa.Obj.User;
 import com.example.projectcuoikhoa.UserDataQuery;
 import com.google.gson.Gson;
 

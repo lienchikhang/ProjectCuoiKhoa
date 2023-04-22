@@ -1,4 +1,6 @@
-package com.example.projectcuoikhoa;
+package com.example.projectcuoikhoa.Obj;
+
+import com.example.projectcuoikhoa.Shoes;
 
 import java.io.Serializable;
 import java.util.ArrayList;

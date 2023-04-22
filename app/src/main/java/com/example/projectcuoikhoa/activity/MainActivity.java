@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,10 +22,10 @@ import com.example.projectcuoikhoa.Fragment.InfoNotLoginFragment;
 import com.example.projectcuoikhoa.Fragment.MainFragment;
 import com.example.projectcuoikhoa.MainAdminActivity;
 import com.example.projectcuoikhoa.R;
-import com.example.projectcuoikhoa.ShoeDBHelper;
+import com.example.projectcuoikhoa.DBhelper.ShoeDBHelper;
 import com.example.projectcuoikhoa.Shoes;
 import com.example.projectcuoikhoa.Adapter.ShoesGridAdapter;
-import com.example.projectcuoikhoa.UserDBHelper;
+import com.example.projectcuoikhoa.DBhelper.UserDBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -59,9 +58,6 @@ public class MainActivity extends AppCompatActivity {
         if(sharedPreferences.getInt("id",0)!=0){
             isLogined=true;
         }
-        if(sharedPreferences.getString("role",null)!=null){
-            startActivity(new Intent(this, MainAdminActivity.class));
-        }
         firstOption = findViewById(R.id.firstOption);
         secondOption = findViewById(R.id.secondOption);
         ActionBar actionBar = getSupportActionBar();
@@ -77,8 +73,6 @@ public class MainActivity extends AppCompatActivity {
         loadFragment(new MainFragment());
         bottomNavigationView.setOnItemSelectedListener(getListener(isLogined));
     }
-
-
     @NonNull
     private NavigationBarView.OnItemSelectedListener getListener(Boolean isLogined) {
         return new NavigationBarView.OnItemSelectedListener() {

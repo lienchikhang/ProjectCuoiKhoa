@@ -1,9 +1,11 @@
-package com.example.projectcuoikhoa;
+package com.example.projectcuoikhoa.DBhelper;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.projectcuoikhoa.Ultils;
 
 public class ShoeDBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = Ultils.DATABASE_NAME;

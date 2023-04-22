@@ -10,14 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.projectcuoikhoa.Adapter.ShoesAdapterAdmin;
 import com.example.projectcuoikhoa.Adapter.UserAdapter;
 import com.example.projectcuoikhoa.R;
-import com.example.projectcuoikhoa.ShoeDataQuery;
-import com.example.projectcuoikhoa.Shoes;
-import com.example.projectcuoikhoa.User;
+import com.example.projectcuoikhoa.Obj.User;
 import com.example.projectcuoikhoa.UserDataQuery;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 

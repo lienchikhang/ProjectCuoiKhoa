@@ -1,4 +1,4 @@
-package com.example.projectcuoikhoa;
+package com.example.projectcuoikhoa.Obj;
 
 import java.io.Serializable;
 

@@ -5,6 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.projectcuoikhoa.DBhelper.UserDBHelper;
+import com.example.projectcuoikhoa.Obj.User;
+
 import java.util.ArrayList;
 
 public class UserDataQuery {

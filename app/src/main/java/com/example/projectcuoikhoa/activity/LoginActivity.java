@@ -2,14 +2,9 @@ package com.example.projectcuoikhoa.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,11 +13,8 @@ import android.widget.Toast;
 
 import com.example.projectcuoikhoa.MainAdminActivity;
 import com.example.projectcuoikhoa.R;
-import com.example.projectcuoikhoa.ShoeDBHelper;
 import com.example.projectcuoikhoa.Ultils;
-import com.example.projectcuoikhoa.User;
-import com.example.projectcuoikhoa.UserDBHelper;
-import com.google.gson.Gson;
+import com.example.projectcuoikhoa.DBhelper.UserDBHelper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -38,7 +30,6 @@ public class LoginActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         Boolean isLogined = i.getBooleanExtra("bool", false);
-
         //Anh Xa
         anhXa();
         taoSuKien(isLogined);

@@ -1,4 +1,4 @@
-package com.example.projectcuoikhoa;
+package com.example.projectcuoikhoa.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.projectcuoikhoa.Obj.CartShoes;
+import com.example.projectcuoikhoa.R;
+import com.example.projectcuoikhoa.Ultils;
 
 import java.util.ArrayList;
 

@@ -44,7 +44,10 @@ public class Ultils {
 
     public static final String COLUMN_USER_ROLE = "role";
     public static final String COLUMN_USER_LOGINTIME = "loginTime";
-
+    //sql Cart
+    public static final String DATABASE_CART="db-Cart";
+    public static final String COLUMN_lISTCART="listCart";
+    public static final String COLUMN_CART_ID="idCart";
 
     public static Bitmap convertToBitmapFromAssets(Context context,String nameImage) {
         AssetManager assetManager = context.getAssets();

@@ -5,9 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.projectcuoikhoa.DBhelper.ShoeDBHelper;
+
 import java.util.ArrayList;
 
-public class ShoeDataQuery {
+public class ShoeDataQuery  {
     public static long insert(Context context, Shoes sh) {
         ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
         SQLiteDatabase sqLiteDatabase = shoeDBHelper.getWritableDatabase();

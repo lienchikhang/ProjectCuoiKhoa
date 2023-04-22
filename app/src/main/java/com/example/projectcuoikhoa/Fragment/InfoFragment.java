@@ -6,27 +6,18 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.projectcuoikhoa.Adapter.UserAdapter;
-import com.example.projectcuoikhoa.ShoeDataQuery;
-import com.example.projectcuoikhoa.Shoes;
-import com.example.projectcuoikhoa.UserDBHelper;
 import com.example.projectcuoikhoa.UserDataQuery;
 import com.example.projectcuoikhoa.activity.MainActivity;
 import com.example.projectcuoikhoa.R;
-import com.example.projectcuoikhoa.Ultils;
-import com.example.projectcuoikhoa.User;
-import com.google.gson.Gson;
+import com.example.projectcuoikhoa.Obj.User;
 
 import java.util.ArrayList;
 
@@ -97,10 +88,6 @@ public class InfoFragment extends Fragment {
         tvPass.setText(user.getPassword());
         btnLogout.setOnClickListener(getBtnClick());
         return view;
-    }
-
-    void Anhxa(){
-
     }
 
     @NonNull

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.projectcuoikhoa.Adapter.UserAdapter;
+import com.example.projectcuoikhoa.Obj.User;
 
 import java.util.ArrayList;
 
@@ -20,11 +21,11 @@ public class ManageUserActivity extends AppCompatActivity {
         rvList = findViewById(R.id.rvGridUserManageAdmin);
 
         list = UserDataQuery.getNormalUser(this,"admin");
-        UserAdapter userAdapter1 = new UserAdapter(list);
+        UserAdapter userAdapter = new UserAdapter(list);
 //        userAdapter1.setCallBackAdmin(this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        rvList.setAdapter(userAdapter1);
+        rvList.setAdapter(userAdapter);
         rvList.setLayoutManager(linearLayoutManager);
     }
 }
