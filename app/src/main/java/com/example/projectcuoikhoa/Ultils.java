@@ -49,6 +49,17 @@ public class Ultils {
     public static final String COLUMN_lISTCART="listCart";
     public static final String COLUMN_CART_ID="idCart";
 
+    public static final String TABLE_LIST = "wishList";
+
+    public static final String COLUMN_LIST_SHOE_ID = "idShoe";
+
+    public static final String COLUMN_LIST_USER_ID = "idUser";
+
+    public static final String COLUMN_LIST_SHOE_NAME = "nameList";
+    public static final String COLUMN_LIST_SHOE_AVATAR = "avatarList";
+    public static final String COLUMN_LIST_SHOE_PRICE = "priceList";
+    public static final String COLUMN_LIST_SHOE_TYPE = "typeList";
+
     public static Bitmap convertToBitmapFromAssets(Context context,String nameImage) {
         AssetManager assetManager = context.getAssets();
         try {

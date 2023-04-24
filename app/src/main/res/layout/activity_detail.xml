@@ -55,7 +55,7 @@
                 />
 
                 <ImageButton
-                    android:id="@+id/ImgBtnDetailCart"
+                    android:id="@+id/wishlist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
@@ -64,7 +64,7 @@
                     android:background="@drawable/border_item"
                     android:padding="8dp"
 
-                    android:src="@drawable/ic_shoppingcart" />
+                    android:src="@drawable/ic_like" />
             </FrameLayout>
 
 

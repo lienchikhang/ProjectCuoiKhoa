@@ -9,6 +9,17 @@ public class Shoes {
 
     int price;
 
+    int idUser;
+
+    public Shoes(int id, String name, String image, int price,String type, int idUser) {
+        this.id = id;
+        this.name = name;
+        this.image = image;
+        this.type = type;
+        this.price = price;
+        this.idUser = idUser;
+    }
+
     public Shoes(String name, String image, int price, String type) {
         this.name = name;
         this.image = image;
@@ -62,5 +73,13 @@ public class Shoes {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 }

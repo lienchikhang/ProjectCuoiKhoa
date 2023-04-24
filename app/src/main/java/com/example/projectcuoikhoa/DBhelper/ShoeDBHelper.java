@@ -9,7 +9,7 @@ import com.example.projectcuoikhoa.Ultils;
 
 public class ShoeDBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = Ultils.DATABASE_NAME;
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
     public ShoeDBHelper (Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -53,11 +53,18 @@ public class ShoeDBHelper extends SQLiteOpenHelper {
                 + Ultils.COLUMN_SHOE_TYPE + " TEXT"
                 + ")";
         db.execSQL(CREATE_USER_TABLE);
-//        String RESET_SEQ_TABLE = "UPDATE SQLITE_SEQUENCE SET seq = 0 WHERE name = '" + Ultils.TABLE_SHOE + "'";
-//        db.execSQL(RESET_SEQ_TABLE);
+    }
 
-//        String INSERT_ID_0 = "INSERT INTO " + Ultils.TABLE_SHOE + " (" + Ultils.COLUMN_SHOE_ID + ", " + Ultils.COLUMN_SHOE_NAME + ", " + Ultils.COLUMN_SHOE_AVATAR + ", " + Ultils.COLUMN_SHOE_PRICE + ", " + Ultils.COLUMN_SHOE_TYPE + ")"
-//                + " VALUES (0, 'shoe 0', 'image_0', '100', 'type 0')";
-//        db.execSQL(INSERT_ID_0);
+    public void createTableListShoe() {
+        SQLiteDatabase db = getWritableDatabase();
+        String CREATE_WISHLIST_TABLE = "CREATE TABLE " + Ultils.TABLE_LIST + "("
+                + Ultils.COLUMN_LIST_SHOE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + Ultils.COLUMN_LIST_SHOE_NAME + " TEXT, "
+                + Ultils.COLUMN_LIST_SHOE_AVATAR + " TEXT, "
+                + Ultils.COLUMN_LIST_SHOE_PRICE + " TEXT, "
+                + Ultils.COLUMN_LIST_SHOE_TYPE + " TEXT, "
+                + Ultils.COLUMN_LIST_USER_ID + " INTEGER"
+                + ")";
+        db.execSQL(CREATE_WISHLIST_TABLE);
     }
 }

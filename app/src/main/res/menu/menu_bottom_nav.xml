@@ -5,8 +5,8 @@
         android:id="@+id/home"
         android:icon="@drawable/ic_home"/>
     <item android:title="Cart"
-        android:id="@+id/ShoppingCart"
-        android:icon="@drawable/ic_shoppingcart"/>
+        android:id="@+id/wishListNe"
+        android:icon="@drawable/ic_like"/>
     <item android:title="Info"
         android:id="@+id/info"
         android:icon="@drawable/ic_info"/>

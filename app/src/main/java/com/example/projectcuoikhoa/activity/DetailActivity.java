@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,9 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.projectcuoikhoa.MainAdminActivity;
 import com.example.projectcuoikhoa.R;
 import com.example.projectcuoikhoa.ShoeDataQuery;
 import com.example.projectcuoikhoa.Shoes;
@@ -37,7 +40,7 @@ public class DetailActivity extends AppCompatActivity {
     ArrayList<Shoes> list;
     Shoes temp;
     String id;
-    ImageButton ivBackBtn,btnCart;
+    ImageButton ivBackBtn,btnCart,wishlist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +102,8 @@ public class DetailActivity extends AppCompatActivity {
         BuyProduct=findViewById(R.id.BuyProduct);
         BtnDes=findViewById(R.id.btnDes);
         PriceProduct=findViewById(R.id.PriceProduct);
-        btnCart=findViewById(R.id.ImgBtnDetailCart);
+//        btnCart=findViewById(R.id.ImgBtnDetailCart);
+        wishlist = findViewById(R.id.wishlist);
     }
 
     void SuKienClick(){
@@ -110,8 +114,22 @@ public class DetailActivity extends AppCompatActivity {
         BtnSizeL.setOnClickListener(BtnLclick());
         BtnDes.setOnClickListener(view -> BtnDesClick());
         BuyProduct.setOnClickListener(view -> BuyProductEvent());
-        btnCart.setOnClickListener(view -> CartClick());
+//        btnCart.setOnClickListener(view -> CartClick());
+        wishlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Shoes sh = ShoeDataQuery.getShoes(DetailActivity.this,Integer.parseInt(id));
+                SharedPreferences sharedPreferences = getSharedPreferences("getWishList", MODE_PRIVATE);
+                int idUser = sharedPreferences.getInt("id",0);
+                long id = ShoeDataQuery.insertToWishList(DetailActivity.this,sh,idUser);
+                if( id > 0) {
+                    Toast.makeText(DetailActivity.this, "them thanh cong", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
+
+
 
     void BtnDesClick() {
         if(!checkDes){

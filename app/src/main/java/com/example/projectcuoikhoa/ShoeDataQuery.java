@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.projectcuoikhoa.DBhelper.ShoeDBHelper;
+import com.example.projectcuoikhoa.DBhelper.UserDBHelper;
+import com.example.projectcuoikhoa.Obj.User;
 
 import java.util.ArrayList;
 
@@ -36,6 +38,31 @@ public class ShoeDataQuery  {
             int price = cs.getInt(3);
             String type = cs.getString(4);
             lstUser.add(new Shoes(id,name,image,price,type));
+            cs.moveToNext();
+        }
+        cs.close();
+        db.close();
+        return lstUser;
+    }
+//    public static ArrayList<Shoes> checkUser(Context context,int idUser) {
+//        User user=UserDataQuery.getUser(context,idUser);
+//
+//
+//    }
+    public static ArrayList<Shoes> getAllWishList(Context context, int idUserIn) {
+        ArrayList<Shoes> lstUser = new ArrayList<>();
+        ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
+        SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
+        Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_LIST + " where " + Ultils.COLUMN_LIST_USER_ID +"=?", new String[] {String.valueOf(idUserIn)});
+        cs.moveToFirst();
+        while(!cs.isAfterLast()) {
+            int id = cs.getInt(0);
+            String name = cs.getString(1);
+            String image = cs.getString(2);
+            int price = cs.getInt(3);
+            String type = cs.getString(4);
+            int idUser = cs.getInt(5);
+            lstUser.add(new Shoes(id,name,image,price,type,idUser));
             cs.moveToNext();
         }
         cs.close();
@@ -123,4 +150,17 @@ public class ShoeDataQuery  {
         return (rs >0);
     }
 
+    public static long insertToWishList(Context context, Shoes sh, int idUser) {
+        ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
+        SQLiteDatabase sqLiteDatabase = shoeDBHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+//        values.put(Ultils.COLUMN_SHOE_ID, sh.id);
+        values.put(Ultils.COLUMN_LIST_SHOE_NAME,sh.name);
+        values.put(Ultils.COLUMN_LIST_SHOE_AVATAR, sh.image);
+        values.put(Ultils.COLUMN_LIST_SHOE_PRICE,sh.price);
+        values.put(Ultils.COLUMN_LIST_SHOE_TYPE, sh.type);
+        values.put(Ultils.COLUMN_LIST_USER_ID, idUser);
+        long rs = sqLiteDatabase.insert(Ultils.TABLE_LIST,null,values);
+        return (rs);
+    }
 }

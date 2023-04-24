@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.projectcuoikhoa.UserDataQuery;
+import com.example.projectcuoikhoa.WishListActivity;
 import com.example.projectcuoikhoa.activity.MainActivity;
 import com.example.projectcuoikhoa.R;
 import com.example.projectcuoikhoa.Obj.User;
@@ -80,6 +81,7 @@ public class InfoFragment extends Fragment {
         TextView tvUsername = view.findViewById(R.id.tvUsername);
         TextView tvPass = view.findViewById(R.id.tvPassword);
         TextView tvPhone = view.findViewById(R.id.tvPhone);
+        Button btnWishList = view.findViewById(R.id.btnWishList);
         Button btnLogout = view.findViewById(R.id.btnLogout);
         Button btnEditInfo = view.findViewById(R.id.btnEditInfo);
         SharedPreferences sharedPreferencesInfo = getActivity().getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
@@ -87,6 +89,7 @@ public class InfoFragment extends Fragment {
         tvUsername.setText(user.getUsername());
         tvPass.setText(user.getPassword());
         btnLogout.setOnClickListener(getBtnClick());
+        btnWishList.setOnClickListener(getBtnClick());
         return view;
     }
 
@@ -104,6 +107,12 @@ public class InfoFragment extends Fragment {
                         sharedPreferences.edit().remove("listCart").apply();
                         startActivity(i);
                         break;
+                    case R.id.btnWishList:
+                        i = new Intent(getActivity(), WishListActivity.class);
+                        sharedPreferences = getActivity().getSharedPreferences("idUserIn", Context.MODE_PRIVATE);
+                        int idUserIn = sharedPreferences.getInt("id",0);
+                        i.putExtra("idU",idUserIn);
+                        startActivity(i);
 
                 }
             }
