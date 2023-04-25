@@ -98,13 +98,13 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.wishListNe:
                         scrollView.setVisibility(View.INVISIBLE);
-                        loadFragment(new WishListFragment());
-//                        if(isLogined) {
-//                            loadFragment(new WishListFragment());
-//                        }
-//                        else {
-//                            loadFragment(new BlankFragment());
-//                        }
+//                        loadFragment(new WishListFragment());
+                        if(isLogined) {
+                            loadFragment(new WishListFragment());
+                        }
+                        else {
+                            loadFragment(new BlankFragment());
+                        }
                         break;
                 }
                 return true;

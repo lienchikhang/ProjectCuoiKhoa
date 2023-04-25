@@ -9,6 +9,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.projectcuoikhoa.Adapter.ShoesAdapter;
@@ -24,12 +26,16 @@ public class WishListActivity extends AppCompatActivity implements ShoesAdapterA
     ArrayList<Shoes> list;
     ShoesAdapter shoesAdapter;
     ShoesGridAdapter shoesGridAdapter;
+
+    ImageButton ivBackBtnWishList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wish_list);
-
+        getSupportActionBar().hide();
         rvWishList = findViewById(R.id.rvWishList);
+        ivBackBtnWishList = findViewById(R.id.ivBackBtnWishList);
+
 //        Intent i = getIntent();
 //        String test = i.getStringExtra("idU");
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
@@ -44,6 +50,13 @@ public class WishListActivity extends AppCompatActivity implements ShoesAdapterA
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
         rvWishList.setAdapter(shoesGridAdapter);
         rvWishList.setLayoutManager(gridLayoutManager);
+
+        ivBackBtnWishList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
     void resetData(int id) {
         list.clear();
