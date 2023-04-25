@@ -97,6 +97,9 @@ public class LoginActivity extends AppCompatActivity {
 //                i.putExtra("UserName", username);
 //                i.putExtra("Password", password);
 //                i.putExtra("loginTime", loginTime);
+                SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
+                int idUserIn = sharedPreferences.getInt("id", MODE_PRIVATE);
+                Toast.makeText(this, "idU: " + idUserIn, Toast.LENGTH_SHORT).show();
                 startActivity(i);
             }
         } else {

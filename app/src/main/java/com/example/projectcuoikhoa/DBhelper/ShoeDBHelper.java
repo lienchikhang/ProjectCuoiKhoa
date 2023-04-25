@@ -37,9 +37,9 @@ public class ShoeDBHelper extends SQLiteOpenHelper {
         db.execSQL(result);
     }
 
-    public void dropTableShoe() {
+    public void dropTableList() {
         SQLiteDatabase db = getReadableDatabase();
-        String drop = "DROP TABLE IF EXISTS " + Ultils.TABLE_SHOE;
+        String drop = "DROP TABLE IF EXISTS " + Ultils.TABLE_LIST;
         db.execSQL(drop);
     }
 
@@ -66,5 +66,11 @@ public class ShoeDBHelper extends SQLiteOpenHelper {
                 + Ultils.COLUMN_LIST_USER_ID + " INTEGER"
                 + ")";
         db.execSQL(CREATE_WISHLIST_TABLE);
+    }
+
+    public void dropTableShoe() {
+        SQLiteDatabase db = getReadableDatabase();
+        String drop = "DROP TABLE IF EXISTS " + Ultils.TABLE_SHOE;
+        db.execSQL(drop);
     }
 }

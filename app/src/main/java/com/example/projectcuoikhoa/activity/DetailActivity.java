@@ -119,8 +119,8 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Shoes sh = ShoeDataQuery.getShoes(DetailActivity.this,Integer.parseInt(id));
-                SharedPreferences sharedPreferences = getSharedPreferences("getWishList", MODE_PRIVATE);
-                int idUser = sharedPreferences.getInt("id",0);
+                SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
+                int idUser = sharedPreferences.getInt("id",MODE_PRIVATE);
                 long id = ShoeDataQuery.insertToWishList(DetailActivity.this,sh,idUser);
                 if( id > 0) {
                     Toast.makeText(DetailActivity.this, "them thanh cong", Toast.LENGTH_SHORT).show();

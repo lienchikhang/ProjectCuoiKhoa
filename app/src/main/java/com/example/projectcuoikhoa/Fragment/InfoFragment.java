@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.projectcuoikhoa.UserDataQuery;
 import com.example.projectcuoikhoa.WishListActivity;
@@ -109,8 +110,9 @@ public class InfoFragment extends Fragment {
                         break;
                     case R.id.btnWishList:
                         i = new Intent(getActivity(), WishListActivity.class);
-                        sharedPreferences = getActivity().getSharedPreferences("idUserIn", Context.MODE_PRIVATE);
-                        int idUserIn = sharedPreferences.getInt("id",0);
+                        sharedPreferences = getActivity().getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+                        int idUserIn = sharedPreferences.getInt("id", Context.MODE_PRIVATE);
+                        Toast.makeText(getActivity(), "idU: " + idUserIn, Toast.LENGTH_SHORT).show();
                         i.putExtra("idU",idUserIn);
                         startActivity(i);
 

@@ -27,11 +27,11 @@ public class WishListActivity extends AppCompatActivity implements ShoesAdapterA
         rvWishList = findViewById(R.id.rvWishList);
 //        Intent i = getIntent();
 //        String test = i.getStringExtra("idU");
-        SharedPreferences sharedPreferences = getSharedPreferences("idUserIn", Context.MODE_PRIVATE);
-        int idUserIn = sharedPreferences.getInt("id",0);
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
+        int idUserIn = sharedPreferences.getInt("id", MODE_PRIVATE);
         list = new ArrayList<>();
 //        resetData(idUserIn);
-        list.addAll(ShoeDataQuery.getAllWishList(this,idUserIn));
+        list = ShoeDataQuery.getAllWishList(this,idUserIn);
         shoesAdapter = new ShoesAdapter(list,this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
