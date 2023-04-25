@@ -30,8 +30,7 @@ public class CartDataQuery {
         Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_CART+" Where "+Ultils.COLUMN_USER_ID_CART+"="+idUser, null);
         cs.moveToFirst();
         while(!cs.isAfterLast()) {
-            String Name=cs.getString(2);
-            Shoes shoes=ShoeDataQuery.GetByName(context, Name);
+            Shoes shoes=ShoeDataQuery.GetByName(context, cs.getString(2));
             int Quantity=cs.getInt(3);
             String Size=cs.getString(4);
             cartShoes.add(new CartShoes(shoes,Quantity,Size,shoes.getImage()));

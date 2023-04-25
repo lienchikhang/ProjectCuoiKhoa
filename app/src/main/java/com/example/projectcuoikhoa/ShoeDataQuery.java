@@ -86,7 +86,7 @@ public class ShoeDataQuery  {
     public static Shoes GetByName(Context context,String Name){
         ShoeDBHelper shoeDBHelper=new ShoeDBHelper(context);
         SQLiteDatabase db=shoeDBHelper.getReadableDatabase();
-        Cursor cs=db.rawQuery("Select * from "+Ultils.TABLE_SHOE+" Where "+Ultils.COLUMN_SHOE_NAME+"="+Name,null);
+        Cursor cs=db.rawQuery("Select * from "+Ultils.TABLE_SHOE+" Where "+Ultils.COLUMN_SHOE_NAME+" like"+"'%"+Name+"%'",null);
         cs.moveToFirst();
         String name = cs.getString(1);
         String image = cs.getString(2);
