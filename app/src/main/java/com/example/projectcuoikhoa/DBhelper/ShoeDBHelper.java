@@ -58,7 +58,7 @@ public class ShoeDBHelper extends SQLiteOpenHelper {
     public void createTableListShoe() {
         SQLiteDatabase db = getWritableDatabase();
         String CREATE_WISHLIST_TABLE = "CREATE TABLE " + Ultils.TABLE_LIST + "("
-                + Ultils.COLUMN_LIST_SHOE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + Ultils.COLUMN_LIST_SHOE_ID + " INTEGER PRIMARY KEY, "
                 + Ultils.COLUMN_LIST_SHOE_NAME + " TEXT, "
                 + Ultils.COLUMN_LIST_SHOE_AVATAR + " TEXT, "
                 + Ultils.COLUMN_LIST_SHOE_PRICE + " TEXT, "

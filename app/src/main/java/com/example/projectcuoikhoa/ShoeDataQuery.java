@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import com.example.projectcuoikhoa.DBhelper.ShoeDBHelper;
 import com.example.projectcuoikhoa.DBhelper.UserDBHelper;
@@ -79,7 +80,7 @@ public class ShoeDataQuery  {
         String image = cs.getString(2);
         int price = cs.getInt(3);
         String type = cs.getString(4);
-        Shoes shoes=new Shoes(name,image,price,type);
+        Shoes shoes=new Shoes(id,name,image,price,type);
         return shoes;
     }
 
@@ -154,12 +155,13 @@ public class ShoeDataQuery  {
         ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
         SQLiteDatabase sqLiteDatabase = shoeDBHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-//        values.put(Ultils.COLUMN_SHOE_ID, sh.id);
+        values.put(Ultils.COLUMN_LIST_SHOE_ID, sh.id);
         values.put(Ultils.COLUMN_LIST_SHOE_NAME,sh.name);
         values.put(Ultils.COLUMN_LIST_SHOE_AVATAR, sh.image);
         values.put(Ultils.COLUMN_LIST_SHOE_PRICE,sh.price);
         values.put(Ultils.COLUMN_LIST_SHOE_TYPE, sh.type);
         values.put(Ultils.COLUMN_LIST_USER_ID, idUser);
+        Toast.makeText(context, "idshoe: " + sh.getId(), Toast.LENGTH_SHORT).show();
         long rs = sqLiteDatabase.insert(Ultils.TABLE_LIST,null,values);
         return (rs);
     }

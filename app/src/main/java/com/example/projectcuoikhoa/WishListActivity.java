@@ -1,6 +1,7 @@
 package com.example.projectcuoikhoa;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,17 +9,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.projectcuoikhoa.Adapter.ShoesAdapter;
 import com.example.projectcuoikhoa.Adapter.ShoesAdapterAdmin;
+import com.example.projectcuoikhoa.Adapter.ShoesGridAdapter;
+import com.example.projectcuoikhoa.activity.DetailActivity;
 
 import java.util.ArrayList;
 
-public class WishListActivity extends AppCompatActivity implements ShoesAdapterAdmin.ShoesCallBackAdmin, ShoesAdapter.ShoesCallBack{
+public class WishListActivity extends AppCompatActivity implements ShoesAdapterAdmin.ShoesCallBackAdmin, ShoesAdapter.ShoesCallBack, ShoesGridAdapter.UserGridCallBack{
 
     RecyclerView rvWishList;
     ArrayList<Shoes> list;
     ShoesAdapter shoesAdapter;
+    ShoesGridAdapter shoesGridAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +37,13 @@ public class WishListActivity extends AppCompatActivity implements ShoesAdapterA
         list = new ArrayList<>();
 //        resetData(idUserIn);
         list = ShoeDataQuery.getAllWishList(this,idUserIn);
+        shoesGridAdapter = new ShoesGridAdapter(list,this);
         shoesAdapter = new ShoesAdapter(list,this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        rvWishList.setAdapter(shoesAdapter);
-        rvWishList.setLayoutManager(linearLayoutManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
+        rvWishList.setAdapter(shoesGridAdapter);
+        rvWishList.setLayoutManager(gridLayoutManager);
     }
     void resetData(int id) {
         list.clear();
@@ -46,7 +53,10 @@ public class WishListActivity extends AppCompatActivity implements ShoesAdapterA
 
     @Override
     public void onItemClick(String id) {
-
+        Intent i = new Intent(this, DetailActivity.class);
+        i.putExtra("id", id);
+        Toast.makeText(this, "idshoe: " + id, Toast.LENGTH_SHORT).show();
+        startActivity(i);
     }
 
     @Override
