@@ -12,6 +12,9 @@
         android:theme="@style/Theme.ProjectCuoiKhoa"
         tools:targetApi="31">
         <activity
+            android:name=".HistoryCartActivity"
+            android:exported="false" />
+        <activity
             android:name=".WishListActivity"
             android:exported="false" />
         <activity

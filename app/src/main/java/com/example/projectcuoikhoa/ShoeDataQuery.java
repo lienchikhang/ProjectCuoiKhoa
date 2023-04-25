@@ -83,6 +83,18 @@ public class ShoeDataQuery  {
         Shoes shoes=new Shoes(id,name,image,price,type);
         return shoes;
     }
+    public static Shoes GetByName(Context context,String Name){
+        ShoeDBHelper shoeDBHelper=new ShoeDBHelper(context);
+        SQLiteDatabase db=shoeDBHelper.getReadableDatabase();
+        Cursor cs=db.rawQuery("Select * from "+Ultils.TABLE_SHOE+" Where "+Ultils.COLUMN_SHOE_NAME+"="+Name,null);
+        cs.moveToFirst();
+        String name = cs.getString(1);
+        String image = cs.getString(2);
+        int price = cs.getInt(3);
+        String type = cs.getString(4);
+        Shoes shoes=new Shoes(name,image,price,type);
+        return shoes;
+    }
 
 
     public static int update(Context context, Shoes sh) {

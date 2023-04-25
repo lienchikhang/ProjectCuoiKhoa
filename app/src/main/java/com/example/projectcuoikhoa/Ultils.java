@@ -46,7 +46,11 @@ public class Ultils {
     public static final String COLUMN_USER_LOGINTIME = "loginTime";
     //sql Cart
     public static final String DATABASE_CART="db-Cart";
-    public static final String COLUMN_lISTCART="listCart";
+    public static final String TABLE_CART="cart";
+    public static final String COLUMN_USER_ID_CART="Userid";
+    public static final String COLUMN_SHOE_NAME_CART="ShoeID";
+    public static final String COLUMN_SHOE_SIZE_CART="sizeCart";
+    public static final String COLUMN_QUANTITY_CART="quantityCart";
     public static final String COLUMN_CART_ID="idCart";
 
     public static final String TABLE_LIST = "wishList";
@@ -59,6 +63,7 @@ public class Ultils {
     public static final String COLUMN_LIST_SHOE_AVATAR = "avatarList";
     public static final String COLUMN_LIST_SHOE_PRICE = "priceList";
     public static final String COLUMN_LIST_SHOE_TYPE = "typeList";
+
 
     public static Bitmap convertToBitmapFromAssets(Context context,String nameImage) {
         AssetManager assetManager = context.getAssets();

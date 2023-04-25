@@ -11,9 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.projectcuoikhoa.CartDataQuery;
+import com.example.projectcuoikhoa.Obj.CartShoes;
 import com.example.projectcuoikhoa.R;
 import com.example.projectcuoikhoa.Obj.User;
 import com.example.projectcuoikhoa.UserDataQuery;
+import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 public class InfoCartForCusActivity extends AppCompatActivity {
 
@@ -32,11 +39,30 @@ public class InfoCartForCusActivity extends AppCompatActivity {
     }
 
     void Sukien() {
+//        if(Check()){
+//            Toast.makeText(this,"Vui long dien du thong tin",Toast.LENGTH_LONG).show();
+//            return;
+//        }
+//        SharedPreferences sharedPreferences =getSharedPreferences("shared preferences Cart", Context.MODE_PRIVATE);
+//        sharedPreferences.edit().remove("listCart").apply();
+//        Toast.makeText(this, "dat hang thanh cong", Toast.LENGTH_LONG).show();
+//        startActivity(new Intent(this,MainActivity.class));
+        Intent i=getIntent();
         if(Check()){
             Toast.makeText(this,"Vui long dien du thong tin",Toast.LENGTH_LONG).show();
             return;
         }
+        SharedPreferences sharedPreferencesInfo = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
+        int id=sharedPreferencesInfo.getInt("id",0);
         SharedPreferences sharedPreferences =getSharedPreferences("shared preferences Cart", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String Save = i.getStringExtra("listcart");
+        Type type = new TypeToken<ArrayList<CartShoes>>() {
+        }.getType();
+        ArrayList<CartShoes> listCart = gson.fromJson(Save, type);
+        for(int a=0;a<listCart.size();a++){
+            CartDataQuery.insert(this,listCart.get(a),id);
+        }
         sharedPreferences.edit().remove("listCart").apply();
         Toast.makeText(this, "dat hang thanh cong", Toast.LENGTH_LONG).show();
         startActivity(new Intent(this,MainActivity.class));

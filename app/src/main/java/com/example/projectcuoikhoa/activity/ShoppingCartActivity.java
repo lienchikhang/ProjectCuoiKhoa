@@ -79,6 +79,8 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
             return;
         }
         Intent i=new Intent(this,InfoCartForCusActivity.class);
+        Gson gson=new Gson();
+        i.putExtra("listcart",gson.toJson(listCart));
         startActivity(i);
     }
     void SukienthemlistCart() {

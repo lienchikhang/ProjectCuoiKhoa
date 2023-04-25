@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.projectcuoikhoa.HistoryCartActivity;
 import com.example.projectcuoikhoa.UserDataQuery;
 import com.example.projectcuoikhoa.WishListActivity;
 import com.example.projectcuoikhoa.activity.MainActivity;
@@ -83,6 +84,7 @@ public class InfoFragment extends Fragment {
         TextView tvPass = view.findViewById(R.id.tvPassword);
         TextView tvPhone = view.findViewById(R.id.tvPhone);
         Button btnWishList = view.findViewById(R.id.btnWishList);
+        Button btnSeeCart=view.findViewById(R.id.btnSeeCart);
         Button btnLogout = view.findViewById(R.id.btnLogout);
         Button btnEditInfo = view.findViewById(R.id.btnEditInfo);
         SharedPreferences sharedPreferencesInfo = getActivity().getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
@@ -91,7 +93,14 @@ public class InfoFragment extends Fragment {
         tvPass.setText(user.getPassword());
         btnLogout.setOnClickListener(getBtnClick());
         btnWishList.setOnClickListener(getBtnClick());
+        btnSeeCart.setOnClickListener(view1 -> getclick());
         return view;
+    }
+    void getclick(){
+        SharedPreferences sharedPreferencesInfo = getActivity().getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+        Intent i=new Intent(getActivity(), HistoryCartActivity.class);
+        i.putExtra("id",sharedPreferencesInfo.getInt("id",0));
+        startActivity(i);
     }
 
     @NonNull
