@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.projectcuoikhoa.Adapter.ShoesAdapter;
 import com.example.projectcuoikhoa.Adapter.ShoesAdapterAdmin;
+import com.example.projectcuoikhoa.Adapter.ShoesGridAdapter;
 import com.example.projectcuoikhoa.R;
 import com.example.projectcuoikhoa.ShoeDataQuery;
 import com.example.projectcuoikhoa.Shoes;
@@ -25,7 +27,7 @@ import java.util.ArrayList;
  * Use the {@link WishListFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WishListFragment extends Fragment implements ShoesAdapterAdmin.ShoesCallBackAdmin, ShoesAdapter.ShoesCallBack{
+public class WishListFragment extends Fragment implements ShoesAdapterAdmin.ShoesCallBackAdmin, ShoesAdapter.ShoesCallBack, ShoesGridAdapter.UserGridCallBack{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -70,25 +72,25 @@ public class WishListFragment extends Fragment implements ShoesAdapterAdmin.Shoe
     RecyclerView rvWishList;
     ArrayList<Shoes> list;
     ShoesAdapter shoesAdapter;
+    ShoesGridAdapter shoesGridAdapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_wish_list, container, false);
         rvWishList = view.findViewById(R.id.rvWishList);
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("idUserIn", Context.MODE_PRIVATE);
-        int idUserIn = sharedPreferences.getInt("id",0);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+        int idUserIn = sharedPreferences.getInt("id",getActivity().MODE_PRIVATE);
         list = new ArrayList<>();
-        if(idUserIn != 0) {
-            resetData(idUserIn);
-        }
-//        list = ShoeDataQuery.getAllWishList(getActivity(),idUserIn);
+//        resetData(idUserIn);
+        list = ShoeDataQuery.getAllWishList(getActivity(),idUserIn);
+        shoesGridAdapter = new ShoesGridAdapter(list,this);
         shoesAdapter = new ShoesAdapter(list,this);
 
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        rvWishList.setAdapter(shoesAdapter);
-        rvWishList.setLayoutManager(linearLayoutManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
+        rvWishList.setAdapter(shoesGridAdapter);
+        rvWishList.setLayoutManager(gridLayoutManager);
         return view;
     }
 

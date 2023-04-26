@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -17,12 +16,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.projectcuoikhoa.Adapter.ShoesAdapter;
-import com.example.projectcuoikhoa.Fragment.BlankFragment;
 import com.example.projectcuoikhoa.Fragment.InfoFragment;
 import com.example.projectcuoikhoa.Fragment.InfoNotLoginFragment;
 import com.example.projectcuoikhoa.Fragment.MainFragment;
 import com.example.projectcuoikhoa.Fragment.WishListFragment;
-import com.example.projectcuoikhoa.MainAdminActivity;
 import com.example.projectcuoikhoa.R;
 import com.example.projectcuoikhoa.DBhelper.ShoeDBHelper;
 import com.example.projectcuoikhoa.Shoes;
@@ -74,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         //tao bảng shoe
 //        shoeDBHelper.createTableShoe();
         //bottom nav
+
         bottomNavigationView = findViewById(R.id.navbarBottom);
         loadFragment(new MainFragment());
         bottomNavigationView.setOnItemSelectedListener(getListener(isLogined));
@@ -99,13 +97,14 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.wishListNe:
                         scrollView.setVisibility(View.INVISIBLE);
 //                        loadFragment(new WishListFragment());
-                        if(isLogined) {
-                            loadFragment(new WishListFragment());
-                        }
-                        else {
-                            loadFragment(new BlankFragment());
-                        }
-                        break;
+//                        if(isLogined) {
+//                            loadFragment(new WishListFragment());
+//                        }
+//                        else {
+//                            loadFragment(new BlankFragment());
+//                        }
+//                        break;
+                        loadFragment(new WishListFragment());
                 }
                 return true;
 
