@@ -10,12 +10,39 @@ public class CartShoes implements Serializable {
     Shoes shoes;
     int quantity;
     String Size;
+    String Address;
+    String PhoneNumber;
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
+    }
+
+    public String getPhoneNumber() {
+        return PhoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        PhoneNumber = phoneNumber;
+    }
 
     public String getImgShoes() {
         return ImgShoes;
     }
 
     public void setImgShoes(String imgShoes) {
+        ImgShoes = imgShoes;
+    }
+
+    public CartShoes(Shoes shoes, int quantity, String size, String address, String phoneNumber, String imgShoes) {
+        this.shoes = shoes;
+        this.quantity = quantity;
+        Size = size;
+        Address = address;
+        PhoneNumber = phoneNumber;
         ImgShoes = imgShoes;
     }
 

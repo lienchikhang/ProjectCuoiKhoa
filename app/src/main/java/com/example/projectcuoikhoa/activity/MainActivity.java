@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.projectcuoikhoa.Adapter.ShoesAdapter;
+import com.example.projectcuoikhoa.DBhelper.CartDBHelper;
 import com.example.projectcuoikhoa.Fragment.InfoFragment;
 import com.example.projectcuoikhoa.Fragment.InfoNotLoginFragment;
 import com.example.projectcuoikhoa.Fragment.MainFragment;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     UserDBHelper userDBHelper;
     ShoeDBHelper shoeDBHelper;
+    CartDBHelper cartDBHelper;
     TextView tvMoreCate;
 
     LinearLayout firstOption, secondOption, thirdOption, fouthOption;
@@ -71,7 +73,9 @@ public class MainActivity extends AppCompatActivity {
         //tao bảng shoe
 //        shoeDBHelper.createTableShoe();
         //bottom nav
-
+//        cartDBHelper=new CartDBHelper(this);
+//        cartDBHelper.dropTable();
+//        cartDBHelper.createTableCart();
         bottomNavigationView = findViewById(R.id.navbarBottom);
         loadFragment(new MainFragment());
         bottomNavigationView.setOnItemSelectedListener(getListener(isLogined));

@@ -10,6 +10,11 @@ public class Shoes {
     int price;
 
     int idUser;
+    public Shoes(){}
+    public Shoes(String name,int price){
+        this.name=name;
+        this.price=price;
+    }
 
     public Shoes(int id, String name, String image, int price,String type, int idUser) {
         this.id = id;

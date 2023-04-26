@@ -40,7 +40,7 @@ public class HistoryCartAdapter extends RecyclerView.Adapter<HistoryCartAdapter.
         holder.Name.setText(item.getShoes().getName());
         holder.Size.setText(item.getSize());
         holder.Quan.setText(Integer.toString(item.getQuantity()));
-        holder.sumprice.setText(Ultils.ConvertToVND(item.getQuantity()*item.getShoes().getPrice()));
+        holder.sumprice.setText(Ultils.ConvertToVND(item.getQuantity()*item.getShoes().getPrice()+item.getQuantity()*2000));
         holder.img.setImageBitmap(Ultils.convertToBitmapFromAssets(context.getApplicationContext(), item.getImgShoes()));
     }
 

@@ -19,8 +19,12 @@ public class CartDBHelper extends SQLiteOpenHelper {
                 +Ultils.COLUMN_CART_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
                 +Ultils.COLUMN_USER_ID_CART+" INTEGER, "
                 +Ultils.COLUMN_SHOE_NAME_CART+ " TEXT, "
-                +Ultils.COLUMN_QUANTITY_CART+" INTEGER, "
-                +Ultils.COLUMN_SHOE_SIZE_CART+" Text"
+                +Ultils.COLUMN_CART_PRICE+" INTEGER, "
+                +Ultils.COLUMN_SHOE_SIZE_CART+" TEXT, "
+                +Ultils.COLUMN_CART_ADDRESS+" TEXT, "
+                +Ultils.COLUMN_CART_PHONE+" TEXT, "
+                +Ultils.COLUMN_CART_IMG+" TEXT, "
+                +Ultils.COLUMN_QUANTITY_CART+" INTEGER"
                 +" )";
         sqLiteDatabase.execSQL(CREATE_CART_TABLE);
     }
@@ -36,8 +40,12 @@ public class CartDBHelper extends SQLiteOpenHelper {
                 +Ultils.COLUMN_CART_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
                 +Ultils.COLUMN_USER_ID_CART+" INTEGER, "
                 +Ultils.COLUMN_SHOE_NAME_CART+ " TEXT, "
-                +Ultils.COLUMN_QUANTITY_CART+" INTEGER, "
-                +Ultils.COLUMN_SHOE_SIZE_CART+" Text"
+                +Ultils.COLUMN_CART_PRICE+" INTEGER, "
+                +Ultils.COLUMN_SHOE_SIZE_CART+" TEXT, "
+                +Ultils.COLUMN_CART_ADDRESS+" TEXT, "
+                +Ultils.COLUMN_CART_PHONE+" TEXT, "
+                +Ultils.COLUMN_CART_IMG+" TEXT, "
+                +Ultils.COLUMN_QUANTITY_CART+" INTEGER"
                 +" )";
         db.execSQL(CREATE_CART_TABLE);
     }

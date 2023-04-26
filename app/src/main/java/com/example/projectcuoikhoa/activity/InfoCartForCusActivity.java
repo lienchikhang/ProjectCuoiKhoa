@@ -61,7 +61,7 @@ public class InfoCartForCusActivity extends AppCompatActivity {
         }.getType();
         ArrayList<CartShoes> listCart = gson.fromJson(Save, type);
         for(int a=0;a<listCart.size();a++){
-            CartDataQuery.insert(this,listCart.get(a),id);
+            CartDataQuery.insert(this,listCart.get(a),id,address.getText().toString(),phone.getText().toString());
         }
         sharedPreferences.edit().remove("listCart").apply();
         Toast.makeText(this, "dat hang thanh cong", Toast.LENGTH_LONG).show();

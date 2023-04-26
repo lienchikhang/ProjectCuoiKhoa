@@ -35,7 +35,6 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
     ImageView btnback;
     TextView PriceSum;
     TextView PriceDelivery;
-    EditText Address;
     Button Buy;
 
     @Override
