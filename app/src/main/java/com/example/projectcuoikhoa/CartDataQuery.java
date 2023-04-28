@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.example.projectcuoikhoa.DBhelper.CartDBHelper;
+import com.example.projectcuoikhoa.DBhelper.ShoeDBHelper;
 import com.example.projectcuoikhoa.Obj.CartShoes;
 import java.util.ArrayList;
 
@@ -32,6 +33,7 @@ public class CartDataQuery {
         Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_CART+" Where "+Ultils.COLUMN_USER_ID_CART+"="+idUser, null);
         cs.moveToFirst();
         while(!cs.isAfterLast()) {
+            int idCart=cs.getInt(0);
             String name=cs.getString(2);
             int Quantity=cs.getInt(8);
             String Size=cs.getString(4);
@@ -40,7 +42,7 @@ public class CartDataQuery {
             String Address=cs.getString(5);
             String PhoneNumber=cs.getString(6);
             shoes=new Shoes(name,price);
-            cartShoes.add(new CartShoes(shoes,Quantity,Size,Address,PhoneNumber,Img));
+            cartShoes.add(new CartShoes(shoes,Quantity,Size,Address,PhoneNumber,Img,idCart));
             cs.moveToNext();
         }
         cs.close();
@@ -55,6 +57,7 @@ public class CartDataQuery {
         Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_CART, null);
         cs.moveToFirst();
         while(!cs.isAfterLast()) {
+            int idCart=cs.getInt(0);
             String name=cs.getString(2);
             int Quantity=cs.getInt(8);
             String Size=cs.getString(4);
@@ -63,11 +66,17 @@ public class CartDataQuery {
             String Address=cs.getString(5);
             String PhoneNumber=cs.getString(6);
             shoes=new Shoes(name,price);
-            cartShoes.add(new CartShoes(shoes,Quantity,Size,Address,PhoneNumber,Img));
+            cartShoes.add(new CartShoes(shoes,Quantity,Size,Address,PhoneNumber,Img,idCart));
             cs.moveToNext();
         }
         cs.close();
         db.close();
         return cartShoes;
+    }
+    public static boolean delete(Context context, int idCart) {
+        CartDBHelper cartDBHelper = new CartDBHelper(context);
+        SQLiteDatabase sqLiteDatabase = cartDBHelper.getWritableDatabase();
+        int rs = sqLiteDatabase.delete(Ultils.TABLE_CART,Ultils.COLUMN_CART_ID +"=?", new String[] {String.valueOf(idCart)});
+        return (rs > 0);
     }
 }
