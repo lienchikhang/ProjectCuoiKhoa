@@ -2,6 +2,7 @@ package com.example.projectcuoikhoa;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
@@ -12,17 +13,17 @@ import com.example.projectcuoikhoa.Obj.User;
 
 import java.util.ArrayList;
 
-public class ShoeDataQuery  {
+public class ShoeDataQuery {
     public static long insert(Context context, Shoes sh) {
         ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
         SQLiteDatabase sqLiteDatabase = shoeDBHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
 //        values.put(Ultils.COLUMN_SHOE_ID, sh.id);
-        values.put(Ultils.COLUMN_SHOE_NAME,sh.name);
+        values.put(Ultils.COLUMN_SHOE_NAME, sh.name);
         values.put(Ultils.COLUMN_SHOE_AVATAR, sh.image);
-        values.put(Ultils.COLUMN_SHOE_PRICE,sh.price);
+        values.put(Ultils.COLUMN_SHOE_PRICE, sh.price);
         values.put(Ultils.COLUMN_SHOE_TYPE, sh.type);
-        long rs = sqLiteDatabase.insert(Ultils.TABLE_SHOE,null,values);
+        long rs = sqLiteDatabase.insert(Ultils.TABLE_SHOE, null, values);
         return (rs);
     }
 
@@ -32,20 +33,21 @@ public class ShoeDataQuery  {
         SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
         Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_SHOE, null);
         cs.moveToFirst();
-        while(!cs.isAfterLast()) {
+        while (!cs.isAfterLast()) {
             int id = cs.getInt(0);
             String name = cs.getString(1);
             String image = cs.getString(2);
             int price = cs.getInt(3);
             String type = cs.getString(4);
-            lstUser.add(new Shoes(id,name,image,price,type));
+            lstUser.add(new Shoes(id, name, image, price, type));
             cs.moveToNext();
         }
         cs.close();
         db.close();
         return lstUser;
     }
-//    public static ArrayList<Shoes> checkUser(Context context,int idUser) {
+
+    //    public static ArrayList<Shoes> checkUser(Context context,int idUser) {
 //        User user=UserDataQuery.getUser(context,idUser);
 //
 //
@@ -54,45 +56,47 @@ public class ShoeDataQuery  {
         ArrayList<Shoes> lstUser = new ArrayList<>();
         ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
         SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
-        Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_LIST + " where " + Ultils.COLUMN_LIST_USER_ID +"=?", new String[] {String.valueOf(idUserIn)});
+        Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_LIST + " where " + Ultils.COLUMN_LIST_USER_ID + "=?", new String[]{String.valueOf(idUserIn)});
         cs.moveToFirst();
-        while(!cs.isAfterLast()) {
+        while (!cs.isAfterLast()) {
             int id = cs.getInt(0);
             String name = cs.getString(1);
             String image = cs.getString(2);
             int price = cs.getInt(3);
             String type = cs.getString(4);
             int idUser = cs.getInt(5);
-            lstUser.add(new Shoes(id,name,image,price,type,idUser));
+            lstUser.add(new Shoes(id, name, image, price, type, idUser));
             cs.moveToNext();
         }
         cs.close();
         db.close();
         return lstUser;
     }
-    public static Shoes getShoes(Context context,int ID){
-        ShoeDBHelper shoeDBHelper=new ShoeDBHelper(context);
-        SQLiteDatabase db=shoeDBHelper.getReadableDatabase();
-        Cursor cs=db.rawQuery("Select * from "+Ultils.TABLE_SHOE+" Where "+Ultils.COLUMN_SHOE_ID+"="+ID,null);
+
+    public static Shoes getShoes(Context context, int ID) {
+        ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
+        SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
+        Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_SHOE + " Where " + Ultils.COLUMN_SHOE_ID + "=" + ID, null);
         cs.moveToFirst();
         int id = cs.getInt(0);
         String name = cs.getString(1);
         String image = cs.getString(2);
         int price = cs.getInt(3);
         String type = cs.getString(4);
-        Shoes shoes=new Shoes(id,name,image,price,type);
+        Shoes shoes = new Shoes(id, name, image, price, type);
         return shoes;
     }
-    public static Shoes GetByName(Context context,String Name){
-        ShoeDBHelper shoeDBHelper=new ShoeDBHelper(context);
-        SQLiteDatabase db=shoeDBHelper.getReadableDatabase();
-        Cursor cs=db.rawQuery("Select * from "+Ultils.TABLE_SHOE+" Where "+Ultils.COLUMN_SHOE_NAME+" like"+"'%"+Name+"%'",null);
+
+    public static Shoes GetByName(Context context, String Name) {
+        ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
+        SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
+        Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_SHOE + " Where " + Ultils.COLUMN_SHOE_NAME + " like" + "'%" + Name + "%'", null);
         cs.moveToFirst();
         String name = cs.getString(1);
         String image = cs.getString(2);
         int price = cs.getInt(3);
         String type = cs.getString(4);
-        Shoes shoes=new Shoes(name,image,price,type);
+        Shoes shoes = new Shoes(name, image, price, type);
         return shoes;
     }
 
@@ -101,18 +105,28 @@ public class ShoeDataQuery  {
         ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
         SQLiteDatabase sqLiteDatabase = shoeDBHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(Ultils.COLUMN_SHOE_NAME,(sh.getName()));
-        values.put(Ultils.COLUMN_SHOE_AVATAR,sh.getImage());
+        values.put(Ultils.COLUMN_SHOE_NAME, (sh.getName()));
+        values.put(Ultils.COLUMN_SHOE_AVATAR, sh.getImage());
         values.put(Ultils.COLUMN_SHOE_PRICE, sh.getPrice());
         values.put(Ultils.COLUMN_SHOE_TYPE, sh.getType());
-        int rs = sqLiteDatabase.update(Ultils.TABLE_SHOE, values, Ultils.COLUMN_SHOE_ID +"=?", new String[] {String.valueOf(sh.id)});
+        int rs = sqLiteDatabase.update(Ultils.TABLE_SHOE, values, Ultils.COLUMN_SHOE_ID + "=?", new String[]{String.valueOf(sh.id)});
         return (rs);
     }
 
     public static boolean delete(Context context, int id) {
         ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
         SQLiteDatabase sqLiteDatabase = shoeDBHelper.getWritableDatabase();
-        int rs = sqLiteDatabase.delete(Ultils.TABLE_SHOE,Ultils.COLUMN_SHOE_ID +"=?", new String[] {String.valueOf(id)});
+        int rs = sqLiteDatabase.delete(Ultils.TABLE_SHOE, Ultils.COLUMN_SHOE_ID + "=?", new String[]{String.valueOf(id)});
+        return (rs > 0);
+    }
+
+    public static boolean deleteFromWishList(Context context, int idShoe, int idUserIn) {
+        ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
+        SQLiteDatabase sqLiteDatabase = shoeDBHelper.getWritableDatabase();
+        int rs = sqLiteDatabase.delete(Ultils.TABLE_LIST,
+                Ultils.COLUMN_LIST_SHOE_ID + "=? AND "
+                        + Ultils.COLUMN_LIST_USER_ID + "=?",
+                new String[]{String.valueOf(idShoe), String.valueOf(idUserIn)});
         return (rs > 0);
     }
 
@@ -120,34 +134,35 @@ public class ShoeDataQuery  {
         ArrayList<Shoes> lstUser = new ArrayList<>();
         ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
         SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
-        Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_SHOE + " where " + Ultils.COLUMN_SHOE_TYPE + "=?", new String[] {String.valueOf(typeFilter)});
+        Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_SHOE + " where " + Ultils.COLUMN_SHOE_TYPE + "=?", new String[]{String.valueOf(typeFilter)});
         cs.moveToFirst();
-        while(!cs.isAfterLast()) {
+        while (!cs.isAfterLast()) {
             int id = cs.getInt(0);
             String name = cs.getString(1);
             String image = cs.getString(2);
             int price = cs.getInt(3);
             String type = cs.getString(4);
-            lstUser.add(new Shoes(id,name,image,price,type));
+            lstUser.add(new Shoes(id, name, image, price, type));
             cs.moveToNext();
         }
         cs.close();
         db.close();
         return lstUser;
     }
-    public static ArrayList<Shoes> SerchByName(Context context,String Name){
+
+    public static ArrayList<Shoes> SerchByName(Context context, String Name) {
         ArrayList<Shoes> lstUser = new ArrayList<>();
         ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
         SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
-        Cursor cs=db.rawQuery("Select * from "+Ultils.TABLE_SHOE+" Where "+Ultils.COLUMN_SHOE_NAME+" like '%"+Name,null);
+        Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_SHOE + " Where " + Ultils.COLUMN_SHOE_NAME + " like '%" + Name, null);
         cs.moveToFirst();
-        while(!cs.isAfterLast()) {
+        while (!cs.isAfterLast()) {
             int id = cs.getInt(0);
             String name = cs.getString(1);
             String image = cs.getString(2);
             int price = cs.getInt(3);
             String type = cs.getString(4);
-            lstUser.add(new Shoes(id,name,image,price,type));
+            lstUser.add(new Shoes(id, name, image, price, type));
             cs.moveToNext();
         }
         cs.close();
@@ -156,25 +171,69 @@ public class ShoeDataQuery  {
     }
 
     public static Boolean getDeleteShoe(Context context, String nameShoe) {
-        ShoeDBHelper shoeDBHelper=new ShoeDBHelper(context);
+        ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
         SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
         db = shoeDBHelper.getWritableDatabase();
-        int rs = db.delete(Ultils.TABLE_SHOE,Ultils.COLUMN_SHOE_NAME+" like '%" + nameShoe + "%'",null);
-        return (rs >0);
+        int rs = db.delete(Ultils.TABLE_SHOE, Ultils.COLUMN_SHOE_NAME + " like '%" + nameShoe + "%'", null);
+        return (rs > 0);
     }
 
     public static long insertToWishList(Context context, Shoes sh, int idUser) {
+        if(checkExistInWishList(context,sh,idUser)) {
+            return 0;
+        }
         ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
         SQLiteDatabase sqLiteDatabase = shoeDBHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(Ultils.COLUMN_LIST_SHOE_ID, sh.id);
-        values.put(Ultils.COLUMN_LIST_SHOE_NAME,sh.name);
+        values.put(Ultils.COLUMN_LIST_SHOE_NAME, sh.name);
         values.put(Ultils.COLUMN_LIST_SHOE_AVATAR, sh.image);
-        values.put(Ultils.COLUMN_LIST_SHOE_PRICE,sh.price);
+        values.put(Ultils.COLUMN_LIST_SHOE_PRICE, sh.price);
         values.put(Ultils.COLUMN_LIST_SHOE_TYPE, sh.type);
         values.put(Ultils.COLUMN_LIST_USER_ID, idUser);
-        Toast.makeText(context, "idshoe: " + sh.getId(), Toast.LENGTH_SHORT).show();
-        long rs = sqLiteDatabase.insert(Ultils.TABLE_LIST,null,values);
+//        Toast.makeText(context, "idshoe: " + sh.getId(), Toast.LENGTH_SHORT).show();
+        long rs = sqLiteDatabase.insert(Ultils.TABLE_LIST, null, values);
         return (rs);
+    }
+
+    public static boolean checkExistInWishList(Context context, Shoes sh, int idUser) {
+        boolean existShoe = false;
+        ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
+        SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
+        String[] columns = {Ultils.COLUMN_LIST_SHOE_ID};
+        String selection =  Ultils.COLUMN_LIST_SHOE_ID + "=?" + " AND " + Ultils.COLUMN_LIST_USER_ID + "=?";
+        String[] selectionArgs = {String.valueOf(sh.getId()), String.valueOf(idUser)};
+        Cursor cursor = db.query(Ultils.TABLE_LIST, columns, selection, selectionArgs, null, null, null);
+        boolean exists = cursor.moveToFirst();
+        cursor.close();
+        return exists;
+    }
+
+    public boolean checkExist(Context context, Shoes sh) {
+        boolean existShoe = false;
+        ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
+        SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
+        String[] columns = {Ultils.COLUMN_LIST_SHOE_ID};
+        String selection =  Ultils.COLUMN_LIST_SHOE_ID + "=?";
+        String[] selectionArgs = {String.valueOf(sh.getId())};
+        Cursor cursor = db.query(Ultils.TABLE_LIST, columns, selection, selectionArgs, null, null, null);
+        boolean exists = cursor.moveToFirst();
+        cursor.close();
+        return exists;
+    }
+
+    public static Shoes getShoesWishList(Context context, int ID) {
+        ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
+        SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
+        Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_SHOE + " Where " + Ultils.COLUMN_SHOE_ID + "=" + ID, null);
+        cs.moveToFirst();
+        int id = cs.getInt(0);
+        String name = cs.getString(1);
+        String image = cs.getString(2);
+        int price = cs.getInt(3);
+        String type = cs.getString(4);
+        int idU = cs.getInt(5);
+        Shoes shoes = new Shoes(id, name, image, price, type, idU);
+        return shoes;
     }
 }

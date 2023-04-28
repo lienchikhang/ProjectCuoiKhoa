@@ -25,6 +25,8 @@ public class UserDataQuery {
         return (rs);
     }
 
+
+
     public static int update(Context context, User us) {
         UserDBHelper userDBHelper = new UserDBHelper(context);
         SQLiteDatabase sqLiteDatabase = userDBHelper.getWritableDatabase();

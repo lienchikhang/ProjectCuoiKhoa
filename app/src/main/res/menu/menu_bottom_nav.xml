@@ -4,9 +4,9 @@
     <item android:title="Home"
         android:id="@+id/home"
         android:icon="@drawable/ic_home"/>
-    <item android:title="Cart"
+    <item android:title="WishList"
         android:id="@+id/wishListNe"
-        android:icon="@drawable/ic_like"/>
+        android:icon="@drawable/ic_love"/>
     <item android:title="Info"
         android:id="@+id/info"
         android:icon="@drawable/ic_info"/>

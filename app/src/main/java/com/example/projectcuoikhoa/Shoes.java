@@ -16,7 +16,15 @@ public class Shoes {
         this.price=price;
     }
 
-    public Shoes(int id, String name, String image, int price,String type, int idUser) {
+    public Shoes(String name, String image, String type, int price, int idUser) {
+        this.name = name;
+        this.image = image;
+        this.type = type;
+        this.price = price;
+        this.idUser = idUser;
+    }
+
+    public Shoes(int id, String name, String image, int price, String type, int idUser) {
         this.id = id;
         this.name = name;
         this.image = image;

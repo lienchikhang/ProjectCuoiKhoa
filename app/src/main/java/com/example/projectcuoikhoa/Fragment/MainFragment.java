@@ -1,6 +1,8 @@
 package com.example.projectcuoikhoa.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -80,6 +83,7 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
 
 
     }
+
     Boolean checkButtonCLick;
     String type;
     int op;
@@ -91,6 +95,7 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
 
     TextView tvMoreCate, tvMoreCate2;
     ImageButton ImgBtnCart;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -102,7 +107,7 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
         rvGridMain = view.findViewById(R.id.rvGridMain);
         tvMoreCate = view.findViewById(R.id.tvMoreCate);
         tvMoreCate2 = view.findViewById(R.id.tvMoreCate2);
-        ImgBtnCart=view.findViewById(R.id.shoppingCartMain);
+        ImgBtnCart = view.findViewById(R.id.shoppingCartMain);
 
         //load du lieu
 //        LoadData();
@@ -110,9 +115,9 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
         //tao view
         list = ShoeDataQuery.getAll(getActivity());
         shoesAdapter = new ShoesAdapter(list, this);
-        shoesGridAdapter = new ShoesGridAdapter(list,this);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
+        shoesGridAdapter = new ShoesGridAdapter(list, this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
         rvList.setAdapter(shoesAdapter);
 
         rvGridMain.setAdapter(shoesGridAdapter);
@@ -124,7 +129,7 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
 //        getOptionsListener();
         tvMoreCate.setOnClickListener(getL());
         tvMoreCate2.setOnClickListener(getL());
-        ImgBtnCart.setOnClickListener(v->ClickCart());
+        ImgBtnCart.setOnClickListener(v -> ClickCart());
 
 
         return view;
@@ -155,11 +160,64 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
         fmOld.commit();
 
     }
+
     @Override
     public void onItemClick(String id) {
         Intent i = new Intent(getActivity(), DetailActivity.class);
         i.putExtra("id", id);
         startActivity(i);
+    }
+
+    private boolean isItemClicked = false;
+
+    @Override
+    public void onLikeBtnClick(String idShoe, View view) {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+        int idUserIn = sharedPreferences.getInt("id", getActivity().MODE_PRIVATE);
+        if (idUserIn == 0) {
+            Toast.makeText(getActivity(), "Vui lòng đăng nhập!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Shoes sh = ShoeDataQuery.getShoes(getActivity(), Integer.parseInt(idShoe));
+        sharedPreferences = getActivity().getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+        int idUser = sharedPreferences.getInt("id", getActivity().MODE_PRIVATE);
+        long id = ShoeDataQuery.insertToWishList(getActivity(), sh, idUser);
+        if (id > 0) {
+            Toast.makeText(getActivity(), "đã thêm vào yêu thích", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getActivity(), "đã tồn tại trong yêu thích", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public int idUserIn;
+    @Override
+    public void onLikeCancel(String id) {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+        idUserIn = sharedPreferences.getInt("id", getActivity().MODE_PRIVATE);
+        if (idUserIn == 0) {
+            Toast.makeText(getActivity(), "Vui lòng đăng nhập!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        boolean rs = ShoeDataQuery.deleteFromWishList(getActivity(),Integer.parseInt(id),idUserIn);
+        if(rs) {
+            Toast.makeText(getActivity(), "Xoá thành công", Toast.LENGTH_SHORT).show();
+            resetData();
+        } else {
+            Toast.makeText(getActivity(), "Xoá không thành công", Toast.LENGTH_SHORT).show();
+        }
+        //xoa khoi yeu thich
+    }
+    void resetData() {
+        list.clear();
+        list.addAll(ShoeDataQuery.getAllWishList(getActivity(),idUserIn));
+        shoesAdapter.notifyDataSetChanged();
+    }
+    public boolean checkLikedOrNot() {
+        if (!isItemClicked) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -190,60 +248,60 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switch(view.getId()) {
+                switch (view.getId()) {
                     case R.id.firstOption:
                         type = "run";
                         op = 1;
                         BtnClick(firstOption);
-                        makeBtnDefault(secondOption,thirdOption, fouthOption);
+                        makeBtnDefault(secondOption, thirdOption, fouthOption);
                         loadFragment(new FirstFragment(type));
                         break;
                     case R.id.secondOption:
                         type = "walk";
                         op = 2;
                         BtnClick(secondOption);
-                        makeBtnDefault(firstOption,thirdOption, fouthOption);
-                        loadFragment(new SecondFragment(type,op));
+                        makeBtnDefault(firstOption, thirdOption, fouthOption);
+                        loadFragment(new SecondFragment(type, op));
                         break;
                     case R.id.thirdOption:
                         BtnClick(thirdOption);
-                        makeBtnDefault(secondOption,firstOption, fouthOption);
+                        makeBtnDefault(secondOption, firstOption, fouthOption);
                         loadFragment(new ThirdFragment());
                         break;
                     case R.id.fouthOption:
                         BtnClick(fouthOption);
-                        makeBtnDefault(secondOption,thirdOption, firstOption);
+                        makeBtnDefault(secondOption, thirdOption, firstOption);
                         loadFragment(new FouthFragment());
                         break;
                 }
             }
         };
     }
+
     void anhXaOption() {
         firstOption = getActivity().findViewById(R.id.firstOption);
         secondOption = getActivity().findViewById(R.id.secondOption);
         thirdOption = getActivity().findViewById(R.id.thirdOption);
         fouthOption = getActivity().findViewById(R.id.fouthOption);
     }
-    void BtnClick(LinearLayout option){
-        checkButtonCLick=true;
+
+    void BtnClick(LinearLayout option) {
+        checkButtonCLick = true;
 //        option.findViewById(R.id.firstOptionName).setTextColor(Color.parseColor("#F5F5F5"));
         option.setBackgroundResource(R.drawable.custom_btn_border);
 
     }
 
-    void makeBtnDefault(LinearLayout option2,LinearLayout option3, LinearLayout option4){
+    void makeBtnDefault(LinearLayout option2, LinearLayout option3, LinearLayout option4) {
         option2.setBackgroundResource(R.drawable.btn_size_default);
         option3.setBackgroundResource(R.drawable.btn_size_default);
         option4.setBackgroundResource(R.drawable.btn_size_default);
     }
-    void ClickCart(){
-        Intent i=new Intent(getActivity(), ShoppingCartActivity.class);
+
+    void ClickCart() {
+        Intent i = new Intent(getActivity(), ShoppingCartActivity.class);
         startActivity(i);
     }
-
-
-
 
 
 }

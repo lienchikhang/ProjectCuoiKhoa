@@ -1,6 +1,8 @@
 package com.example.projectcuoikhoa.OptionFragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.projectcuoikhoa.ShoeDataQuery;
 import com.example.projectcuoikhoa.Shoes;
@@ -101,5 +104,47 @@ public class FirstFragment extends Fragment implements ShoesGridAdapter.UserGrid
         Intent i = new Intent(getActivity(), DetailActivity.class);
         i.putExtra("id", id);
         startActivity(i);
+    }
+
+    @Override
+    public void onLikeBtnClick(String idShoe, View view) {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+        int idUserIn = sharedPreferences.getInt("id", getActivity().MODE_PRIVATE);
+        if (idUserIn == 0) {
+            Toast.makeText(getActivity(), "Vui lòng đăng nhập!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Shoes sh = ShoeDataQuery.getShoes(getActivity(), Integer.parseInt(idShoe));
+        sharedPreferences = getActivity().getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+        int idUser = sharedPreferences.getInt("id", getActivity().MODE_PRIVATE);
+        long id = ShoeDataQuery.insertToWishList(getActivity(), sh, idUser);
+        if (id > 0) {
+            Toast.makeText(getActivity(), "đã thêm vào yêu thích", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getActivity(), "đã tồn tại trong yêu thích", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public int idUserIn;
+    @Override
+    public void onLikeCancel(String id) {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+        idUserIn = sharedPreferences.getInt("id", getActivity().MODE_PRIVATE);
+        if (idUserIn == 0) {
+            Toast.makeText(getActivity(), "Vui lòng đăng nhập!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        boolean rs = ShoeDataQuery.deleteFromWishList(getActivity(),Integer.parseInt(id),idUserIn);
+        if(rs) {
+            Toast.makeText(getActivity(), "Xoá thành công", Toast.LENGTH_SHORT).show();
+            resetData();
+        } else {
+            Toast.makeText(getActivity(), "Xoá không thành công", Toast.LENGTH_SHORT).show();
+        }
+    }
+    void resetData() {
+        list.clear();
+        list.addAll(ShoeDataQuery.getAllWishList(getActivity(),idUserIn));
+//        shoesWishListAdapter.notifyDataSetChanged();
+
     }
 }

@@ -16,16 +16,18 @@ import android.widget.Toast;
 import com.example.projectcuoikhoa.Adapter.ShoesAdapter;
 import com.example.projectcuoikhoa.Adapter.ShoesAdapterAdmin;
 import com.example.projectcuoikhoa.Adapter.ShoesGridAdapter;
+import com.example.projectcuoikhoa.Adapter.ShoesWishListAdapter;
 import com.example.projectcuoikhoa.activity.DetailActivity;
 
 import java.util.ArrayList;
 
-public class WishListActivity extends AppCompatActivity implements ShoesAdapterAdmin.ShoesCallBackAdmin, ShoesAdapter.ShoesCallBack, ShoesGridAdapter.UserGridCallBack{
+public class WishListActivity extends AppCompatActivity implements ShoesAdapterAdmin.ShoesCallBackAdmin, ShoesAdapter.ShoesCallBack, ShoesGridAdapter.UserGridCallBack, ShoesWishListAdapter.UserGridCallBack{
 
     RecyclerView rvWishList;
     ArrayList<Shoes> list;
     ShoesAdapter shoesAdapter;
     ShoesGridAdapter shoesGridAdapter;
+    ShoesWishListAdapter shoesWishListAdapter;
 
     ImageButton ivBackBtnWishList;
     @Override
@@ -43,12 +45,12 @@ public class WishListActivity extends AppCompatActivity implements ShoesAdapterA
         list = new ArrayList<>();
 //        resetData(idUserIn);
         list = ShoeDataQuery.getAllWishList(this,idUserIn);
-        shoesGridAdapter = new ShoesGridAdapter(list,this);
-        shoesAdapter = new ShoesAdapter(list,this);
+        shoesWishListAdapter = new ShoesWishListAdapter(list,this);
+        shoesWishListAdapter = new ShoesWishListAdapter(list,this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
-        rvWishList.setAdapter(shoesGridAdapter);
+        rvWishList.setAdapter(shoesWishListAdapter);
         rvWishList.setLayoutManager(gridLayoutManager);
 
         ivBackBtnWishList.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +72,16 @@ public class WishListActivity extends AppCompatActivity implements ShoesAdapterA
         i.putExtra("id", id);
         Toast.makeText(this, "idshoe: " + id, Toast.LENGTH_SHORT).show();
         startActivity(i);
+    }
+
+    @Override
+    public void onLikeBtnClick(String id, View view) {
+
+    }
+
+    @Override
+    public void onLikeCancel(String id) {
+
     }
 
     @Override

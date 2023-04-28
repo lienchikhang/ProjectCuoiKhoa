@@ -73,4 +73,9 @@ public class ShoeDBHelper extends SQLiteOpenHelper {
         String drop = "DROP TABLE IF EXISTS " + Ultils.TABLE_SHOE;
         db.execSQL(drop);
     }
+
+    public Cursor getData(String content) {
+        SQLiteDatabase db = getReadableDatabase();
+        return db.rawQuery(content, null);
+    }
 }

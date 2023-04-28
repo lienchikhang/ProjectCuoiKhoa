@@ -69,14 +69,13 @@ public class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ClothesViewH
             imageView = itemView.findViewById(R.id.imgProduct);
             tvName = itemView.findViewById(R.id.tvName);
             tvPrice = itemView.findViewById(R.id.tvPrice);
-            tvType = itemView.findViewById(R.id.tvType);
+//            tvType = itemView.findViewById(R.id.tvType);
 //            ivDelete = itemView.findViewById(R.id.ivDelete);
 //            ivEdit = itemView.findViewById(R.id.ivEdit);
         }
     }
     public interface ShoesCallBack {
         void onItemClick(String id);
-
         void onItemDeleteClick(Shoes sh, int position);
         void onItemEditClick(Shoes sh, int position);
     }
