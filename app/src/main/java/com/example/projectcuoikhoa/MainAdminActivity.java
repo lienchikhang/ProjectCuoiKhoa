@@ -27,6 +27,7 @@ import com.example.projectcuoikhoa.Fragment.InfoAdminFragment;
 import com.example.projectcuoikhoa.Fragment.MainAdminFragment;
 import com.example.projectcuoikhoa.Obj.User;
 import com.example.projectcuoikhoa.activity.MainActivity;
+import com.example.projectcuoikhoa.activity.ManageCartActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -91,9 +92,11 @@ public class MainAdminActivity extends AppCompatActivity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.manageOrder:
-
+                        Intent i=new Intent(MainAdminActivity.this, ManageCartActivity.class);
+                        startActivity(i);
+                        break;
                     case R.id.manageProduct:
-                        Intent i = new Intent(MainAdminActivity.this, ManageProductActivity.class);
+                         i = new Intent(MainAdminActivity.this, ManageProductActivity.class);
                         startActivity(i);
                         break;
                     case R.id.manageUser:
@@ -104,6 +107,7 @@ public class MainAdminActivity extends AppCompatActivity {
                         i = new Intent(MainAdminActivity.this, MainActivity.class);
                         SharedPreferences sharedPreferencesInfo = getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
                         sharedPreferencesInfo.edit().remove("id").apply();
+                        sharedPreferencesInfo.edit().remove("role").apply();
                         startActivity(i);
                         break;
                 }

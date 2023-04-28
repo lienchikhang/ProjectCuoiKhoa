@@ -26,6 +26,7 @@ import com.example.projectcuoikhoa.Fragment.InfoNotLoginFragment;
 import com.example.projectcuoikhoa.Fragment.MainFragment;
 import com.example.projectcuoikhoa.Fragment.ProductListFragment;
 import com.example.projectcuoikhoa.Fragment.WishListFragment;
+import com.example.projectcuoikhoa.MainAdminActivity;
 import com.example.projectcuoikhoa.R;
 import com.example.projectcuoikhoa.DBhelper.ShoeDBHelper;
 import com.example.projectcuoikhoa.Shoes;
@@ -68,7 +69,11 @@ public class MainActivity extends AppCompatActivity {
         boolean isLogined=false;
         if(sharedPreferences.getInt("id",0)!=0){
             isLogined=true;
+            if(sharedPreferences.getString("role",null)!=null){
+                startActivity(new Intent(this, MainAdminActivity.class));
+            }
         }
+
         firstOption = findViewById(R.id.firstOption);
         secondOption = findViewById(R.id.secondOption);
         ActionBar actionBar = getSupportActionBar();

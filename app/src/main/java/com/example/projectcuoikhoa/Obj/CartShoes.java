@@ -8,6 +8,16 @@ import java.util.ArrayList;
 
 public class CartShoes implements Serializable {
     Shoes shoes;
+    int idCart;
+
+    public int getIdCart() {
+        return idCart;
+    }
+
+    public void setIdCart(int idCart) {
+        this.idCart = idCart;
+    }
+
     int quantity;
     String Size;
     String Address;
@@ -37,21 +47,22 @@ public class CartShoes implements Serializable {
         ImgShoes = imgShoes;
     }
 
-    public CartShoes(Shoes shoes, int quantity, String size, String address, String phoneNumber, String imgShoes) {
+    public CartShoes(Shoes shoes, int quantity, String size, String address, String phoneNumber, String imgShoes,int idCart) {
         this.shoes = shoes;
         this.quantity = quantity;
         Size = size;
         Address = address;
         PhoneNumber = phoneNumber;
         ImgShoes = imgShoes;
+        this.idCart=idCart;
     }
 
     String ImgShoes;
 
-    public CartShoes(Shoes shoes, int quantity, String size,String ImgShoes) {
+    public CartShoes(Shoes shoes, int quantity, String size, String ImgShoes) {
         this.shoes = shoes;
         this.quantity = quantity;
-        this.ImgShoes=ImgShoes;
+        this.ImgShoes = ImgShoes;
         Size = size;
     }
 
@@ -82,8 +93,8 @@ public class CartShoes implements Serializable {
         Size = size;
     }
 
-    public boolean equals(String name,String size){
-        return  this.getShoes().getName().equals(name)&&this.getSize().equals(size);
-        }
+    public boolean equals(String name, String size) {
+        return this.getShoes().getName().equals(name) && this.getSize().equals(size);
     }
+}
 
