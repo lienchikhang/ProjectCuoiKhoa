@@ -100,7 +100,7 @@ public class DetailActivity extends AppCompatActivity {
         BtnSizeM=findViewById(R.id.BtnSizeM);
         BtnSizeS=findViewById(R.id.BtnSizeS);
         BuyProduct=findViewById(R.id.BuyProduct);
-        BtnDes=findViewById(R.id.btnDes);
+//        BtnDes=findViewById(R.id.btnDes);
         PriceProduct=findViewById(R.id.PriceProduct);
 //        btnCart=findViewById(R.id.ImgBtnDetailCart);
         wishlist = findViewById(R.id.wishlist);
@@ -112,7 +112,7 @@ public class DetailActivity extends AppCompatActivity {
         BtnSizeS.setOnClickListener(BtnSclick());
         BtnSizeM.setOnClickListener(BtnMclick());
         BtnSizeL.setOnClickListener(BtnLclick());
-        BtnDes.setOnClickListener(view -> BtnDesClick());
+//        BtnDes.setOnClickListener(view -> BtnDesClick());
         BuyProduct.setOnClickListener(view -> BuyProductEvent());
 //        btnCart.setOnClickListener(view -> CartClick());
         wishlist.setOnClickListener(new View.OnClickListener() {
