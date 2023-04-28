@@ -190,16 +190,16 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/choose">
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnDes"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/btn_des"
-                        android:padding="24dp"
-                        android:text="Bảng Size"
-                        android:textAlignment="center"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+<!--                    <androidx.appcompat.widget.AppCompatButton-->
+<!--                        android:id="@+id/btnDes"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:background="@drawable/btn_des"-->
+<!--                        android:padding="24dp"-->
+<!--                        android:text="Bảng Size"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:textStyle="bold" />-->
                 </LinearLayout>
 
                 <TableLayout

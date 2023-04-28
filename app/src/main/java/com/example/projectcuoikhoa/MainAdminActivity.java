@@ -44,7 +44,7 @@ public class MainAdminActivity extends AppCompatActivity {
 
     TextView adminName;
 
-    LinearLayout manageProduct, manageUser, btnLogoutt, fouthOption;
+    LinearLayout manageProduct, manageUser, btnLogoutt, CartManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +65,7 @@ public class MainAdminActivity extends AppCompatActivity {
         manageProduct = findViewById(R.id.manageProduct);
         manageUser = findViewById(R.id.manageUser);
         btnLogoutt = findViewById(R.id.btnLogoutt);
+        CartManager=findViewById(R.id.manageOrder);
         getOptionsListener();
 
         //bottom nav
@@ -80,6 +81,7 @@ public class MainAdminActivity extends AppCompatActivity {
         btnLogoutt.setOnClickListener(getListentOptionAdmin());
 //        thirdOption.setOnClickListener(getListenerOption());
 //        fouthOption.setOnClickListener(getListenerOption());
+        CartManager.setOnClickListener(getListentOptionAdmin());
     }
 
     @NonNull
@@ -88,6 +90,8 @@ public class MainAdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
+                    case R.id.manageOrder:
+
                     case R.id.manageProduct:
                         Intent i = new Intent(MainAdminActivity.this, ManageProductActivity.class);
                         startActivity(i);
