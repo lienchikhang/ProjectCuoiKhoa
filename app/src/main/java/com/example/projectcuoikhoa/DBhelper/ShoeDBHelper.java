@@ -9,7 +9,7 @@ import com.example.projectcuoikhoa.Ultils;
 
 public class ShoeDBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = Ultils.DATABASE_NAME;
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 9;
     public ShoeDBHelper (Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }

@@ -58,12 +58,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        SearchText=findViewById(R.id.SearchText);
+//        btnSearch=findViewById(R.id.SearchBtn);
+        //top
+        scrollView = findViewById(R.id.scrollView);
+
         SearchText=findViewById(R.id.SearchText);
         btnSearch=findViewById(R.id.SearchBtn);
         //top
-        scrollView = findViewById(R.id.scrollView);
-        scrollView.setVisibility(View.VISIBLE);
+
+
         SearchBar=findViewById(R.id.SearchBar);
+        btnSearch.setOnClickListener(view1 -> SearchClick(SearchText.getText().toString()));
+//        SearchBar=findViewById(R.id.SearchBar);
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
         boolean isLogined=false;
         if(sharedPreferences.getInt("id",0)!=0){
@@ -87,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 //        cartDBHelper.dropTable();
 //        cartDBHelper.createTableCart();
         bottomNavigationView = findViewById(R.id.navbarBottom);
-        btnSearch.setOnClickListener(view -> SearchClick(SearchText.getText().toString()));
+//        btnSearch.setOnClickListener(view -> SearchClick(SearchText.getText().toString()));
         loadFragment(new MainFragment());
         bottomNavigationView.setOnItemSelectedListener(getListener(isLogined));
     }
@@ -119,14 +126,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.wishListNe:
                         scrollView.setVisibility(View.INVISIBLE);
                         SearchBar.setVisibility(View.INVISIBLE);
-//                        loadFragment(new WishListFragment());
-//                        if(isLogined) {
-//                            loadFragment(new WishListFragment());
-//                        }
-//                        else {
-//                            loadFragment(new BlankFragment());
-//                        }
-//                        break;
                         loadFragment(new WishListFragment());
                 }
                 return true;

@@ -150,11 +150,11 @@ public class ShoeDataQuery {
         return lstUser;
     }
 
-    public static ArrayList<Shoes> SerchByName(Context context, String Name) {
+    public static ArrayList<Shoes> SearchByName(Context context, String Name) {
         ArrayList<Shoes> lstUser = new ArrayList<>();
         ShoeDBHelper shoeDBHelper = new ShoeDBHelper(context);
         SQLiteDatabase db = shoeDBHelper.getReadableDatabase();
-        Cursor cs = db.rawQuery("Select * from " + Ultils.TABLE_SHOE + " Where " + Ultils.COLUMN_SHOE_NAME + " like '%" + Name, null);
+        Cursor cs=db.rawQuery("Select * from "+Ultils.TABLE_SHOE+" Where "+Ultils.COLUMN_SHOE_NAME+" like '%"+Name+"%'",null);
         cs.moveToFirst();
         while (!cs.isAfterLast()) {
             int id = cs.getInt(0);

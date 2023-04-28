@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="51dp" />
+            app:layout_constraintGuide_begin="88dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline11"
@@ -26,194 +26,41 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="144dp" />
 
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:id="@+id/ctHeading"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@color/primary_color"-->
-<!--            android:padding="8dp"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/guideline6">-->
-
-<!--            <FrameLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent">-->
-
-<!--                <HorizontalScrollView-->
-<!--                    android:id="@+id/navbar"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:fillViewport="true">-->
-
-
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:gravity="center"-->
-<!--                        android:orientation="horizontal">-->
-
-
-<!--                        <LinearLayout-->
-<!--                            android:id="@+id/firstOption"-->
-<!--                            android:layout_width="130dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginRight="16dp"-->
-<!--                            android:background="@drawable/border_product"-->
-<!--                            android:orientation="horizontal"-->
-<!--                            android:paddingLeft="4dp"-->
-<!--                            android:paddingTop="2dp"-->
-<!--                            android:paddingRight="4dp"-->
-<!--                            android:paddingBottom="2dp">-->
-
-<!--                            <ImageView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_marginLeft="8dp"-->
-<!--                                android:layout_marginTop="4dp"-->
-<!--                                android:layout_marginRight="8dp"-->
-<!--                                android:layout_marginBottom="4dp"-->
-<!--                                android:background="@drawable/bg_circle"-->
-<!--                                android:padding="6dp"-->
-<!--                                android:src="@drawable/ic_men"-->
-<!--                                android:text="test" />-->
-
-<!--                            <TextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_gravity="center"-->
-<!--                                android:text="Men"-->
-<!--                                android:textColor="@color/black"-->
-<!--                                android:textStyle="bold" />-->
-<!--                        </LinearLayout>-->
-
-<!--                        <LinearLayout-->
-<!--                            android:id="@+id/secondOption"-->
-<!--                            android:layout_width="130dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginRight="16dp"-->
-<!--                            android:background="@drawable/border_product"-->
-<!--                            android:orientation="horizontal"-->
-<!--                            android:paddingLeft="4dp"-->
-<!--                            android:paddingTop="2dp"-->
-<!--                            android:paddingRight="4dp"-->
-<!--                            android:paddingBottom="2dp">-->
-
-<!--                            <ImageView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_gravity="center"-->
-<!--                                android:layout_marginLeft="8dp"-->
-<!--                                android:layout_marginTop="4dp"-->
-<!--                                android:layout_marginRight="8dp"-->
-<!--                                android:layout_marginBottom="4dp"-->
-<!--                                android:background="@drawable/bg_circle"-->
-<!--                                android:padding="6dp"-->
-<!--                                android:src="@drawable/ic_women"-->
-<!--                                android:text="test" />-->
-
-<!--                            <TextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_gravity="center"-->
-<!--                                android:text="Women"-->
-<!--                                android:textColor="@color/black"-->
-<!--                                android:textStyle="bold" />-->
-<!--                        </LinearLayout>-->
-
-<!--                        <LinearLayout-->
-<!--                            android:id="@+id/thirdOption"-->
-<!--                            android:layout_width="130dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginRight="16dp"-->
-<!--                            android:background="@drawable/border_product"-->
-<!--                            android:orientation="horizontal"-->
-<!--                            android:paddingLeft="4dp"-->
-<!--                            android:paddingTop="2dp"-->
-<!--                            android:paddingRight="4dp"-->
-<!--                            android:paddingBottom="2dp">-->
-
-<!--                            <ImageView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_marginLeft="8dp"-->
-<!--                                android:layout_marginTop="4dp"-->
-<!--                                android:layout_marginRight="8dp"-->
-<!--                                android:layout_marginBottom="4dp"-->
-<!--                                android:background="@drawable/bg_circle"-->
-<!--                                android:padding="6dp"-->
-<!--                                android:src="@drawable/ic_child"-->
-<!--                                android:text="test" />-->
-
-<!--                            <TextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_gravity="center"-->
-<!--                                android:text="Baby"-->
-<!--                                android:textColor="@color/black"-->
-<!--                                android:textStyle="bold" />-->
-<!--                        </LinearLayout>-->
-
-<!--                        <LinearLayout-->
-<!--                            android:id="@+id/fouthOption"-->
-<!--                            android:layout_width="130dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:background="@drawable/border_product"-->
-<!--                            android:orientation="horizontal"-->
-<!--                            android:paddingLeft="4dp"-->
-<!--                            android:paddingTop="2dp"-->
-<!--                            android:paddingRight="4dp"-->
-<!--                            android:paddingBottom="2dp">-->
-
-<!--                            <ImageView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_marginLeft="8dp"-->
-<!--                                android:layout_marginTop="4dp"-->
-<!--                                android:layout_marginRight="8dp"-->
-<!--                                android:layout_marginBottom="4dp"-->
-<!--                                android:background="@drawable/bg_circle"-->
-<!--                                android:padding="6dp"-->
-<!--                                android:src="@drawable/ic_sport"-->
-<!--                                android:text="test" />-->
-
-<!--                            <TextView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_gravity="center"-->
-<!--                                android:text="Sport"-->
-<!--                                android:textColor="@color/black"-->
-<!--                                android:textStyle="bold" />-->
-<!--                        </LinearLayout>-->
-
-<!--                    </LinearLayout>-->
-
-
-<!--                </HorizontalScrollView>-->
-
-<!--            </FrameLayout>-->
-
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-        <ImageButton
-            android:id="@+id/ivBackFrag"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/guideline6"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="16dp"
-            android:src="@drawable/ic_iv_back"
-            android:background="@android:color/transparent"
-            />
+            app:layout_constraintStart_toStartOf="parent">
+            <ImageButton
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/ivBackFrag"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                android:layout_marginLeft="8dp"
+                android:src="@drawable/ic_iv_back"
+                android:background="@android:color/transparent"
+                />
+            <ImageButton
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/shoppingCartMain"
+                android:layout_marginRight="8dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@color/white"
+                android:src="@drawable/ic_shoppingcart" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvGridProductList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="20dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="260dp"
             android:paddingRight="20dp"
-            android:paddingBottom="50dp"
+            android:paddingBottom="70dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/guideline11" />

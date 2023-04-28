@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -28,6 +29,7 @@ import com.example.projectcuoikhoa.OptionFragment.FouthFragment;
 import com.example.projectcuoikhoa.OptionFragment.SecondFragment;
 import com.example.projectcuoikhoa.OptionFragment.ThirdFragment;
 import com.example.projectcuoikhoa.R;
+import com.example.projectcuoikhoa.activity.MainActivity;
 
 import java.util.ArrayList;
 
@@ -91,6 +93,9 @@ public class ProductListFragment extends Fragment implements ShoesGridAdapter.Us
     ShoesGridAdapter shoesGridAdapter;
 
     ShoesWishListAdapter shoesWishListAdapter;
+    ConstraintLayout headerr;
+    MainActivity mainActivity;
+    private View mMyView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -99,6 +104,8 @@ public class ProductListFragment extends Fragment implements ShoesGridAdapter.Us
         rvProductList = view.findViewById(R.id.rvGridProductList);
 
         list = ShoeDataQuery.getAll(getActivity());
+
+
 
         shoesGridAdapter = new ShoesGridAdapter(list, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);

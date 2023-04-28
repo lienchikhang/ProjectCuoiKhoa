@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.projectcuoikhoa.Adapter.ShoesGridAdapter;
 import com.example.projectcuoikhoa.R;
@@ -25,7 +26,7 @@ public class SearchActivity extends AppCompatActivity implements ShoesGridAdapte
         getSupportActionBar().hide();
         Intent i=getIntent();
         String text=i.getStringExtra("text");
-        list=ShoeDataQuery.SerchByName(this,text);
+        list=ShoeDataQuery.SearchByName(this,text);
         rvgrid = findViewById(R.id.rvGridProductList);
         shoesGridAdapter=new ShoesGridAdapter(list,this);
         GridLayoutManager gridLayoutManager=new GridLayoutManager(this,2);
@@ -37,6 +38,16 @@ public class SearchActivity extends AppCompatActivity implements ShoesGridAdapte
         Intent i = new Intent(this, DetailActivity.class);
         i.putExtra("id", id);
         startActivity(i);
+    }
+
+    @Override
+    public void onLikeBtnClick(String idShoe, View view) {
+
+    }
+
+    @Override
+    public void onLikeCancel(String id) {
+
     }
 
 

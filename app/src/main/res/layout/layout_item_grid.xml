@@ -40,6 +40,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
+            android:layout_gravity="center"
             android:id="@+id/imgProduct"
             android:layout_width="match_parent"
             android:layout_height="166dp"
@@ -61,7 +62,7 @@
             android:layout_marginBottom="4dp"
             android:text="Name"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

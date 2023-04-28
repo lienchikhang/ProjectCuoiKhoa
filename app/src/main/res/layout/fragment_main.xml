@@ -13,18 +13,19 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerr"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:background="@color/white"
             app:layout_constraintBottom_toTopOf="@id/guideline6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/guideline5">
 
-
             <ImageButton
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_marginLeft="8dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:background="@color/white"
                 android:src="@drawable/ic_menu"
                 app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +33,7 @@
 
             <ImageView
                 android:layout_width="100dp"
-                android:layout_height="80dp"
+                android:layout_height="70dp"
                 android:src="@drawable/logo"
                 app:layout_constraintStart_toStartOf="@id/guideline3"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -46,10 +47,11 @@
 
 
                 <ImageButton
-                    android:layout_width="60dp"
-                    android:layout_height="80dp"
-                    android:background="@color/white"
                     android:id="@+id/shoppingCartMain"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/white"
                     android:src="@drawable/ic_shoppingcart" />
 
             </LinearLayout>
@@ -63,6 +65,40 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+<!--        <FrameLayout-->
+<!--            android:layout_marginTop="12dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:padding="10dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/guideline6">-->
+
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/SearchBar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/SearchText"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:background="@drawable/btn_size_default"-->
+<!--                    android:hint="Tìm Kiếm"-->
+<!--                    android:paddingLeft="16dp"-->
+<!--                    android:textSize="20sp"-->
+<!--                    app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/SearchBtn"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_margin="8dp"-->
+<!--                    android:background="@drawable/ic_search"-->
+<!--                    app:layout_constraintRight_toRightOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--        </FrameLayout>-->
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline5"
             android:layout_width="wrap_content"
@@ -75,7 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="51dp" />
+            app:layout_constraintGuide_begin="67dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clSlider"
@@ -88,158 +124,6 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <!--        <HorizontalScrollView-->
-        <!--            android:id="@+id/navbar"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:fillViewport="true"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/guideline6">-->
-
-
-        <!--            <LinearLayout-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_marginTop="12dp"-->
-        <!--                android:gravity="center"-->
-        <!--                android:orientation="horizontal"-->
-        <!--                android:padding="12dp">-->
-
-
-        <!--                <LinearLayout-->
-        <!--                    android:layout_width="130dp"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:layout_marginRight="16dp"-->
-        <!--                    android:background="@drawable/border_product"-->
-        <!--                    android:orientation="horizontal"-->
-        <!--                    android:paddingLeft="4dp"-->
-        <!--                    android:paddingTop="2dp"-->
-        <!--                    android:paddingRight="4dp"-->
-        <!--                    android:paddingBottom="2dp">-->
-
-        <!--                    <ImageView-->
-        <!--                        android:layout_width="wrap_content"-->
-        <!--                        android:layout_height="wrap_content"-->
-        <!--                        android:layout_marginLeft="8dp"-->
-        <!--                        android:layout_marginTop="4dp"-->
-        <!--                        android:layout_marginRight="8dp"-->
-        <!--                        android:layout_marginBottom="4dp"-->
-        <!--                        android:background="@drawable/bg_circle"-->
-        <!--                        android:padding="6dp"-->
-        <!--                        android:src="@drawable/ic_men"-->
-        <!--                        android:text="test" />-->
-
-        <!--                    <TextView-->
-        <!--                        android:layout_width="wrap_content"-->
-        <!--                        android:layout_height="wrap_content"-->
-        <!--                        android:layout_gravity="center"-->
-        <!--                        android:text="Men"-->
-        <!--                        android:textColor="@color/black"-->
-        <!--                        android:textStyle="bold" />-->
-        <!--                </LinearLayout>-->
-
-        <!--                <LinearLayout-->
-        <!--                    android:layout_width="130dp"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:layout_marginRight="16dp"-->
-        <!--                    android:background="@drawable/border_product"-->
-        <!--                    android:orientation="horizontal"-->
-        <!--                    android:paddingLeft="4dp"-->
-        <!--                    android:paddingTop="2dp"-->
-        <!--                    android:paddingRight="4dp"-->
-        <!--                    android:paddingBottom="2dp">-->
-
-        <!--                    <ImageView-->
-        <!--                        android:layout_width="wrap_content"-->
-        <!--                        android:layout_height="wrap_content"-->
-        <!--                        android:layout_gravity="center"-->
-        <!--                        android:layout_marginLeft="8dp"-->
-        <!--                        android:layout_marginTop="4dp"-->
-        <!--                        android:layout_marginRight="8dp"-->
-        <!--                        android:layout_marginBottom="4dp"-->
-        <!--                        android:background="@drawable/bg_circle"-->
-        <!--                        android:padding="6dp"-->
-        <!--                        android:src="@drawable/ic_women"-->
-        <!--                        android:text="test" />-->
-
-        <!--                    <TextView-->
-        <!--                        android:layout_width="wrap_content"-->
-        <!--                        android:layout_height="wrap_content"-->
-        <!--                        android:layout_gravity="center"-->
-        <!--                        android:text="Women"-->
-        <!--                        android:textColor="@color/black"-->
-        <!--                        android:textStyle="bold" />-->
-        <!--                </LinearLayout>-->
-
-        <!--                <LinearLayout-->
-        <!--                    android:layout_width="130dp"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:layout_marginRight="16dp"-->
-        <!--                    android:background="@drawable/border_product"-->
-        <!--                    android:orientation="horizontal"-->
-        <!--                    android:paddingLeft="4dp"-->
-        <!--                    android:paddingTop="2dp"-->
-        <!--                    android:paddingRight="4dp"-->
-        <!--                    android:paddingBottom="2dp">-->
-
-        <!--                    <ImageView-->
-        <!--                        android:layout_width="wrap_content"-->
-        <!--                        android:layout_height="wrap_content"-->
-        <!--                        android:layout_marginLeft="8dp"-->
-        <!--                        android:layout_marginTop="4dp"-->
-        <!--                        android:layout_marginRight="8dp"-->
-        <!--                        android:layout_marginBottom="4dp"-->
-        <!--                        android:background="@drawable/bg_circle"-->
-        <!--                        android:padding="6dp"-->
-        <!--                        android:src="@drawable/ic_child"-->
-        <!--                        android:text="test" />-->
-
-        <!--                    <TextView-->
-        <!--                        android:layout_width="wrap_content"-->
-        <!--                        android:layout_height="wrap_content"-->
-        <!--                        android:layout_gravity="center"-->
-        <!--                        android:text="Baby"-->
-        <!--                        android:textColor="@color/black"-->
-        <!--                        android:textStyle="bold" />-->
-        <!--                </LinearLayout>-->
-
-        <!--                <LinearLayout-->
-        <!--                    android:layout_width="130dp"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:background="@drawable/border_product"-->
-        <!--                    android:orientation="horizontal"-->
-        <!--                    android:paddingLeft="4dp"-->
-        <!--                    android:paddingTop="2dp"-->
-        <!--                    android:paddingRight="4dp"-->
-        <!--                    android:paddingBottom="2dp">-->
-
-        <!--                    <ImageView-->
-        <!--                        android:layout_width="wrap_content"-->
-        <!--                        android:layout_height="wrap_content"-->
-        <!--                        android:layout_marginLeft="8dp"-->
-        <!--                        android:layout_marginTop="4dp"-->
-        <!--                        android:layout_marginRight="8dp"-->
-        <!--                        android:layout_marginBottom="4dp"-->
-        <!--                        android:background="@drawable/bg_circle"-->
-        <!--                        android:padding="6dp"-->
-        <!--                        android:src="@drawable/ic_sport"-->
-        <!--                        android:text="test" />-->
-
-        <!--                    <TextView-->
-        <!--                        android:layout_width="wrap_content"-->
-        <!--                        android:layout_height="wrap_content"-->
-        <!--                        android:layout_gravity="center"-->
-        <!--                        android:text="Sport"-->
-        <!--                        android:textColor="@color/black"-->
-        <!--                        android:textStyle="bold" />-->
-        <!--                </LinearLayout>-->
-
-        <!--            </LinearLayout>-->
-
-
-        <!--        </HorizontalScrollView>-->
-
 
         <FrameLayout
             android:id="@+id/product_section"
@@ -256,14 +140,14 @@
                 android:paddingLeft="20dp"
                 android:paddingTop="12dp"
                 android:paddingRight="20dp"
-                android:paddingBottom="12dp">
+                android:paddingBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nổi bật"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -313,7 +197,7 @@
                 android:layout_height="wrap_content"
                 android:text="Mới nhất"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -334,8 +218,8 @@
             android:id="@+id/rvGridMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="503dp"
             android:paddingLeft="20dp"
-            android:layout_marginTop="412dp"
             android:paddingTop="20dp"
             android:paddingRight="20dp"
             android:paddingBottom="50dp"
@@ -349,7 +233,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="144dp" />
+            app:layout_constraintGuide_begin="241dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
