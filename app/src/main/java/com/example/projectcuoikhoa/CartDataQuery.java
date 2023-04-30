@@ -41,8 +41,9 @@ public class CartDataQuery {
             int price=cs.getInt(3);
             String Address=cs.getString(5);
             String PhoneNumber=cs.getString(6);
+            int idUCart = cs.getInt(7);
             shoes=new Shoes(name,price);
-            cartShoes.add(new CartShoes(shoes,Quantity,Size,Address,PhoneNumber,Img,idCart));
+            cartShoes.add(new CartShoes(shoes,Quantity,Size,Address,PhoneNumber,Img,idCart, idUCart));
             cs.moveToNext();
         }
         cs.close();
@@ -58,6 +59,7 @@ public class CartDataQuery {
         cs.moveToFirst();
         while(!cs.isAfterLast()) {
             int idCart=cs.getInt(0);
+            int idU = cs.getInt(1);
             String name=cs.getString(2);
             int Quantity=cs.getInt(8);
             String Size=cs.getString(4);
@@ -65,8 +67,9 @@ public class CartDataQuery {
             int price=cs.getInt(3);
             String Address=cs.getString(5);
             String PhoneNumber=cs.getString(6);
+            int idUCart = cs.getInt(7);
             shoes=new Shoes(name,price);
-            cartShoes.add(new CartShoes(shoes,Quantity,Size,Address,PhoneNumber,Img,idCart));
+            cartShoes.add(new CartShoes(shoes,Quantity,Size,Address,PhoneNumber,Img,idCart, idU));
             cs.moveToNext();
         }
         cs.close();

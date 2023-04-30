@@ -22,6 +22,15 @@ public class CartShoes implements Serializable {
     String Size;
     String Address;
     String PhoneNumber;
+    int idUserCart;
+
+    public int getIdUserCart() {
+        return idUserCart;
+    }
+
+    public void setIdUserCart(int idUserCart) {
+        this.idUserCart = idUserCart;
+    }
 
     public String getAddress() {
         return Address;
@@ -55,6 +64,18 @@ public class CartShoes implements Serializable {
         PhoneNumber = phoneNumber;
         ImgShoes = imgShoes;
         this.idCart=idCart;
+    }
+
+    public CartShoes(Shoes shoes, int quantity, String size, String address, String phoneNumber, String imgShoes, int idCart, int idUserCart) {
+        this.shoes = shoes;
+        this.idCart = idCart;
+        this.quantity = quantity;
+        Size = size;
+        Address = address;
+        PhoneNumber = phoneNumber;
+        this.idUserCart = idUserCart;
+        ImgShoes = imgShoes;
+        this.idUserCart = idUserCart;
     }
 
     String ImgShoes;

@@ -21,6 +21,7 @@ import com.example.projectcuoikhoa.Shoes;
 import com.example.projectcuoikhoa.Adapter.ShoesGridAdapter;
 import com.example.projectcuoikhoa.activity.DetailActivity;
 import com.example.projectcuoikhoa.R;
+import com.example.projectcuoikhoa.activity.ShoppingCartActivity;
 
 import java.util.ArrayList;
 
@@ -79,7 +80,7 @@ public class FirstFragment extends Fragment implements ShoesGridAdapter.UserGrid
     Boolean checkButtonCLick;
     LinearLayout firstOption, secondOption, thirdOption, fouthOption;
     ArrayList<Shoes> list, preList;
-    ImageButton ivBackFrag;
+    ImageButton ivBackFrag, ImgBtnCart;
     ShoesGridAdapter shoesGridAdapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -88,7 +89,9 @@ public class FirstFragment extends Fragment implements ShoesGridAdapter.UserGrid
         View view = inflater.inflate(R.layout.fragment_first, container, false);
         rvProductList = view.findViewById(R.id.rvGridProductList);
         ivBackFrag = view.findViewById(R.id.ivBackFrag1);
+        ImgBtnCart = view.findViewById(R.id.shoppingCartMain);
         ivBackFrag.setOnClickListener(view1 -> getParentFragmentManager().popBackStack());
+        ImgBtnCart.setOnClickListener(v -> ClickCart());
         list = ShoeDataQuery.FilterData(getActivity(),chooseType);
         shoesGridAdapter = new ShoesGridAdapter(list, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
@@ -96,7 +99,10 @@ public class FirstFragment extends Fragment implements ShoesGridAdapter.UserGrid
         rvProductList.setLayoutManager(gridLayoutManager);
         return view;
     }
-
+    void ClickCart() {
+        Intent i = new Intent(getActivity(), ShoppingCartActivity.class);
+        startActivity(i);
+    }
 
 
     @Override

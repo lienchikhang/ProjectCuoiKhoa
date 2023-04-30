@@ -31,7 +31,7 @@ public class ManageCartAdapter extends RecyclerView.Adapter<ManageCartAdapter.Ma
     public ManageCartHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View CartView = inflater.inflate(R.layout.manage_cart_item, parent, false);
+        View CartView = inflater.inflate(R.layout.layout_cart_history, parent, false);
         ManageCartHolder viewHolder = new ManageCartHolder(CartView);
         return viewHolder;
     }
@@ -47,13 +47,14 @@ public class ManageCartAdapter extends RecyclerView.Adapter<ManageCartAdapter.Ma
         holder.Address.setText(item.getAddress());
         holder.Phone.setText(item.getPhoneNumber());
         holder.btnDelete.setOnClickListener(view -> manageCartCallBack.onItemDelete(item,position));
+        holder.userName.setText(String.valueOf(item.getIdUserCart()));
     }
     @Override
     public int getItemCount() {
         return cartShoes.size();
     }
     class ManageCartHolder extends RecyclerView.ViewHolder{
-        TextView Name,Size,Quan,sumprice,Address,Phone;
+        TextView Name,Size,Quan,sumprice,Address,Phone, userName;
         ImageView img,btnDelete;
         public ManageCartHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +66,7 @@ public class ManageCartAdapter extends RecyclerView.Adapter<ManageCartAdapter.Ma
             Address=itemView.findViewById(R.id.AddressCartManage);
             Phone=itemView.findViewById(R.id.SDTCartManage);
             btnDelete=itemView.findViewById(R.id.deleteManageCart);
+            userName = itemView.findViewById(R.id.idUser);
         }
     }
     public interface ManageCartCallBack{

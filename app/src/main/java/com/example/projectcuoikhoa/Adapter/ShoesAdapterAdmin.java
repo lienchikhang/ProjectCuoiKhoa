@@ -37,7 +37,7 @@ public class ShoesAdapterAdmin extends RecyclerView.Adapter<ShoesAdapterAdmin.Sh
         context = parent.getContext();
 
         LayoutInflater inflater = LayoutInflater.from(context);
-        View clothesView = inflater.inflate(R.layout.layout_shoe_admin, parent, false);
+        View clothesView = inflater.inflate(R.layout.layout_shoe_admin_grid, parent, false);
         ShoesViewHolder viewHolder = new ShoesViewHolder(clothesView);
 
         return viewHolder;

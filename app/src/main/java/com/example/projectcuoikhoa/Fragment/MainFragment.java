@@ -142,6 +142,8 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
         rvGridMain.setLayoutManager(gridLayoutManager);
 
         anhXaOption();
+        makeBtnDefault2(firstOption,secondOption,thirdOption,fouthOption);
+        getOptionsListener();
 //        makeBtnDefault2(firstOption,secondOption,thirdOption,fouthOption);
 //        getOptionsListener();
         tvMoreCate.setOnClickListener(getL());
@@ -251,12 +253,12 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
 
     }
 
-//    void makeBtnDefault2(LinearLayout option1, LinearLayout option2, LinearLayout option3, LinearLayout option4){
-//        option1.setBackgroundResource(R.drawable.btn_size_default);
-//        option2.setBackgroundResource(R.drawable.btn_size_default);
-//        option3.setBackgroundResource(R.drawable.btn_size_default);
-//        option4.setBackgroundResource(R.drawable.btn_size_default);
-//    }
+    void makeBtnDefault2(LinearLayout option1, LinearLayout option2, LinearLayout option3, LinearLayout option4){
+        option1.setBackgroundResource(R.drawable.btn_size_default);
+        option2.setBackgroundResource(R.drawable.btn_size_default);
+        option3.setBackgroundResource(R.drawable.btn_size_default);
+        option4.setBackgroundResource(R.drawable.btn_size_default);
+    }
 
     void getOptionsListener() {
         firstOption.setOnClickListener(getListenerOption());
@@ -271,28 +273,32 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
             public void onClick(View view) {
                 switch (view.getId()) {
                     case R.id.firstOption:
-                        type = "run";
+                        type = "nike";
                         op = 1;
                         BtnClick(firstOption);
                         makeBtnDefault(secondOption, thirdOption, fouthOption);
                         loadFragment(new FirstFragment(type));
                         break;
                     case R.id.secondOption:
-                        type = "walk";
-                        op = 2;
+                        type = "nike";
+                        op = 1;
                         BtnClick(secondOption);
                         makeBtnDefault(firstOption, thirdOption, fouthOption);
                         loadFragment(new SecondFragment(type, op));
                         break;
                     case R.id.thirdOption:
+                        type = "adidas";
+                        op = 3;
                         BtnClick(thirdOption);
                         makeBtnDefault(secondOption, firstOption, fouthOption);
-                        loadFragment(new ThirdFragment());
+                        loadFragment(new ThirdFragment(type, op));
                         break;
                     case R.id.fouthOption:
+                        type = "converse";
+                        op = 4;
                         BtnClick(fouthOption);
                         makeBtnDefault(secondOption, thirdOption, firstOption);
-                        loadFragment(new FouthFragment());
+                        loadFragment(new FouthFragment(type, op));
                         break;
                 }
             }

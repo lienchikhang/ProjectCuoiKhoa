@@ -56,6 +56,8 @@ public class Ultils {
     public static final String COLUMN_CART_PHONE="phoneCart";
     public static final String COLUMN_CART_ADDRESS="addressCart";
     public static final String COLUMN_CART_IMG="imgCart";
+    public static final String COLUMN_CART_USER="userCart";
+
 
     public static final String TABLE_LIST = "wishList";
 

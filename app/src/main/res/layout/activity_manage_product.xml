@@ -9,9 +9,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="8dp"
         android:paddingTop="8dp"
-        android:paddingRight="8dp">
+        >
         <ImageView
             android:id="@+id/btnBackManage"
             android:layout_width="wrap_content"
@@ -23,6 +22,8 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <LinearLayout
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:id="@+id/header"
             android:layout_width="match_parent"
@@ -62,21 +63,46 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="24dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@drawable/ic_add"
-            android:background="@drawable/border_floatingbtn"
+            android:background="@drawable/custom_btn_border"
             />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:padding="16dp"
             android:id="@+id/rvGridAdmin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="125dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header"
-            android:paddingBottom="80dp"/>
+            android:paddingBottom="100dp"
+            android:layout_marginBottom="50dp"/>
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/primary_color"
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <FrameLayout
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="70dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginBottom="14dp"
+                    android:layout_height="90dp"
+                    android:background="@drawable/bottom_deco_manage_admin"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

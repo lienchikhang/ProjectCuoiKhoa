@@ -50,6 +50,8 @@ public class MainAdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_admin);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
         boolean isLogined=false;
         if(sharedPreferences.getInt("id",0)!=0){
@@ -71,8 +73,6 @@ public class MainAdminActivity extends AppCompatActivity {
 
         //bottom nav
 //        loadFragment(new MainAdminFragment());
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Home");
 //        bottomNavigationView.setOnItemSelectedListener(getListener(isLogined,role));
     }
 

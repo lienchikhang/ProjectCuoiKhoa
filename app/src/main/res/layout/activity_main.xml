@@ -125,20 +125,20 @@
                 android:background="@drawable/border_product"
                 android:orientation="horizontal"
                 android:paddingLeft="4dp"
-                android:paddingTop="2dp"
+                android:paddingTop="4dp"
                 android:paddingRight="4dp"
-                android:paddingBottom="2dp">
+                android:paddingBottom="4dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginRight="16dp"
                     android:layout_marginBottom="4dp"
                     android:background="@drawable/bg_circle"
-                    android:padding="6dp"
-                    android:src="@drawable/ic_men"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_nike"
                     android:text="test" />
 
                 <TextView
@@ -146,7 +146,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Giày thể thao"
+                    android:text="Nike"
+                    android:textSize="22sp"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -159,9 +160,9 @@
                 android:background="@drawable/border_product"
                 android:orientation="horizontal"
                 android:paddingLeft="4dp"
-                android:paddingTop="2dp"
+                android:paddingTop="4dp"
                 android:paddingRight="4dp"
-                android:paddingBottom="2dp">
+                android:paddingBottom="4dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -169,18 +170,19 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginRight="16dp"
                     android:layout_marginBottom="4dp"
                     android:background="@drawable/bg_circle"
-                    android:padding="6dp"
-                    android:src="@drawable/ic_women"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_vans"
                     android:text="test" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Giày Vans"
+                    android:text="Vans"
+                    android:textSize="22sp"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -193,27 +195,28 @@
                 android:background="@drawable/border_product"
                 android:orientation="horizontal"
                 android:paddingLeft="4dp"
-                android:paddingTop="2dp"
+                android:paddingTop="4dp"
                 android:paddingRight="4dp"
-                android:paddingBottom="2dp">
+                android:paddingBottom="4dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/bg_circle"
+                    android:padding="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginRight="16dp"
                     android:layout_marginBottom="4dp"
-                    android:background="@drawable/bg_circle"
-                    android:padding="6dp"
-                    android:src="@drawable/ic_child"
+                    android:src="@drawable/ic_adidas"
                     android:text="test" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Giày đá bóng"
+                    android:text="Adidas"
+                    android:textSize="22sp"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -225,9 +228,9 @@
                 android:background="@drawable/border_product"
                 android:orientation="horizontal"
                 android:paddingLeft="4dp"
-                android:paddingTop="2dp"
+                android:paddingTop="4dp"
                 android:paddingRight="4dp"
-                android:paddingBottom="2dp">
+                android:paddingBottom="4dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -237,15 +240,16 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginBottom="4dp"
                     android:background="@drawable/bg_circle"
-                    android:padding="6dp"
-                    android:src="@drawable/ic_sport"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_converse"
                     android:text="test" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Giày Converse"
+                    android:text="Converse"
+                    android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>

@@ -10,19 +10,19 @@
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/border_info"
-        />
+        android:background="@drawable/border_info" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
->
+        android:layout_height="match_parent">
+
         <FrameLayout
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_width="match_parent"
             android:layout_height="240dp"
-            android:background="@drawable/border_info"
-            />
+            android:background="@drawable/border_info" />
+
         <LinearLayout
 
             android:id="@+id/infoWrapper"
@@ -37,43 +37,29 @@
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:src="@drawable/ic_account"
-                android:background="@drawable/border_account"
-                 />
+                android:background="@drawable/border_account" />
+
+            <TextView
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/tvUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:padding="8dp"
+                android:text="admin1"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+             />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:layout_marginTop="16dp"
-                >
-                <TextView
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tên đăng nhập :"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
-                <TextView
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:id="@+id/tvUsername"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="admin1"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_marginTop="16dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="16dp"
-                >
                 <TextView
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -82,7 +68,7 @@
                     android:text="Mật khẩu :"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
 
                 <TextView
                     app:layout_constraintTop_toTopOf="parent"
@@ -94,40 +80,40 @@
                     android:text="123456" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:layout_width="250dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_marginTop="16dp">-->
+
+<!--                <TextView-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Giới tính :"-->
+<!--                    android:textSize="20sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textColor="@color/black" />-->
+
+<!--                <TextView-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    android:id="@+id/tvEmail"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Nam"-->
+<!--                    android:textSize="20sp" />-->
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:layout_marginTop="16dp"
-                >
-                <TextView
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Giới tính :"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                android:layout_marginTop="16dp">
 
-                <TextView
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:id="@+id/tvEmail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nam"
-                    android:textSize="20sp"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="16dp"
-                >
                 <TextView
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -136,7 +122,7 @@
                     android:text="Số điện thoại:"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
 
                 <TextView
                     app:layout_constraintTop_toTopOf="parent"
@@ -145,33 +131,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="090000000"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnEditInfo"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/custom_btn_border"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="CHỈNH SỬA"/>
+
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnSeeCart"
                 android:background="@drawable/custom_btn_border"
                 android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="40dp"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Lịch sử mua hàng"/>
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnWishList"
-                android:background="@drawable/custom_btn_border"
-                android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="Danh sach yeu thich"/>
+                android:text="Lịch sử mua hàng"
+                />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:textStyle="bold"
                 android:id="@+id/btnLogout"
@@ -179,11 +153,10 @@
                 android:background="@drawable/custom_btn_border_regis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ĐĂNG XUẤT"/>
+                android:text="ĐĂNG XUẤT" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </FrameLayout>

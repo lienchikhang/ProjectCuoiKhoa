@@ -3,8 +3,10 @@ package com.example.projectcuoikhoa;
 import static com.example.projectcuoikhoa.R.color.primary_color;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,6 +47,10 @@ public class ManageProductActivity extends AppCompatActivity implements ShoesAda
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_product);
         fbAdd = findViewById(R.id.fbAddd);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
+        int myPrimaryColor = Color.parseColor("#F8D69C");
+        fbAdd.setBackgroundTintList(ColorStateList.valueOf(myPrimaryColor));
         fbAdd.setOnClickListener(view1 -> addShoeDialog());
 //        fbAdd.setBackgroundTintList(ColorStateList.valueOf();
         rvList = findViewById(R.id.rvGridAdmin);
@@ -59,9 +65,10 @@ public class ManageProductActivity extends AppCompatActivity implements ShoesAda
         shoesAdapterAdmin = new ShoesAdapterAdmin(list,this);
         shoesAdapterAdmin.setCallBackAdmin(this);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         rvList.setAdapter(shoesAdapterAdmin);
-        rvList.setLayoutManager(linearLayoutManager);
+        rvList.setLayoutManager(gridLayoutManager);
 
 
 
@@ -123,7 +130,7 @@ public class ManageProductActivity extends AppCompatActivity implements ShoesAda
         //gan du lieu
         edAvatar.setText(sh.getImage());
         edName.setText(sh.getName());
-        edPrice.setText(sh.getPrice());
+        edPrice.setText(String.valueOf(sh.getPrice()));
         edType.setText(sh.getType());
 
         alertDialog.setPositiveButton("Đồng ý", (dialog,which) -> {

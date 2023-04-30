@@ -2,10 +2,14 @@ package com.example.projectcuoikhoa.activity;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import com.example.projectcuoikhoa.Adapter.ManageCartAdapter;
 import com.example.projectcuoikhoa.Adapter.ShoppingCartAdapter;
@@ -19,6 +23,7 @@ public class ManageCartActivity extends AppCompatActivity implements ManageCartA
     ArrayList<CartShoes> list;
     ManageCartAdapter manageCartAdapter;
     RecyclerView recyclerView;
+    ImageView btnBackManage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,15 +32,20 @@ public class ManageCartActivity extends AppCompatActivity implements ManageCartA
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         Anhxa();
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+        int idUserIn = sharedPreferences.getInt("id",MODE_PRIVATE);
         list = CartDataQuery.getAll(this);
         manageCartAdapter = new ManageCartAdapter(list, this);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setAdapter(manageCartAdapter);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setLayoutManager(gridLayoutManager);
+
+        btnBackManage.setOnClickListener(view -> finish());
     }
 
     void Anhxa() {
         recyclerView = findViewById(R.id.ManageListCart);
+        btnBackManage = findViewById(R.id.btnBackManage);
     }
 
     public void onItemDelete(CartShoes cartShoes, int position) {

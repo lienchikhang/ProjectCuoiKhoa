@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -28,6 +30,8 @@ public class HistoryCartActivity extends AppCompatActivity {
         btnBack=findViewById(R.id.btnbackCart);
         Intent i=getIntent();
         id=i.getIntExtra("id",0);
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+        int idUserIn = sharedPreferences.getInt("id",MODE_PRIVATE);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         listCart=CartDataQuery.getAllByID(this,id);

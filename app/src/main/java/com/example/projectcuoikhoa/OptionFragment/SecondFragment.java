@@ -21,6 +21,7 @@ import com.example.projectcuoikhoa.Shoes;
 import com.example.projectcuoikhoa.Adapter.ShoesGridAdapter;
 import com.example.projectcuoikhoa.activity.DetailActivity;
 import com.example.projectcuoikhoa.R;
+import com.example.projectcuoikhoa.activity.ShoppingCartActivity;
 
 import java.util.ArrayList;
 
@@ -77,7 +78,7 @@ public class SecondFragment extends Fragment implements ShoesGridAdapter.UserGri
     RecyclerView rvProductList;
 
     ArrayList<Shoes> list, preList;
-    ImageButton ivBackFrag2;
+    ImageButton ivBackFrag2, ImgBtnCart;
     ShoesGridAdapter shoesGridAdapter;
     String chooseType;
     int opt;
@@ -88,7 +89,9 @@ public class SecondFragment extends Fragment implements ShoesGridAdapter.UserGri
         View view = inflater.inflate(R.layout.fragment_second, container, false);
         rvProductList = view.findViewById(R.id.rvGridProductList);
         ivBackFrag2 = view.findViewById(R.id.ivBackFrag2);
+        ImgBtnCart = view.findViewById(R.id.shoppingCartMain);
         anhXaOption();
+        ImgBtnCart.setOnClickListener(v -> ClickCart());
         ivBackFrag2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,6 +106,10 @@ public class SecondFragment extends Fragment implements ShoesGridAdapter.UserGri
         rvProductList.setAdapter(shoesGridAdapter);
         rvProductList.setLayoutManager(gridLayoutManager);
         return view;
+    }
+    void ClickCart() {
+        Intent i = new Intent(getActivity(), ShoppingCartActivity.class);
+        startActivity(i);
     }
     @Override
     public void onItemClick(String id) {

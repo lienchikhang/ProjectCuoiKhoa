@@ -83,16 +83,14 @@ public class InfoFragment extends Fragment {
         TextView tvUsername = view.findViewById(R.id.tvUsername);
         TextView tvPass = view.findViewById(R.id.tvPassword);
         TextView tvPhone = view.findViewById(R.id.tvPhone);
-        Button btnWishList = view.findViewById(R.id.btnWishList);
         Button btnSeeCart=view.findViewById(R.id.btnSeeCart);
         Button btnLogout = view.findViewById(R.id.btnLogout);
-        Button btnEditInfo = view.findViewById(R.id.btnEditInfo);
+//        Button btnEditInfo = view.findViewById(R.id.btnEditInfo);
         SharedPreferences sharedPreferencesInfo = getActivity().getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
         User user=UserDataQuery.getUser(getActivity(),sharedPreferencesInfo.getInt("id",0));
         tvUsername.setText(user.getUsername());
         tvPass.setText(user.getPassword());
         btnLogout.setOnClickListener(getBtnClick());
-        btnWishList.setOnClickListener(getBtnClick());
         btnSeeCart.setOnClickListener(view1 -> getclick());
         return view;
     }
@@ -117,13 +115,7 @@ public class InfoFragment extends Fragment {
                         sharedPreferences.edit().remove("listCart").apply();
                         startActivity(i);
                         break;
-                    case R.id.btnWishList:
-                        i = new Intent(getActivity(), WishListActivity.class);
-                        sharedPreferences = getActivity().getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
-                        int idUserIn = sharedPreferences.getInt("id", Context.MODE_PRIVATE);
-                        Toast.makeText(getActivity(), "idU: " + idUserIn, Toast.LENGTH_SHORT).show();
-                        i.putExtra("idU",idUserIn);
-                        startActivity(i);
+
 
                 }
             }

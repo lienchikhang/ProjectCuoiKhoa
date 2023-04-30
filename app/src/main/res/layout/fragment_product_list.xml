@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="88dp" />
+            app:layout_constraintGuide_begin="99.5dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline11"
@@ -31,26 +31,40 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/guideline6"
             app:layout_constraintStart_toStartOf="parent">
+
             <ImageButton
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 android:id="@+id/ivBackFrag"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-
                 android:layout_marginLeft="8dp"
-                android:src="@drawable/ic_iv_back"
                 android:background="@android:color/transparent"
-                />
+
+                android:src="@drawable/ic_iv_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+                android:src="@drawable/logo"
+                app:layout_constraintStart_toStartOf="@id/guideline14"
+                app:layout_constraintTop_toTopOf="parent" />
             <ImageButton
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:id="@+id/shoppingCartMain"
-                android:layout_marginRight="8dp"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_marginRight="8dp"
                 android:background="@color/white"
-                android:src="@drawable/ic_shoppingcart" />
+                android:src="@drawable/ic_shoppingcart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="166dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView

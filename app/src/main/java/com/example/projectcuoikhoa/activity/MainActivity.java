@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         //tao bảng shoe
 //        shoeDBHelper.createTableShoe();
         //bottom nav
-//        cartDBHelper=new CartDBHelper(this);
+        cartDBHelper=new CartDBHelper(this);
 //        cartDBHelper.dropTable();
 //        cartDBHelper.createTableCart();
         bottomNavigationView = findViewById(R.id.navbarBottom);

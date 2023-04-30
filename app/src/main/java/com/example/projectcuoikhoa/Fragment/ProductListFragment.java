@@ -131,14 +131,15 @@ public class ProductListFragment extends Fragment implements ShoesGridAdapter.Us
             public void onClick(View view) {
                 switch(view.getId()) {
                     case R.id.firstOption:
-                        type = "run";
+                        type = "nike";
+                        op = 1;
                         BtnClick(firstOption);
                         makeBtnDefault(secondOption,thirdOption, fouthOption);
                         loadFragment(new FirstFragment(type));
                         unDoOptionListener();
                         break;
                     case R.id.secondOption:
-                        type = "walk";
+                        type = "vans";
                         op = 2;
                         BtnClick(secondOption);
                         makeBtnDefault(firstOption,thirdOption, fouthOption);
@@ -146,15 +147,19 @@ public class ProductListFragment extends Fragment implements ShoesGridAdapter.Us
                         unDoOptionListener();
                         break;
                     case R.id.thirdOption:
+                        type = "adidas";
+                        op = 3;
                         BtnClick(thirdOption);
                         makeBtnDefault(secondOption,firstOption, fouthOption);
-                        loadFragment(new ThirdFragment());
+                        loadFragment(new ThirdFragment(type,op));
                         unDoOptionListener();
                         break;
                     case R.id.fouthOption:
+                        type = "converse";
+                        op = 4;
                         BtnClick(fouthOption);
                         makeBtnDefault(secondOption,thirdOption, firstOption);
-                        loadFragment(new FouthFragment());
+                        loadFragment(new FouthFragment(type,op));
                         unDoOptionListener();
                         break;
                 }

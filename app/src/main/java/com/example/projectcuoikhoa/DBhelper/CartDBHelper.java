@@ -24,7 +24,8 @@ public class CartDBHelper extends SQLiteOpenHelper {
                 +Ultils.COLUMN_CART_ADDRESS+" TEXT, "
                 +Ultils.COLUMN_CART_PHONE+" TEXT, "
                 +Ultils.COLUMN_CART_IMG+" TEXT, "
-                +Ultils.COLUMN_QUANTITY_CART+" INTEGER"
+                +Ultils.COLUMN_QUANTITY_CART+" INTEGER, "
+                +Ultils.COLUMN_CART_USER+" TEXT"
                 +" )";
         sqLiteDatabase.execSQL(CREATE_CART_TABLE);
     }
