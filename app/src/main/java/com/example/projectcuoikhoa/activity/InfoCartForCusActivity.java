@@ -49,7 +49,7 @@ public class InfoCartForCusActivity extends AppCompatActivity {
 //        startActivity(new Intent(this,MainActivity.class));
         Intent i=getIntent();
         if(Check()){
-            Toast.makeText(this,"Vui long dien du thong tin",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Vui lòng điền đầy đủ thông tin",Toast.LENGTH_LONG).show();
             return;
         }
         SharedPreferences sharedPreferencesInfo = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
@@ -64,7 +64,7 @@ public class InfoCartForCusActivity extends AppCompatActivity {
             CartDataQuery.insert(this,listCart.get(a),id,address.getText().toString(),phone.getText().toString());
         }
         sharedPreferences.edit().remove("listCart").apply();
-        Toast.makeText(this, "dat hang thanh cong", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Đặt hàng thành công", Toast.LENGTH_LONG).show();
         startActivity(new Intent(this,MainActivity.class));
     }
     boolean Check(){

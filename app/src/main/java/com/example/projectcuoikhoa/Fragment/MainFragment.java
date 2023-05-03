@@ -206,9 +206,9 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
         int idUser = sharedPreferences.getInt("id", getActivity().MODE_PRIVATE);
         long id = ShoeDataQuery.insertToWishList(getActivity(), sh, idUser);
         if (id > 0) {
-            Toast.makeText(getActivity(), "đã thêm vào yêu thích", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Đã thêm vào yêu thích", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(getActivity(), "đã tồn tại trong yêu thích", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Đã tồn tại trong yêu thích", Toast.LENGTH_SHORT).show();
         }
     }
 

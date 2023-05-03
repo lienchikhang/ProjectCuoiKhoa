@@ -57,17 +57,7 @@
             <!--                />-->
         </LinearLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fbAddd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="24dp"
-            android:layout_marginBottom="24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:src="@drawable/ic_add"
-            android:background="@drawable/custom_btn_border"
-            />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:padding="16dp"
@@ -91,14 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 >
-                <FrameLayout
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_width="70dp"
-                    android:layout_marginRight="18dp"
-                    android:layout_marginBottom="14dp"
-                    android:layout_height="90dp"
-                    android:background="@drawable/bottom_deco_manage_admin"/>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

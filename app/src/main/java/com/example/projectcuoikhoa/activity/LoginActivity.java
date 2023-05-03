@@ -99,11 +99,11 @@ public class LoginActivity extends AppCompatActivity {
 //                i.putExtra("loginTime", loginTime);
                 SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
                 int idUserIn = sharedPreferences.getInt("id", MODE_PRIVATE);
-                Toast.makeText(this, "idU: " + idUserIn, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "idU: " + idUserIn, Toast.LENGTH_SHORT).show();
                 startActivity(i);
             }
         } else {
-            Toast.makeText(getApplicationContext(), "sai mat khau hoac tai khoan", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "sai mật khẩu hoặc tài khoản", Toast.LENGTH_LONG).show();
         }
     }
 }

@@ -3,6 +3,7 @@ package com.example.projectcuoikhoa.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -95,7 +96,6 @@ public class DetailActivity extends AppCompatActivity {
         ivAvatar = findViewById(R.id.ivAvatar);
         PriceProduct = findViewById(R.id.PriceProduct);
         SizeChoose=findViewById(R.id.SizeChoose);
-        TableSizeProduct=findViewById(R.id.DesProduct);
         BtnSizeL=findViewById(R.id.BtnSizeL);
         BtnSizeM=findViewById(R.id.BtnSizeM);
         BtnSizeS=findViewById(R.id.BtnSizeS);
@@ -119,11 +119,17 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Shoes sh = ShoeDataQuery.getShoes(DetailActivity.this,Integer.parseInt(id));
-                SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
-                int idUser = sharedPreferences.getInt("id",MODE_PRIVATE);
-                long id = ShoeDataQuery.insertToWishList(DetailActivity.this,sh,idUser);
-                if( id > 0) {
-                    Toast.makeText(DetailActivity.this, "them thanh cong", Toast.LENGTH_SHORT).show();
+                SharedPreferences sharedPreferences = getSharedPreferences("shared preferences Info", Context.MODE_PRIVATE);
+                int idUserIn = sharedPreferences.getInt("id", MODE_PRIVATE);
+                if (idUserIn == 0) {
+                    Toast.makeText(DetailActivity.this, "Vui lòng đăng nhập!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                long id = ShoeDataQuery.insertToWishList(DetailActivity.this,sh,idUserIn);
+                if (id > 0) {
+                    Toast.makeText(DetailActivity.this, "Đã thêm vào yêu thích", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(DetailActivity.this, "Đã tồn tại trong yêu thích", Toast.LENGTH_SHORT).show();
                 }
             }
         });

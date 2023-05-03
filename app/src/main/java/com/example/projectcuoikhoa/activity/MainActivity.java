@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         //Drop bang shoe
-//        shoeDBHelper = new ShoeDBHelper(this);
+        shoeDBHelper = new ShoeDBHelper(this);
 //        shoeDBHelper.createTableListShoe();
 //        shoeDBHelper.dropTableList();
 //        shoeDBHelper.dropTableShoe();

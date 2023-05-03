@@ -125,7 +125,7 @@ public class RegisterActivity extends AppCompatActivity implements UserDataQuery
         tvPassword.setVisibility(View.INVISIBLE);
         if(!password.equals(confirmPassword)) {
             tvRePassword.setVisibility(View.VISIBLE);
-            tvRePassword.setText("Mật khẩu không đúng!");
+            tvRePassword.setText("Mật khẩu nhập lại không đúng!");
             return false;
         }
         tvPassword.setVisibility(View.INVISIBLE);

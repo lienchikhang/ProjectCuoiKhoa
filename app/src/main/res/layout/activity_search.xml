@@ -17,7 +17,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/btnback"
+                android:id="@+id/btnbackCart"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_centerVertical="true"
@@ -30,15 +30,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:gravity="center"
-                android:text="Kết quả tìm kiếm"
+                android:text="Lịch sử mua hàng"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="28sp"
                 android:textStyle="bold"
-                app:layout_constraintLeft_toRightOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
             </TextView>
+
+
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"

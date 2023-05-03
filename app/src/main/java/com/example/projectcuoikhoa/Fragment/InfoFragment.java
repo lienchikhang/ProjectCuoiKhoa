@@ -90,6 +90,7 @@ public class InfoFragment extends Fragment {
         User user=UserDataQuery.getUser(getActivity(),sharedPreferencesInfo.getInt("id",0));
         tvUsername.setText(user.getUsername());
         tvPass.setText(user.getPassword());
+        tvPhone.setText(user.getPhone());
         btnLogout.setOnClickListener(getBtnClick());
         btnSeeCart.setOnClickListener(view1 -> getclick());
         return view;

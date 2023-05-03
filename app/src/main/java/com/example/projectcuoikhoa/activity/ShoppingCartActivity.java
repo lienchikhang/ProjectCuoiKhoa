@@ -70,11 +70,11 @@ public class ShoppingCartActivity extends AppCompatActivity implements ShoppingC
     void ClickBuy(){
         SharedPreferences sharedPreferencesInfo = getSharedPreferences("shared preferences Info", MODE_PRIVATE);
         if(sharedPreferencesInfo.getInt("id",0)==0){
-            Toast.makeText(this,"Vui long dang nhap",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Vui lòng đăng nhập",Toast.LENGTH_LONG).show();
             return;
         }
         if(listCart.size()==0){
-            Toast.makeText(this,"San pham trong",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Sản phẩm trống",Toast.LENGTH_LONG).show();
             return;
         }
         Intent i=new Intent(this,InfoCartForCusActivity.class);
