@@ -136,12 +136,14 @@ public class ManageProductActivity extends AppCompatActivity implements ShoesAda
         alertDialog.setPositiveButton("Đồng ý", (dialog,which) -> {
             sh.setName(edName.getText().toString());
             sh.setImage(edAvatar.getText().toString());
-            sh.setPrice(Integer.parseInt(edPrice.getText().toString()));
+            int price = Integer.parseInt(edPrice.getText().toString());
             sh.setType(edType.getText().toString());
-
             if(sh.getName().isEmpty()) {
                 Toast.makeText(this, "Vui lòng nhập dữ liệu", Toast.LENGTH_SHORT).show();
+            } else if(price <= 0) {
+                Toast.makeText(this, "Giá tiền phải lớn hơn 0", Toast.LENGTH_SHORT).show();
             } else {
+                sh.setPrice(Integer.parseInt(edPrice.getText().toString()));
                 int id = ShoeDataQuery.update(this,sh);
                 if( id >= 0) {
                     Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
@@ -184,7 +186,7 @@ public class ManageProductActivity extends AppCompatActivity implements ShoesAda
             }
             if(name.isEmpty() || type.isEmpty() || avatar.isEmpty()) {
                 Toast.makeText(this, "Nhập dữ liệu không đúng", Toast.LENGTH_SHORT).show();
-            } else if(price < 0) {
+            } else if(price <= 0) {
                 Toast.makeText(this, "Giá tiền phải lớn hơn 0", Toast.LENGTH_SHORT).show();
             }
             else {

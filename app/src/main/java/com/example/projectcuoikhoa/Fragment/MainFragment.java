@@ -280,8 +280,8 @@ public class MainFragment extends Fragment implements ShoesAdapter.ShoesCallBack
                         loadFragment(new FirstFragment(type));
                         break;
                     case R.id.secondOption:
-                        type = "nike";
-                        op = 1;
+                        type = "vans";
+                        op = 2;
                         BtnClick(secondOption);
                         makeBtnDefault(firstOption, thirdOption, fouthOption);
                         loadFragment(new SecondFragment(type, op));
